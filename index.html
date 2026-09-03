@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中醫考照複習站</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #e9f2eb;
+    --surface: #ffffff;
+    --surface-2: #dceadf;
+    --ink: #1e2a22;
+    --ink-soft: #57645a;
+    --ink-faint: #86937f;
+    --border: #cfe0d1;
+    --accent: #2f6b52;
+    --accent-strong: #1f4d3a;
+    --accent-tint: #ddeee2;
+    --seal: #b23a2e;
+    --seal-tint: #f8e6e3;
+    --shadow: 0 1px 2px rgba(30, 42, 34, 0.05), 0 6px 18px -9px rgba(30, 42, 34, 0.14);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Sans TC', 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.55;
+  }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+
+  header.page {
+    margin-bottom: 44px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .titleblock .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+  }
+
+  h1 {
+    font-family: 'Noto Serif TC', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 38px);
+    margin: 0 0 8px;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+
+  .titleblock p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 15px;
+    max-width: 52ch;
+  }
+
+  section.group {
+    margin-bottom: 40px;
+  }
+
+  .group-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .group-head .num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+
+  .group-head h2 {
+    font-family: 'Noto Serif TC', Georgia, serif;
+    font-size: 19px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .group-head .count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    margin-left: auto;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 12px;
+  }
+
+  a.card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 18px 16px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow);
+    transition: transform 0.12s ease, border-color 0.12s ease;
+  }
+
+  a.card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  a.card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .card-zh {
+    font-family: 'Noto Serif TC', Georgia, serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+  }
+
+  .card-en {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.03em;
+    color: var(--ink-faint);
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+
+  .card-arrow {
+    flex: none;
+    color: var(--accent);
+    opacity: 0.7;
+  }
+
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    border-top: 1px dashed var(--border);
+    padding-top: 10px;
+  }
+
+  .card.external {
+    border-color: var(--seal);
+    background: var(--seal-tint);
+  }
+
+  .card.external .card-arrow { color: var(--seal); }
+  .card.external .card-en { color: var(--seal); opacity: 0.85; }
+
+  .tag-outbound {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    color: var(--seal);
+    border: 1px solid var(--seal);
+    border-radius: 999px;
+    padding: 2px 8px;
+    align-self: flex-start;
+  }
+
+  footer.page {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  footer.page span.dot { color: var(--accent); }
+
+  @media (max-width: 720px) {
+    .wrap { padding: 40px 18px 64px; }
+    header.page { margin-bottom: 32px; padding-bottom: 22px; }
+  }
+
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 9px; }
+    a.card { padding: 14px 14px 12px; gap: 11px; }
+    .card-zh { font-size: 15.5px; }
+    footer.page { flex-direction: column; gap: 4px; }
+  }
+
+  @media (max-width: 380px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="page">
+    <div class="titleblock">
+      <p class="eyebrow">全科總複習・PERSONAL STUDY INDEX</p>
+      <h1>中醫考照複習站</h1>
+      <p>整理 13 個科目的複習頁面，加上一個外部題庫連結，點進去就能繼續讀。</p>
+    </div>
+  </header>
+
+  <section class="group">
+    <div class="group-head">
+      <span class="num">01</span>
+      <h2>基礎理論 · Foundations</h2>
+      <span class="count"></span>
+    </div>
+    <div class="grid">
+      <a class="card" href="Foundation.html">
+        <div class="card-top"><span class="card-zh">中醫基礎理論</span><svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <span class="card-en">Foundation</span>
+        <div class="card-meta"><span>0.4 MB</span><span>09-01</span></div>
+      </a>
+      <a class="card" href="MeridianAndPoint.html">
+        <div class="card-top"><span class="card-zh">經絡腧穴學</span><svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <span class="card-en">Meridian &amp; Point</span>
+        <div class="card-meta"><span>1.6 MB</span><span>09-02</span></div>
+      </a>
+      <a class="card" href="Diagnosis.html">
+        <div class="card-top"><span class="card-zh">中醫診斷學</span><svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <span class="card-en">Diagnosis</span>
+        <div class="card-meta"><span>0.2 MB</span><span>08-31</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head">
+      <span class="num">02</span>
+      <h2>中藥方劑 · Pharmacy &amp; Formulas</h2>
+      <span class="count"></span>
+    </div>
+    <div class="grid">
+      <a class="card" href="MateriaMedica.html">
+        <div class="card-top"><span class="card-zh">中藥學</span><svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <span class="card-en">Materia Medica</span>
+        <div class="card-meta"><span>0.6 MB</span><span>09-01</span></div>
+      </a>
+      <a class="card" href="Formula.html">
+        <div class="card-top"><span class="card-zh">方劑學</span><svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <span class="card-en">Formula</span>
+        <div class="card-meta"><span>0.7 MB</span><span>09-01</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head">
+      <span class="num">03</span>
+      <h2>臨床各科 · Clinical Specialties</h2>
+      <span class="count"></span>
+    </div>
+    <div class="grid">
+      <a class="card" href="Internalmedicine.html">
+        <div class="card-top"><span class="card-zh">中醫內科學</span><svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <span class="card-en">Internal Medicine</span>
+        <div class="card-meta"><span>6.2 MB</span><span>09-01</span></div>
+      </a>
+      <a class="card" href="Gynaecology.html">
+        <div class="card-top"><span class="card-zh">中醫婦科學</span><svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <span class="card-en">Gynaecology</span>
+        <div class="card-meta"><span>10.3 MB</span><span>09-02</span></div>
+      </a>
+      <a class="card" href="Paediatrics.html">
+        <div class="card-top"><span class="card-zh">中醫兒科學</span><svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <span class="card-en">Paediatrics</span>
+        <div class="card-meta"><span>5.2 MB</span><span>09-02</span></div>
+      </a>
+      <a class="card" href="Dermatology.html">
+        <div class="card-top"><span class="card-zh">中醫皮膚科學</span><svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <span class="card-en">Dermatology</span>
+        <div class="card-meta"><span>16.2 MB</span><span>09-02</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head">
+      <span class="num">04</span>
+      <h2>西醫與法規 · Biomedical &amp; Regulatory</h2>
+      <span class="count"></span>
+    </div>
+    <div class="grid">
+      <a class="card" href="Pharmacotherapeutics.html">
+        <div class="card-top"><span class="card-zh">藥物治療學</span><svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <span class="card-en">Pharmacotherapeutics</span>
+        <div class="card-meta"><span>1.9 MB</span><span>09-02</span></div>
+      </a>
+      <a class="card" href="Natural Health Products.html">
+        <div class="card-top"><span class="card-zh">天然保健品</span><svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <span class="card-en">Natural Health Products</span>
+        <div class="card-meta"><span>1.2 MB</span><span>09-01</span></div>
+      </a>
+      <a class="card" href="Pathophysiology.html">
+        <div class="card-top"><span class="card-zh">病理生理學</span><svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <span class="card-en">Pathophysiology</span>
+        <div class="card-meta"><span>16.3 MB</span><span>09-01</span></div>
+      </a>
+      <a class="card" href="SafetyAndJurisprudence_Handbook.html">
+        <div class="card-top"><span class="card-zh">安全與法規手冊</span><svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <span class="card-en">Safety &amp; Jurisprudence</span>
+        <div class="card-meta"><span>1.1 MB</span><span>08-31</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head">
+      <span class="num">05</span>
+      <h2>延伸練習 · Extra Practice</h2>
+      <span class="count"></span>
+    </div>
+    <div class="grid">
+      <a class="card external" href="https://nicolehoyp.github.io/allreview/" target="_blank" rel="noopener">
+        <span class="tag-outbound">外部連結 · 另開分頁</span>
+        <div class="card-top"><span class="card-zh">題庫練習</span><svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/><path d="M7 7h0"/></svg></div>
+        <span class="card-en">Quiz Bank</span>
+        <div class="card-meta"><span>nicolehoyp.github.io</span><span>↗</span></div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="page">
+    <span><span class="dot">●</span> 13 個科目 + 1 個外部題庫</span>
+    <span>之後會放到 GitHub Pages</span>
+  </footer>
+
+</div>
+</body>
+</html>

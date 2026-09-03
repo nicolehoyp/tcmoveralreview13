@@ -1,0 +1,2781 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科目二 · 中醫診斷學 — 中英對照重點</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4EFE4;--paper-card:#FBF8F1;--zh-tint:#EFF1EA;
+    --ink:#211E19;--ink-soft:#5A544B;--ink-faint:#8B857A;
+    --cinnabar:#A6382B;--cinnabar-deep:#7C271C;--jade:#3E6152;--gold:#9A7A33;
+    --rule:#D9CFBB;--rule-soft:#E6DFCF;
+    --lat:"Newsreader",Georgia,"Times New Roman",serif;
+    --cjk:"Noto Serif TC","Songti TC","Source Han Serif TC","PingFang TC","Microsoft JhengHei",serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--lat);line-height:1.6;-webkit-font-smoothing:antialiased;}
+
+  /* layout */
+  #toc{position:fixed;top:0;left:0;width:266px;height:100vh;overflow-y:auto;
+    background:var(--paper-card);border-right:1px solid var(--rule);padding:20px 0 40px;z-index:40;}
+  #toc .toc-head{padding:0 20px 14px;border-bottom:1px solid var(--rule);margin-bottom:10px;}
+  #toc .toc-head .seal{display:inline-flex;width:26px;height:26px;background:var(--cinnabar);color:#fff;
+    font-family:var(--cjk);font-weight:700;align-items:center;justify-content:center;border-radius:4px;font-size:15px;vertical-align:middle;margin-right:8px;}
+  #toc .toc-head .t1{font-family:var(--cjk);font-weight:900;font-size:16px;letter-spacing:.02em;}
+  #toc .toc-head .t2{font-family:var(--lat);font-style:italic;color:var(--ink-soft);font-size:12.5px;margin-top:3px;}
+  #toc a{display:block;text-decoration:none;color:var(--ink-soft);font-family:var(--cjk);font-size:13.5px;
+    padding:6px 20px 6px 20px;border-left:3px solid transparent;transition:.15s;}
+  #toc a .en{display:block;font-family:var(--lat);font-size:11px;font-style:italic;color:var(--ink-faint);margin-top:1px;}
+  #toc a.mod{font-weight:700;color:var(--ink);margin-top:10px;font-size:14px;border-top:1px solid var(--rule-soft);padding-top:11px;}
+  #toc a.sub{padding-left:34px;font-size:12.5px;}
+  #toc a:hover{background:var(--zh-tint);color:var(--cinnabar-deep);}
+  #toc a.active{border-left-color:var(--cinnabar);background:var(--zh-tint);color:var(--cinnabar-deep);font-weight:700;}
+
+  #main{margin-left:266px;}
+  .inner{max-width:1180px;margin:0 auto;padding:0 30px 140px;}
+
+  /* hero */
+  .top-hero{padding:60px 0 30px;border-bottom:2px solid var(--ink);margin-bottom:8px;}
+  .top-hero .tag{font-family:var(--cjk);color:var(--cinnabar-deep);font-weight:700;font-size:14px;letter-spacing:.05em;margin-bottom:14px;}
+  .top-hero .tag .seal{display:inline-flex;width:24px;height:24px;background:var(--cinnabar);color:#fff;align-items:center;justify-content:center;border-radius:4px;margin-right:8px;font-size:14px;}
+  .top-hero h1{font-family:var(--cjk);font-weight:900;font-size:38px;letter-spacing:.02em;margin:0 0 8px;line-height:1.2;}
+  .top-hero .sub{font-family:var(--lat);font-style:italic;color:var(--ink-soft);font-size:17px;}
+  .top-hero .meta{margin-top:16px;font-family:var(--cjk);font-size:13px;color:var(--ink-faint);line-height:1.8;}
+
+  /* module banner */
+  .mod-banner{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+    margin:56px 0 0;padding:16px 22px;background:var(--ink);color:#fff;border-radius:10px;}
+  .mod-banner .mno{font-family:var(--lat);font-size:28px;color:#E8B24A;line-height:1;font-weight:600;}
+  .mod-banner .mcn{font-family:var(--cjk);font-weight:900;font-size:24px;}
+  .mod-banner .men{font-family:var(--lat);font-style:italic;color:#D9CFBB;font-size:16px;}
+
+  /* section */
+  .sec{margin-top:30px;}
+  .sec > h3{font-family:var(--cjk);font-weight:700;font-size:20px;color:var(--cinnabar-deep);
+    margin:0 0 4px;padding-bottom:7px;border-bottom:1px solid var(--rule);}
+  .sec > h3 .en{font-family:var(--lat);font-style:italic;font-weight:400;color:var(--ink-soft);font-size:15px;margin-left:8px;}
+  .sec > .lead{font-family:var(--cjk);color:var(--ink-soft);font-size:14px;margin:8px 0 4px;}
+
+  /* bilingual pair grid */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);
+    border-radius:8px;overflow:hidden;margin:14px 0;background:var(--paper-card);}
+  .pair .en,.pair .zh{padding:15px 18px;}
+  .pair .en{border-right:1px solid var(--rule);}
+  .pair .zh{background:var(--zh-tint);font-family:var(--cjk);}
+  .pair .en{font-family:var(--lat);font-size:14.5px;}
+  .pair h4{margin:0 0 8px;font-size:15px;}
+  .pair .en h4{font-family:var(--lat);color:var(--jade);font-weight:600;}
+  .pair .zh h4{font-family:var(--cjk);color:var(--jade);font-weight:700;}
+  .pair p{margin:7px 0;}
+  .pair ul{margin:7px 0;padding-left:20px;}
+  .pair li{margin:4px 0;}
+  .pair .term{color:var(--cinnabar-deep);font-weight:600;}
+  .pair .zh .term{font-weight:700;}
+
+  /* single full-width note */
+  .note{border:1px solid var(--rule);border-left:4px solid var(--gold);border-radius:6px;
+    background:var(--paper-card);padding:12px 16px;margin:14px 0;font-family:var(--cjk);font-size:13.5px;color:var(--ink-soft);}
+  .note .en{display:block;font-family:var(--lat);font-style:italic;color:var(--ink-faint);font-size:12.5px;margin-top:4px;}
+
+  /* seal (必記) */
+  .seal-must{display:inline-flex;align-items:center;gap:3px;background:var(--cinnabar);color:#fff;
+    font-family:var(--cjk);font-weight:700;font-size:11px;padding:1px 7px;border-radius:3px;
+    vertical-align:middle;margin-right:6px;letter-spacing:.05em;}
+  .must{border-left-color:var(--cinnabar)!important;}
+
+  /* tables */
+  .tbl-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--rule);border-radius:8px;}
+  table.data{border-collapse:collapse;width:100%;font-size:13px;background:var(--paper-card);}
+  table.data th,table.data td{border:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top;}
+  table.data thead th{background:var(--ink);color:#fff;font-family:var(--cjk);font-weight:700;font-size:13px;position:sticky;top:0;}
+  table.data tbody th{background:var(--zh-tint);font-family:var(--cjk);font-weight:700;color:var(--cinnabar-deep);white-space:nowrap;}
+  table.data .cjk{font-family:var(--cjk);}
+  table.data .lat{font-family:var(--lat);}
+  table.data tr:nth-child(even) td{background:#faf6ec;}
+  table.data .pname{font-family:var(--cjk);font-weight:700;color:var(--cinnabar-deep);white-space:nowrap;}
+
+  /* case box */
+  .case{border:1px dashed var(--jade);border-radius:8px;background:#f0f3ee;padding:14px 18px;margin:14px 0;}
+  .case .ct{font-family:var(--cjk);font-weight:700;color:var(--jade);font-size:15px;margin-bottom:6px;}
+  .case .grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;}
+  .case .en{font-family:var(--lat);font-size:13.5px;}
+  .case .zh{font-family:var(--cjk);font-size:13.5px;}
+  .case .ans{margin-top:10px;padding-top:9px;border-top:1px solid var(--rule);font-family:var(--cjk);font-size:13.5px;}
+  .case .ans b{color:var(--cinnabar-deep);}
+
+  /* quote */
+  blockquote.q{margin:16px 0;padding:14px 20px;border-left:4px solid var(--cinnabar);background:var(--paper-card);border-radius:0 8px 8px 0;}
+  blockquote.q .qt{font-family:var(--lat);font-style:italic;font-size:15px;color:var(--ink);}
+  blockquote.q .qz{font-family:var(--cjk);font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  blockquote.q cite{display:block;margin-top:8px;font-family:var(--cjk);font-size:12.5px;color:var(--cinnabar-deep);font-style:normal;}
+
+  footer{margin-top:60px;padding:24px 0 0;border-top:2px solid var(--ink);font-family:var(--cjk);font-size:13px;color:var(--ink-soft);}
+  footer .en{font-family:var(--lat);font-style:italic;color:var(--ink-faint);font-size:12px;}
+
+  #totop{position:fixed;right:22px;bottom:22px;z-index:60;background:var(--cinnabar);color:#fff;
+    text-decoration:none;font-family:var(--cjk);font-size:13px;padding:9px 14px;border-radius:22px;box-shadow:0 2px 8px rgba(0,0,0,.22);}
+  #burger{display:none;}
+
+  /* ===== practice quiz ===== */
+  #quizwrap{margin-top:24px;}
+  .quiz-bar{position:sticky;top:0;z-index:15;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    background:var(--paper-card);border:1px solid var(--rule);border-radius:10px;padding:11px 16px;margin:14px 0 20px;}
+  .quiz-bar .score{font-family:var(--cjk);font-weight:700;color:var(--cinnabar-deep);font-size:15px;}
+  .quiz-bar .score b{font-family:var(--lat);}
+  .quiz-bar .prog{flex:1;min-width:120px;height:8px;background:var(--zh-tint);border-radius:6px;overflow:hidden;}
+  .quiz-bar .prog span{display:block;height:100%;width:0;background:var(--jade);transition:width .3s;}
+  .quiz-bar button{font-family:var(--cjk);font-size:13px;border:1px solid var(--rule);background:var(--paper);
+    color:var(--ink-soft);padding:7px 14px;border-radius:20px;cursor:pointer;transition:.15s;}
+  .quiz-bar button:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .qcard{border:1px solid var(--rule);border-radius:10px;background:var(--paper-card);padding:16px 18px;margin:0 0 16px;}
+  .qcard .qnum{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+    background:var(--ink);color:#fff;font-family:var(--lat);font-weight:600;font-size:14px;border-radius:6px;margin-right:10px;padding:0 6px;}
+  .qcard .qstem{font-family:var(--lat);font-size:15px;font-weight:500;margin-bottom:2px;}
+  .qcard .qstem-zh{font-family:var(--cjk);font-size:14px;color:var(--ink-soft);margin:0 0 12px 36px;}
+  .qcard .opts{display:flex;flex-direction:column;gap:8px;margin-left:36px;}
+  .opt{display:flex;align-items:flex-start;gap:10px;text-align:left;width:100%;cursor:pointer;
+    border:1px solid var(--rule);background:var(--paper);border-radius:8px;padding:10px 13px;font-family:var(--lat);
+    font-size:14px;color:var(--ink);transition:.12s;line-height:1.4;}
+  .opt .mk{flex-shrink:0;width:22px;height:22px;border:1.5px solid var(--rule-soft);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-family:var(--lat);font-size:12px;font-weight:600;color:var(--ink-faint);}
+  .opt .otx b{font-family:var(--cjk);}
+  .opt:hover:not(.done){border-color:var(--jade);background:#f0f3ee;}
+  .opt.correct{border-color:var(--jade);background:#e6efe8;}
+  .opt.correct .mk{background:var(--jade);border-color:var(--jade);color:#fff;}
+  .opt.wrong{border-color:var(--cinnabar);background:#f3e6e3;}
+  .opt.wrong .mk{background:var(--cinnabar);border-color:var(--cinnabar);color:#fff;}
+  .opt.dim{opacity:.55;}
+  .qexp{margin:12px 0 0 36px;padding:11px 14px;border-left:4px solid var(--gold);background:var(--zh-tint);
+    border-radius:0 8px 8px 0;font-family:var(--cjk);font-size:13.5px;color:var(--ink-soft);display:none;}
+  .qexp.show{display:block;}
+  .qexp .en{display:block;font-family:var(--lat);font-style:italic;color:var(--ink-faint);font-size:12.5px;margin-top:4px;}
+  .qexp .ref{display:inline-block;margin-top:6px;font-family:var(--cjk);font-size:12px;color:var(--cinnabar-deep);}
+  .qexp .added{display:inline-block;margin-left:6px;background:var(--gold);color:#fff;font-family:var(--cjk);font-size:10.5px;padding:1px 6px;border-radius:3px;}
+
+
+    #toc{transform:translateX(-100%);transition:transform .25s;width:82%;max-width:320px;box-shadow:2px 0 20px rgba(0,0,0,.2);}
+    #toc.open{transform:none;}
+    #main{margin-left:0;}
+    .inner{padding:0 16px 120px;}
+    #burger{display:flex;position:fixed;top:12px;left:12px;z-index:70;background:var(--ink);color:#fff;
+      border:none;font-family:var(--cjk);font-size:14px;padding:9px 13px;border-radius:8px;align-items:center;gap:6px;cursor:pointer;}
+    .top-hero{padding-top:64px;}
+    .pair{grid-template-columns:1fr;}
+    .pair .en{border-right:none;border-bottom:1px solid var(--rule);}
+    .case .grid2{grid-template-columns:1fr;}
+    .top-hero h1{font-size:30px;}
+    .qcard .qstem-zh,.qcard .opts,.qexp{margin-left:0;}
+  }
+</style>
+</head>
+<body>
+<button id="burger" onclick="document.getElementById('toc').classList.toggle('open')">☰ 目錄</button>
+<aside id="toc">
+  <div class="toc-head"><div class="t1"><span class="seal">診</span>中醫診斷學</div><div class="t2">TCM Diagnosis · Bilingual Notes</div></div>
+  <a class="mod" href="#m1">① 診斷導論<span class="en">Intro to Diagnosis</span></a>
+  <a class="mod" href="#m2">② 四診 Four Methods</a>
+  <a class="sub" href="#m2a">望診<span class="en">Looking</span></a>
+  <a class="sub" href="#m2b">聞診<span class="en">Listening &amp; Smelling</span></a>
+  <a class="sub" href="#m2c">問診<span class="en">Asking</span></a>
+  <a class="sub" href="#m2d">切診・脈診<span class="en">Pulse</span></a>
+  <a class="sub" href="#m2e">脈象總表<span class="en">Pulse Chart</span></a>
+  <a class="mod" href="#m3">③ 臟腑辨證 Zang-Fu</a>
+  <a class="sub" href="#m3a">心與小腸<span class="en">HT &amp; SI</span></a>
+  <a class="sub" href="#m3b">肺與大腸<span class="en">LU &amp; LI</span></a>
+  <a class="sub" href="#m3c">脾與胃<span class="en">SP &amp; ST</span></a>
+  <a class="sub" href="#m3d">肝與膽<span class="en">LR &amp; GB</span></a>
+  <a class="sub" href="#m3e">腎與膀胱<span class="en">KI &amp; BL</span></a>
+  <a class="sub" href="#m3f">多臟腑・五行<span class="en">Multi-Organ &amp; 5 Phases</span></a>
+  <a class="mod" href="#m4">④ 其他辨證 Systems</a>
+  <a class="sub" href="#m4a">衛氣營血・三焦<span class="en">4 Levels &amp; 3 Warmer</span></a>
+  <a class="sub" href="#m4b">經絡・六經<span class="en">Channel &amp; 6 Stages</span></a>
+  <a class="mod" href="#quiz">✎ 練習區<span class="en">Self-Test · 13 題</span></a>
+</aside>
+
+<main id="main">
+<div class="inner">
+
+  <div class="top-hero">
+    <div class="tag"><span class="seal">診</span>Foundations of TCM Diagnosis · 科目二</div>
+    <h1>中醫診斷學 · 重點對照</h1>
+    <div class="sub">TCM Diagnosis — Bilingual (English / 中文) Study Notes</div>
+    <div class="meta">左欄英文原文（依課程投影片）· 右欄中文翻譯（正規中醫術語）· 關鍵考點標「必記」<br>
+    講師 William Hossack · 教材參考 Maciocia《Foundations of Chinese Medicine》(2005)、《Diagnosis in Chinese Medicine》(2019)</div>
+  </div>
+
+  <!-- ==================== MODULE 1 ==================== -->
+  <div class="mod-banner" id="m1"><span class="mno">01</span><span class="mcn">診斷導論</span><span class="men">Introduction to TCM Diagnosis</span></div>
+
+  <div class="sec">
+    <h3>學習目標 <span class="en">Learning Outcomes</span></h3>
+    <div class="pair">
+      <div class="en">
+        <ul>
+          <li>Analyze chief complaints to initiate the relevant assessment for a TCM health intake.</li>
+          <li>Compare the concepts of disease, symptom, and syndrome according to TCM methodology.</li>
+          <li>Determine the most relevant TCM diagnostic framework to diagnose a patient.</li>
+          <li>Determine syndromes to make a TCM diagnosis for a clinical case scenario.</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <ul>
+          <li>分析主訴，以啟動中醫健康問診中相應的評估。</li>
+          <li>依中醫方法學，比較「疾病（病）」、「症狀」與「證候（證）」三個概念。</li>
+          <li>判斷最適合該病人的中醫辨證框架。</li>
+          <li>針對臨床案例辨別證候，做出中醫診斷。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>診斷三大原則 <span class="en">Principles in Diagnosis</span></h3>
+
+    <div class="pair must">
+      <div class="en">
+        <h4><span class="seal-must">必記</span>1. Holism 整體觀</h4>
+        <p><span class="term">The human body is an organic whole.</span> All tissues and organs are related (support, nourishment and function). In diagnosis, the practitioner must understand how a symptom (the <span class="term">branch/標</span>) in one location may be caused by an issue somewhere else (the <span class="term">root/本</span>).</p>
+        <p><span class="term">The body is in relationship with Nature.</span> Health changes from season to season, in damp or hot weather, day and night, and with diet and exercise. We must understand the changing nature of symptoms.</p>
+      </div>
+      <div class="zh">
+        <h4><span class="seal-must">必記</span>1. 整體觀念</h4>
+        <p><span class="term">人體是一個有機整體。</span>所有組織與臟腑彼此關聯（支持、濡養、功能相依）。診斷時，醫者必須理解某一部位的症狀（<span class="term">標</span>）可能是他處問題（<span class="term">本</span>）所致。</p>
+        <p><span class="term">人與自然相應（天人相應）。</span>健康隨季節、濕熱氣候、晝夜、飲食與運動而變化；須掌握症狀隨之變動的規律。</p>
+      </div>
+    </div>
+
+    <div class="pair must">
+      <div class="en">
+        <h4><span class="seal-must">必記</span>2. Four Diagnostic Methods 四診</h4>
+        <p>Practitioners use four methods to gather evidence: <span class="term">Looking (望)</span>, <span class="term">Listening &amp; Smelling (聞)</span>, <span class="term">Asking (問)</span>, and <span class="term">Touching (切)</span>.</p>
+        <p>The evidence gathered can be generalised into <span class="term">Symptoms</span> and <span class="term">Signs</span>, and then interpreted to become a <span class="term">Syndrome / Pattern (證)</span>.</p>
+      </div>
+      <div class="zh">
+        <h4><span class="seal-must">必記</span>2. 四診</h4>
+        <p>醫者運用四種方法收集資料：<span class="term">望</span>、<span class="term">聞</span>、<span class="term">問</span>、<span class="term">切</span>。</p>
+        <p>所收集的資料可歸納為<span class="term">症狀</span>與<span class="term">體徵</span>，再加以解讀而形成<span class="term">證候（證）</span>。</p>
+      </div>
+    </div>
+
+    <div class="pair must">
+      <div class="en">
+        <h4><span class="seal-must">必記</span>3. Disease (病) + Syndrome (證)</h4>
+        <p>A TCM diagnosis must consist of <span class="term">two parts = Disease + Syndrome</span>.</p>
+        <p><span class="term">Disease (Bìng 病):</span> a category of illness with a general presentation that does <em>not</em> vary between patients — usually named after the most troublesome symptom/sign. E.g. <em>Diarrhea</em>.</p>
+        <p><span class="term">Syndrome (Zhèng 證):</span> the varying signs and symptoms that differ between patients help define the syndrome. E.g. <em>acute diarrhea with fever</em>, or <em>chronic loose stool after certain foods</em>.</p>
+      </div>
+      <div class="zh">
+        <h4><span class="seal-must">必記</span>3. 病 + 證</h4>
+        <p>中醫診斷必須包含<span class="term">兩部分＝病＋證</span>。</p>
+        <p><span class="term">疾病（病 Bìng）：</span>一類具有共同表現、且在不同病人間<em>大致相同</em>的病症，通常以病人最困擾的症狀/體徵命名。例：<em>泄瀉</em>。</p>
+        <p><span class="term">證候（證 Zhèng）：</span>同一疾病在不同病人身上會出現不同的症徵，這些差異界定了「證」。例：<em>急性泄瀉兼發熱</em>，或<em>食用特定食物後的慢性便溏</em>。</p>
+      </div>
+    </div>
+
+    <div class="note"><b>病＋證＝診斷（範例）</b>：泄瀉＝大腸濕熱｜肩痛＝經絡氣血阻滯｜不孕＝腎陰陽兩虛｜哮喘＝腎肺氣虛兼痰阻。
+      <span class="en">Diarrhea = Damp-Heat in the LI · Shoulder Pain = Channel obstruction of Qi &amp; Blood · Infertility = KI Yin &amp; Yang Def · Asthma = KI &amp; LU Qi Def with Phlegm.</span></div>
+  </div>
+
+  <div class="sec">
+    <h3>症狀 vs 體徵 <span class="en">Symptoms vs Signs</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p><span class="term">Symptoms</span> — subjective, therefore <em>described by the patient</em>. E.g. headache, pain, thirst.</p>
+        <p><span class="term">Signs</span> — objective, therefore <em>observed by the practitioner</em>. E.g. pale complexion, red tongue, wiry pulse.</p>
+      </div>
+      <div class="zh">
+        <p><span class="term">症狀 Symptoms</span>——主觀，由<em>病人自述</em>。例：頭痛、疼痛、口渴。</p>
+        <p><span class="term">體徵 Signs</span>——客觀，由<em>醫者觀察</em>。例：面色蒼白、舌紅、脈弦。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>「證」的組成 <span class="en">Defining a Syndrome</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>A syndrome is a <span class="term">summary of a disease at a certain stage</span>, determined by: Cause, Location, Nature, Pathogenesis, and relevant s/sx.</p>
+        <p><b>Example — Damp-Heat in the Liver &amp; Gallbladder:</b><br>Location: Liver &amp; Gallbladder · Nature: Excess &amp; Hot · Pathogenesis: Damp-Heat accumulation.</p>
+      </div>
+      <div class="zh">
+        <p>證是<span class="term">疾病在某一階段的概括</span>，由以下要素界定：病因、病位、病性、病機、相關症徵。</p>
+        <p><b>範例——肝膽濕熱：</b><br>病位：肝、膽 · 病性：實、熱 · 病機：濕熱蘊結。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>辨證方法（九種） <span class="en">Syndrome Differentiation Methods</span></h3>
+    <div class="pair">
+      <div class="en">
+        <ul>
+          <li>Eight Guiding Principles differentiation 八綱辨證</li>
+          <li>Qi, Blood &amp; Body Fluid differentiation 氣血津液辨證</li>
+          <li>Pathogenic Factors differentiation 病因辨證</li>
+          <li>Organ (Zang-Fu) differentiation 臟腑辨證</li>
+          <li>Five Phases differentiation 五行辨證</li>
+          <li>Meridian differentiation 經絡辨證</li>
+          <li>Six-Stages differentiation 六經辨證</li>
+          <li>Four Levels differentiation 衛氣營血辨證</li>
+          <li>Triple Warmer differentiation 三焦辨證</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <ul>
+          <li>八綱辨證（表裏、寒熱、虛實、陰陽）</li>
+          <li>氣血津液辨證</li>
+          <li>病因（病邪）辨證</li>
+          <li>臟腑辨證</li>
+          <li>五行辨證</li>
+          <li>經絡辨證</li>
+          <li>六經辨證（傷寒）</li>
+          <li>衛氣營血辨證（溫病四級）</li>
+          <li>三焦辨證</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note">執業要求：加拿大中醫師（TCMP）須能診斷《Pan-Canadian Examination Candidate Handbook》附錄 L（第 95 頁）所列疾病。
+      <span class="en">TCMPs must be competent in diagnosing the illnesses listed in Appendix L (p.95) of the CARB-TCMPA Candidate Handbook.</span></div>
+  </div>
+
+  <div class="sec">
+    <h3>範例病案 <span class="en">Case Study — 貫穿全模組</span></h3>
+    <div class="case">
+      <div class="ct">Case · 女性 36 歲（endomorph 內胚型／偏胖體質）</div>
+      <div class="grid2">
+        <div class="en">
+          <p><b>Chief Complaint:</b> High-pitched ringing in the ears, following an episode of temporary hearing loss.</p>
+          <p><b>History:</b> Argument with her daughter 2 days ago → temporary hearing loss + severe headache; since yesterday, hearing loss changed to high-pitch tinnitus. 3-yr history of high blood pressure. Family: mother diabetic, father hypertensive.</p>
+          <p><b>Symptoms:</b> tinnitus worse with unhappy/stressful thoughts; headache; irritability; difficulty falling asleep, active mind, frequent waking; bitter taste; thirst with desire for cold drinks; dark yellow urine; constipation.</p>
+          <p><b>Signs:</b> red complexion; talkative &amp; loud; difficulty focusing; endomorphic build; <b>Tongue</b> red body, yellow coating; <b>Pulse</b> wiry (xian) &amp; rapid (shuo).</p>
+        </div>
+        <div class="zh">
+          <p><b>主訴：</b>耳中高頻鳴響，發作前曾一過性聽力喪失。</p>
+          <p><b>病史：</b>兩天前與女兒爭吵 → 短暫聽力喪失＋劇烈頭痛；昨起轉為高頻耳鳴。高血壓病史 3 年。家族史：母糖尿病、父高血壓。</p>
+          <p><b>症狀：</b>耳鳴於情緒不悅／壓力時加重；頭痛；煩躁易怒；入睡困難、睡中思緒活躍、頻醒；口苦；口渴喜冷飲；小便深黃；便秘。</p>
+          <p><b>體徵：</b>面紅；多言聲高；注意力難集中；體型偏胖；<b>舌</b>紅、苔黃；<b>脈</b>弦而數。</p>
+        </div>
+      </div>
+      <div class="ans"><b>臨床提示：</b>此案為典型<b>肝火（肝陽/肝膽火）上擾</b>之象——弦數脈、面紅、口苦、便秘尿黃、情志觸發，貫穿本模組供辨病＋辨證練習。</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>回家作業：建立病案 <span class="en">Homework — Case Record</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>Interview a family member or friend and create a case record using these headings:</p>
+        <ul>
+          <li>General info (age, sex, body habitus)</li>
+          <li>Chief Complaint(s) — what &amp; how long?</li>
+          <li>Symptoms · Signs</li>
+          <li>Personal medical history &amp; medication (incl. supplements)</li>
+          <li>Family medical history</li>
+          <li>Other relevant info (lifestyle, diet, exercise, environment, occupation)</li>
+        </ul>
+        <p>Then create a TCM <b>Disease</b> (from Appendix L) → choose a <b>differentiation method</b> → identify a <b>syndrome</b> → determine <b>treatment principles</b> → decide on herbs/acupuncture/other.</p>
+      </div>
+      <div class="zh">
+        <p>訪談一位家人或朋友，依下列標題建立病案：</p>
+        <ul>
+          <li>一般資料（年齡、性別、體型）</li>
+          <li>主訴——是什麼、多久了？</li>
+          <li>症狀 · 體徵</li>
+          <li>個人病史與用藥（含保健品）</li>
+          <li>家族病史</li>
+          <li>其他相關資訊（生活型態、飲食、運動、環境、職業）</li>
+        </ul>
+        <p>接著訂出中醫<b>病名</b>（依附錄 L）→ 選擇<b>辨證方法</b> → 確立<b>證候</b> → 制訂<b>治則</b> → 決定用藥／針灸／其他治療。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODULE 2 ==================== -->
+  <div class="mod-banner" id="m2"><span class="mno">02</span><span class="mcn">四診</span><span class="men">Four Diagnostic Methods — 望・聞・問・切</span></div>
+
+  <!-- ---------- 2A LOOKING ---------- -->
+  <div class="mod-banner" id="m2a" style="margin-top:22px;background:var(--jade);"><span class="mno" style="color:#F4EFE4;">2·1</span><span class="mcn">望診</span><span class="men">Looking / Inspection</span></div>
+
+  <div class="sec">
+    <h3>望診概說 <span class="en">General — What we "look" at</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>Looking encompasses observations made with our eyes. The moment the patient walks in, the diagnostic process has begun — some observations are obvious, others subtle.</p>
+        <p><b>We look at:</b> General appearance · Movement · Shen (神) · Complexion · Excretions · Tongue.</p>
+      </div>
+      <div class="zh">
+        <p>望診即以目觀察。病人一踏進診間，診斷即已開始——有些徵象明顯，有些細微。</p>
+        <p><b>觀察項目：</b>整體外觀 · 動態 · 神 · 面色 · 排出物 · 舌象。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>1. 整體外觀 <span class="en">General Appearance</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>As the patient walks in, note: (1) body shape &amp; size; (2) movement as they walk toward you; (3) handshake, eye contact, ease of interaction.</p>
+        <ul>
+          <li><span class="term">Strong &amp; robust</span> = strong Qi, good Jing → if ill, recovers quickly.</li>
+          <li><span class="term">Weak &amp; frail</span> = Deficient → heals more slowly.</li>
+          <li><span class="term">Overweight</span> = Excess Dampness or Qi Def → check SP (also LU/KI for water metabolism).</li>
+          <li><span class="term">Thin or sallow</span> = Yin or Blood Def.</li>
+          <li><span class="term">Outgoing, talkative, aggressive, irritable</span> = Yang-like pattern.</li>
+          <li><span class="term">Passive, quiet, easily affected</span> = Yin-like pattern.</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <p>病人進門時留意：(1) 體型大小；(2) 走向你時的動態；(3) 握手、眼神接觸、互動是否自在。</p>
+        <ul>
+          <li><span class="term">強壯結實</span>＝氣盛、精足 → 若病，痊癒快。</li>
+          <li><span class="term">虛弱羸瘦</span>＝虛證 → 病癒較慢。</li>
+          <li><span class="term">體胖</span>＝濕盛或氣虛 → 查脾（水液代謝亦查肺、腎）。</li>
+          <li><span class="term">瘦弱或萎黃</span>＝陰虛或血虛。</li>
+          <li><span class="term">外向、多言、好強、易怒</span>＝陽性（陽型）證。</li>
+          <li><span class="term">被動、寡言、易受影響</span>＝陰性（陰型）證。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>2. 動態 <span class="en">Movement</span></h3>
+    <div class="pair">
+      <div class="en">
+        <ul>
+          <li>Heavy, deliberate, forceful = <span class="term">Excess</span></li>
+          <li>Frail, weak, cautious = <span class="term">Deficiency</span></li>
+          <li>Quick = <span class="term">Heat</span></li>
+          <li>Slow = <span class="term">Cold</span></li>
+        </ul>
+      </div>
+      <div class="zh">
+        <ul>
+          <li>沉重、刻意、有力＝<span class="term">實證</span></li>
+          <li>虛弱、無力、謹慎＝<span class="term">虛證</span></li>
+          <li>動作快＝<span class="term">熱證</span></li>
+          <li>動作慢＝<span class="term">寒證</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>3. 神 <span class="en">Shen (Spirit)</span></h3>
+    <div class="pair must">
+      <div class="en">
+        <p><span class="seal-must">必記</span>Shen is the general manifestation of life (vitality), mental states and activities. It is seen through facial expression, complexion, and vitality in the <span class="term">eyes</span>. Its material base is <span class="term">Essence/Blood</span> and it is associated with the <span class="term">Heart</span>.</p>
+      </div>
+      <div class="zh">
+        <p><span class="seal-must">必記</span>神是生命力（生機）、精神狀態與活動的整體表現，透過面部表情、面色與<span class="term">眼神</span>的活力顯現。其物質基礎為<span class="term">精、血</span>，並與<span class="term">心</span>相關。</p>
+      </div>
+    </div>
+    <div class="pair">
+      <div class="en">
+        <ul>
+          <li><span class="term">Good Shen 得神：</span>mental acuity, presence, healthy vitality.</li>
+          <li><span class="term">Lack of Shen 少神：</span>dispirited, pale complexion.</li>
+          <li><span class="term">Loss of Shen 失神：</span>dull eyes, absence of presence, weak breathing / dyspnoea.</li>
+          <li><span class="term">False Shen 假神：</span>a sudden spurt of vitality before death — "the last flicker of a candle." KI energy about to separate; Yang floats to the surface. Death occurs with separation of Yin &amp; Yang.</li>
+          <li><span class="term">Shen derangement 神亂：</span>unstable mental function — manic episodes, hallucinations; whites visible above the iris.</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <ul>
+          <li><span class="term">得神：</span>思維敏銳、有存在感、生機健旺。</li>
+          <li><span class="term">少神：</span>精神不振、面色蒼白。</li>
+          <li><span class="term">失神：</span>目光呆滯、缺乏存在感、呼吸微弱或氣促。</li>
+          <li><span class="term">假神：</span>臨終前突現生機——「燈燭將熄前的迴光返照」。腎氣將絕，陽浮於外；陰陽離決則死。</li>
+          <li><span class="term">神亂：</span>精神功能不穩——狂躁、幻覺；可見「白多黑少」露白眼。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note"><b>如何察神：</b>眼（無神、呆滯）、腦（欠清明）、面（表情與情緒不符）、語（語無倫次、失神、失去思路）、態（笨拙、姿態怪異）、行（反應不當，如喪禮發笑；過度或不合宜地笑）。健康之笑應由胸而發、深沉「爽朗」；若為喉間乾笑、未連於真心，則為神之病。
+      <span class="en">Assess Shen via Eyes · Brain · Face · Speech · Posture · Behaviour. A healthy laugh comes from the chest; a throaty laugh disconnected from the Heart signals a Shen problem.</span></div>
+  </div>
+
+  <div class="sec">
+    <h3>4. 面色 <span class="en">Complexion</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>Assess <b>colour</b> and <b>lustre</b> (ask patients to come without make-up/creams). Qi &amp; Blood of the channels pour upward into the face: a fine complexion = healthy Yang Qi (heals easily); a lustrous skin = healthy Yin/Blood.</p>
+      </div>
+      <div class="zh">
+        <p>望面色須看<b>顏色</b>與<b>光澤</b>（囑病人勿化妝、勿塗乳霜）。經脈氣血上榮於面：面色佳＝陽氣健旺（易癒）；膚有光澤＝陰血充足。</p>
+      </div>
+    </div>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>Colour 色</th><th>Significance 意義</th></tr></thead>
+      <tbody>
+        <tr><th>Lustre 榮潤</th><td class="cjk">明亮有光而不油、不晦暗、不乾枯＝有胃氣、有神。</td></tr>
+        <tr><th>White 白</th><td class="cjk">白而浮腫＝氣虛或陽虛（虛＋寒）。若無華＝兼血虛（貧血、術後、產後）。劇痛時若無他色遮蔽亦可見白。</td></tr>
+        <tr><th>Red 紅</th><td class="cjk">主熱。可以手觸判斷輕重：滿面通紅、均勻＝實熱；紅而較淡、散見或僅兩顴＝陰虛陽亢（虛熱上炎）。火性炎散故較零星。</td></tr>
+        <tr><th>Yellow 黃</th><td class="cjk">主濕或脾虛。</td></tr>
+        <tr><th>Orange 橙</th><td class="cjk">濕＋熱（濕鬱化熱）。多與肝膽有關，見於肝炎。鮮明＝陽黃（實）；晦暗＝陰黃（虛）。</td></tr>
+        <tr><th>Green 青</th><td class="cjk">實證——氣滯或血瘀，主痛、主寒。</td></tr>
+        <tr><th>Purple 紫</th><td class="cjk">氣血瘀滯更甚。</td></tr>
+        <tr><th>Grey/Black 灰/黑</th><td class="cjk">腎虛或嚴重血瘀。有時見於大病初癒之後。</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>5. 排出物 <span class="en">Excretions</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>Often relies on the patient's report (sometimes directly observed). Know what "normal" is, then assess by <b>quantity, consistency, colour</b> (and sometimes temperature). Consider how each changes with Heat, Cold, Dampness, and Qi/Blood/Yin/Yang disruptions.</p>
+        <p><b>Discuss:</b> Phlegm · Vomit · Sweat · Urine · Stool.</p>
+      </div>
+      <div class="zh">
+        <p>多依病人陳述（有時可直接觀察）。須先知「常」，再依<b>量、質、色</b>（有時含溫度）評估。思考各排出物在寒、熱、濕及氣血陰陽失調下如何變化。</p>
+        <p><b>討論項目：</b>痰 · 嘔吐物 · 汗 · 小便 · 大便。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>6. 舌診 <span class="en">Tongue Diagnosis</span></h3>
+    <div class="pair must">
+      <div class="en">
+        <p><span class="seal-must">必記</span>Tongue diagnosis is unique and important, and relatively easy to learn given its objective nature. It reveals:</p>
+        <ul>
+          <li>State of the <span class="term">internal organs</span> — location of disease</li>
+          <li>State of <span class="term">Qi &amp; Blood</span> — Deficiency or stagnation</li>
+          <li>Presence of <span class="term">pathogenic factors</span> — Heat, Cold, Damp, Phlegm, Wind</li>
+          <li>The <span class="term">8 Principles</span> (Heat/Cold, Excess/Def, Yin/Yang)</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <p><span class="seal-must">必記</span>舌診獨特而重要，因其客觀，相對易學。可反映：</p>
+        <ul>
+          <li><span class="term">臟腑</span>狀態——病位所在</li>
+          <li><span class="term">氣血</span>狀態——虛或滯</li>
+          <li><span class="term">病邪</span>之有無——熱、寒、濕、痰、風</li>
+          <li><span class="term">八綱</span>（寒熱、虛實、陰陽）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>Technique &amp; Lighting 手法與光線</h4>
+        <p>Best observed in <b>sunlight</b> (indoors: halogen). After ~15 s the tongue blood stagnates and turns purplish, so the patient should not protrude the tongue &gt; 10–15 s at a time.</p>
+        <p>Follow a system (order by clinical importance, per Maciocia 2019): <b>1) body colour → 2) body shape → 3) coating → 4) spirit.</b></p>
+        <p><b>External factors:</b> coloured food/drink/candy, spicy food, smoking, medications.</p>
+      </div>
+      <div class="zh">
+        <h4>手法與光線</h4>
+        <p>宜於<b>日光</b>下觀察（室內用鹵素燈）。伸舌約 15 秒後舌血瘀滯轉紫，故每次伸舌不超過 10–15 秒。</p>
+        <p>按系統觀察（Maciocia 2019 依臨床重要性排序）：<b>1) 舌質色 → 2) 舌形 → 3) 舌苔 → 4) 舌神。</b></p>
+        <p><b>外在干擾：</b>有色食物/飲料/糖果、辛辣食物、吸菸、藥物（染苔）。</p>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>1) Body Colour 舌質色</h4>
+        <p>Reflects Yin organs &amp; Blood, Heat/Cold, Yin/Yang Def. Include papillae and sublingual veins. <b>Normal = pale-red.</b></p>
+        <h4>2) Body Shape 舌形</h4>
+        <p>Reflects Excess/Deficiency. Assess whole shape, thickness, suppleness, surface, movement. <b>Normal = supple, not swollen/thin, no cracks.</b></p>
+        <h4>3) Coating 舌苔</h4>
+        <p>Reflects Yang organs (esp. Stomach), Excess/Def, Hot/Cold, pathogens. Formed by ST during digestion — patchy/"rootless" coat = weak ST Qi. <b>Normal = thin &amp; white.</b></p>
+        <h4>4) Spirit 舌神</h4>
+        <p>Brightness, sheen, vitality → reflects KI Essence &amp; ability to recover. Spirited tongue = "fresh meat on a butcher's block"; lacking spirit = "old, dark, greyish, lifeless meat" (Maciocia 2019, p.222).</p>
+      </div>
+      <div class="zh">
+        <h4>1) 舌質色</h4>
+        <p>反映陰臟與血、寒熱、陰陽虛。須含舌乳頭與舌下絡脈。<b>常色＝淡紅。</b></p>
+        <h4>2) 舌形</h4>
+        <p>反映虛實。察整體形狀、厚薄、柔軟度、表面、動態。<b>正常＝柔軟、不胖不瘦、無裂紋。</b></p>
+        <h4>3) 舌苔</h4>
+        <p>反映陽腑（尤其胃）、虛實、寒熱、病邪。苔由胃於消化時所生——花剝或「無根苔」＝胃氣弱。<b>正常＝薄白。</b></p>
+        <h4>4) 舌神</h4>
+        <p>明亮、光澤與生機 → 反映腎精及康復力。有神之舌如「砧板上新鮮之肉」；無神則如「陳舊、晦暗、灰白、無生氣之肉」。</p>
+      </div>
+    </div>
+
+    <div class="note"><b>舌面分區：</b>舌尖＝心肺（上焦）；舌中＝脾胃（中焦）；舌根＝腎（下焦）；舌邊＝肝膽。特定分區之色變或形態變化，可對應相關臟腑之病變。
+      <span class="en">Tongue areas correspond to organs: tip = HT/LU, centre = SP/ST, root = KI, sides = LR/GB (Maciocia 2019, p.219).</span></div>
+
+    <div class="pair must">
+      <div class="en">
+        <h4><span class="seal-must">必記</span>Body Colour — 5 classical pathologic colours</h4>
+        <ul>
+          <li><span class="term">Pale 淡白</span> &amp; thin = Qi &amp; Blood Def; pale &amp; swollen = Yang Def.</li>
+          <li><span class="term">Red 紅</span> with coating = Excess Heat; red without coating = Yin Def with Empty Heat.</li>
+          <li><span class="term">Crimson 絳</span> with coating = Heat in Ying/Blood level (Excess); crimson without coating = Yin Def with Empty Fire (Def).</li>
+          <li><span class="term">Purple 紫</span> = stagnation of Qi &amp; Blood: purple+pale+moist = stasis d/t Yang Def; purple+red+dry = Excess Internal Heat; purple with dark macules = Blood stasis.</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <h4><span class="seal-must">必記</span>舌質色——五種病理舌色</h4>
+        <ul>
+          <li><span class="term">淡白</span>而瘦＝氣血兩虛；淡白而胖＝陽虛。</li>
+          <li><span class="term">紅</span>而有苔＝實熱；紅而無苔＝陰虛內熱（虛熱）。</li>
+          <li><span class="term">絳（深紅）</span>有苔＝熱入營血（實）；絳而無苔＝陰虛火旺（虛火）。</li>
+          <li><span class="term">紫</span>＝氣血瘀滯：紫淡而潤＝陽虛致瘀；紫紅而乾＝內熱熾盛（多因飲食情志）；紫而見瘀斑＝血瘀。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>Body Shape 舌形</h4>
+        <ul>
+          <li><span class="term">Thin 瘦</span> &amp; pale = Blood Def; thin &amp; red (no coat) = Yin Def.</li>
+          <li><span class="term">Swollen 胖大</span> = Damp/Phlegm; swollen+red = Damp-Heat/Fire; swollen+pale = Damp/Phlegm over a Deficiency.</li>
+          <li><span class="term">Stiff 強硬</span> = Internal Wind or Blood stasis (red = Heat; pale = Blood Def→Wind or Yang Def+Cold→stasis).</li>
+          <li><span class="term">Flaccid 痿軟</span> = loss of Body Fluids.</li>
+          <li><span class="term">Long 長</span> = tendency to Heat; <span class="term">Short 短</span>: pale+wet = Internal Cold, red+peeled = severe Yin Def.</li>
+          <li><span class="term">Cracks 裂紋</span> = Heat (Excess or Empty). Short H/V cracks = ST Yin Def; long central crack to tip = HT patterns; wide central crack (not reaching tip) = ST Yin Def; short cracks on sides = SP Qi/Yin Def.</li>
+          <li><span class="term">Quivering 顫動</span> = SP Qi Def; <span class="term">Deviation 歪斜</span> = Internal Wind; <span class="term">Teeth-marks 齒痕</span> = SP Qi Def or Excess Fluids.</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <h4>舌形</h4>
+        <ul>
+          <li><span class="term">瘦薄</span>而淡＝血虛；瘦而紅（無苔）＝陰虛。</li>
+          <li><span class="term">胖大</span>＝濕/痰；胖紅＝濕熱/火；胖淡＝濕痰罩於虛證之上（如脾氣虛夾濕、陽虛水泛）。</li>
+          <li><span class="term">強硬</span>＝內風或血瘀（紅＝熱；淡＝血虛生風或陽虛寒凝致瘀）。</li>
+          <li><span class="term">痿軟</span>＝津液耗傷。</li>
+          <li><span class="term">舌長</span>＝易熱；<span class="term">舌短</span>：淡而濕＝內寒，紅而剝＝陰虛重證。</li>
+          <li><span class="term">裂紋</span>＝熱（實熱或虛熱）。短之橫/縱裂＝胃陰虛；深長中裂達舌尖＝心之病；寬大中裂（未達尖）＝胃陰虛；舌邊短裂＝脾氣虛或脾陰虛。</li>
+          <li><span class="term">顫動</span>＝脾氣虛；<span class="term">歪斜</span>＝內風；<span class="term">齒痕</span>＝脾氣虛或水濕過盛。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>Coating 舌苔 &amp; Coating Colour</h4>
+        <p>Derived from ST Fluids during digestion; reflects ST/Yang organs, Heat/Cold, Excess/Def. Normal = thin white. Thick coat = pathogen present (Wind/Damp/Cold/Heat/Fire/Food). "<span class="term">Rootless</span>" coat (sitting on top) = weak ST Qi. Missing/peeled = ST and/or KI Yin Def; if also red = Yin Def with Empty Heat.</p>
+        <ul>
+          <li><b>White 白：</b>thin white = normal / External (e.g. Wind) / Cold; greasy white = Internal Damp-Phlegm.</li>
+          <li><b>Yellow 黃：</b>thin yellow = External Wind-Heat / Heat; greasy yellow = Damp-Heat; rough dry yellow = Heat damaging fluids.</li>
+          <li><b>Grey/Black 灰/黑：</b>moist = severe Internal Cold; dry = severe Internal Heat.</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <h4>舌苔與苔色</h4>
+        <p>苔由消化時之胃津所生；反映胃/陽腑、寒熱、虛實。常＝薄白。厚苔＝有病邪（風/濕/寒/熱/火/食積）。「<span class="term">無根苔</span>」（浮於舌面）＝胃氣弱。剝落／缺苔＝胃陰和/或腎陰虛；若兼紅＝陰虛內熱。</p>
+        <ul>
+          <li><b>白苔：</b>薄白＝正常/表證（如風邪）/寒證；白膩＝內濕痰。</li>
+          <li><b>黃苔：</b>薄黃＝外感風熱/熱證；黃膩＝濕熱；黃燥而糙＝熱傷津。</li>
+          <li><b>灰/黑苔：</b>潤＝內寒重證；燥＝內熱重證。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>其他微觀系統 <span class="en">Other Microsystems</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>Microsystems abound in TCM (Auricular, Scalp covered later). Also note Face, Eye, Constitution, and — for young children — the <b>index-finger venule</b>.</p>
+        <p><b>Child's index-finger venule</b> (under age 2): squeeze blood outward toward the body.</p>
+        <ul>
+          <li>Venule only to the <span class="term">Gate of Wind (風關)</span> = superficial disease.</li>
+          <li>Past the <span class="term">Gate of Qi (氣關)</span> = Internal, more severe.</li>
+          <li>Past the <span class="term">Gate of Life (命關)</span> = life-threatening.</li>
+          <li>Blue = Cold · Red = Heat.</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <p>中醫微觀系統繁多（耳針、頭皮針日後另授）。此外可留意面、目、體質，以及幼兒之<b>食指絡脈（虎口三關）</b>。</p>
+        <p><b>小兒指紋</b>（2 歲以下）：將絡脈之血向近心端推擠。</p>
+        <ul>
+          <li>絡脈僅達<span class="term">風關</span>＝病淺。</li>
+          <li>過<span class="term">氣關</span>＝病入裏、較重。</li>
+          <li>過<span class="term">命關</span>（透關射甲）＝病危。</li>
+          <li>色青＝寒 · 色紅＝熱。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- 2B LISTENING & SMELLING ---------- -->
+  <div class="mod-banner" id="m2b" style="margin-top:22px;background:var(--jade);"><span class="mno" style="color:#F4EFE4;">2·2</span><span class="mcn">聞診</span><span class="men">Listening &amp; Smelling</span></div>
+
+  <div class="sec">
+    <h3>聽（聞聲） <span class="en">Listening — general principle</span></h3>
+    <div class="pair must">
+      <div class="en">
+        <p><span class="seal-must">必記</span>Listening applies to bodily-function sounds, the voice and the breath. <b>In general: loud sounds = Excess; quiet sounds = Deficiency.</b> Categories: Voice · Breathing · Coughing · Hiccoughing &amp; Belching.</p>
+      </div>
+      <div class="zh">
+        <p><span class="seal-must">必記</span>聞聲涵蓋各種身體功能之聲、語聲與呼吸。<b>總則：聲高有力＝實；聲低微弱＝虛。</b>項目：語聲 · 呼吸 · 咳嗽 · 呃逆與噯氣。</p>
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>類 Category</th><th>表現 Sound</th><th>意義 Significance</th></tr></thead>
+      <tbody>
+        <tr><th rowspan="6">語聲 Voice</th><td class="lat">Strong voice</td><td class="cjk">聲音洪亮＝實證或健康</td></tr>
+        <tr><td class="lat">Weak voice</td><td class="cjk">聲音微弱＝虛（多屬肺）</td></tr>
+        <tr><td class="lat">Sudden loss of voice</td><td class="cjk">驟然失音＝外邪侵襲</td></tr>
+        <tr><td class="lat">Chronic loss of voice</td><td class="cjk">久病失音＝虛（多為肺陰虛）</td></tr>
+        <tr><td class="lat">Slurred speech / paraphasia</td><td class="cjk">言語含糊、錯語＝神亂或內風</td></tr>
+        <tr><td class="lat">Excessive talking</td><td class="cjk">多言＝熱</td></tr>
+        <tr><th rowspan="3">呼吸 Breathing</th><td class="lat">Strong, coarse</td><td class="cjk">呼吸粗壯＝實（多熱）</td></tr>
+        <tr><td class="lat">Shallow / SOB</td><td class="cjk">呼吸淺、氣短＝虛</td></tr>
+        <tr><td class="lat">Dyspnea &amp; wheezing</td><td class="cjk">喘與哮鳴＝痰</td></tr>
+        <tr><th rowspan="4">咳嗽 Cough</th><td class="lat">Heavy, sudden, violent</td><td class="cjk">重濁驟然劇咳＝實（多熱）</td></tr>
+        <tr><td class="lat">Dry, hacking</td><td class="cjk">乾咳＝熱致燥、陰虛或外燥</td></tr>
+        <tr><td class="lat">Weak cough</td><td class="cjk">咳而無力＝虛（氣虛或陰虛）</td></tr>
+        <tr><td class="lat">Profuse sputum</td><td class="cjk">痰多＝痰濕</td></tr>
+        <tr><th rowspan="4">呃逆噯氣</th><td class="lat">Loud hiccoughs</td><td class="cjk">呃聲響亮＝實（肝犯胃）</td></tr>
+        <tr><td class="lat">Weak hiccoughs</td><td class="cjk">呃聲微弱＝虛（胃氣/胃陰虛）</td></tr>
+        <tr><td class="lat">Long &amp; loud belching</td><td class="cjk">噯氣長而響＝實（胃熱或肝犯胃）</td></tr>
+        <tr><td class="lat">Short &amp; quiet belching</td><td class="cjk">噯氣短而輕＝虛（胃氣虛）</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>嗅（聞氣味） <span class="en">Smelling</span></h3>
+    <div class="pair must">
+      <div class="en">
+        <p><span class="seal-must">必記</span>Two main odour types:</p>
+        <ul>
+          <li><span class="term">Heat type 熱型</span> — foul, rotten, nauseating (e.g. rotten eggs).</li>
+          <li><span class="term">Cold type 寒型</span> — pungent, fishy (e.g. bleach-like).</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <p><span class="seal-must">必記</span>氣味主要兩型：</p>
+        <ul>
+          <li><span class="term">熱型</span>——臭穢、腐敗、令人作嘔（如臭雞蛋）。</li>
+          <li><span class="term">寒型</span>——刺鼻、腥（如漂白水味）。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>來源 Source</th><th>氣味 / 意義 Significance</th></tr></thead>
+      <tbody>
+        <tr><th>口氣 Breath</th><td class="cjk">濃烈難聞＝胃熱或食積；酸味＝食積；穢臭刺鼻＝胃濕熱；腐臭＝大腸濕熱（Maciocia 提及可能與潰瘍性結腸炎相關）。</td></tr>
+        <tr><th>汗 Sweat</th><td class="cjk">濃烈＝濕熱。</td></tr>
+        <tr><th>痰 Sputum</th><td class="cjk">濃烈腐臭＝肺熱、肺痰熱或熱毒。</td></tr>
+        <tr><th>小便 Urine</th><td class="cjk">濃烈臭＝膀胱濕熱；無味＝寒。</td></tr>
+        <tr><th>大便 Stool</th><td class="cjk">穢臭＝腸中熱或濕熱；無味＝寒。</td></tr>
+        <tr><th>帶下/惡露</th><td class="cjk">帶下濃烈皮革味＝濕熱；帶下腥味＝寒濕；惡露臭穢＝子宮濕熱或熱毒。</td></tr>
+        <tr><th>矢氣 Gas</th><td class="cjk">濃烈穢臭＝大腸濕熱；腐敗酸敗＝大腸熱毒；無味＝正常或脾氣虛。</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ---------- 2C ASKING ---------- -->
+  <div class="mod-banner" id="m2c" style="margin-top:22px;background:var(--jade);"><span class="mno" style="color:#F4EFE4;">2·3</span><span class="mcn">問診</span><span class="men">Asking</span></div>
+
+  <div class="sec">
+    <h3>問診總論 <span class="en">"What's your story?"</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>Likely the <b>most important</b> diagnostic method — and the most difficult. It requires strong SP Qi (analysis &amp; cognition), integration of all foundational knowledge, and sensitivity to the patient's humanity to build a therapeutic relationship. One must lead the interview yet let the patient tell their own story. Asking is both a skill and an art.</p>
+        <p><b>Initial phase:</b> make the patient comfortable, don't rush, follow the chief complaint, let them speak freely, listen to what most bothers them — this focuses treatment and usually determines the <b>Disease</b>.</p>
+      </div>
+      <div class="zh">
+        <p>問診大概是<b>最重要</b>也最困難的診法。它需要旺盛的脾氣（以主分析與思考）、整合全部基礎知識、並體察病人之人性以建立治療關係。醫者須主導問診，又要讓病人自述其故事。問是技術，也是藝術。</p>
+        <p><b>初始階段：</b>讓病人自在、勿催促、循主訴而問、讓其自由陳述、聽其最困擾之處——此可聚焦治療，並通常確立<b>病名</b>。</p>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>The 10 Traditional Questions 十問</h4>
+        <p>Once the chief complaint is understood, use a set of questions to grasp constitution &amp; context (→ syndrome):</p>
+        <ol>
+          <li>Fever &amp; Chills</li><li>Sweating</li><li>Head &amp; Body</li><li>Chest &amp; Abdomen</li><li>Appetite &amp; Taste</li><li>Urination &amp; Stools</li><li>Thirst &amp; Drink</li><li>Sleep</li><li>Hearing &amp; Tinnitus</li><li>Pain</li>
+        </ol>
+      </div>
+      <div class="zh">
+        <h4>傳統十問</h4>
+        <p>了解主訴後，以系統問題掌握體質與背景（→ 定證）：</p>
+        <ol>
+          <li>寒熱（發熱惡寒）</li><li>汗</li><li>頭身</li><li>胸腹</li><li>食慾與口味</li><li>二便</li><li>口渴飲水</li><li>睡眠</li><li>聽力與耳鳴</li><li>疼痛</li>
+        </ol>
+      </div>
+    </div>
+    <div class="note"><b>臨床 16 問（Maciocia 2005, p.322）：</b>疼痛、飲食口味、二便、口渴飲水、精力、頭面身、胸腹、四肢、睡眠、汗、耳目、寒熱發熱、情志症狀、性方面症狀、婦科症狀、小兒症狀。
+      <span class="en">16 clinical questions: Pain · Food/taste · Stools/urine · Thirst · Energy · Head/face/body · Chest/abdomen · Limbs · Sleep · Sweating · Ears/eyes · Cold/Heat/Fever · Emotional · Sexual · Gynecologic · Children's.</span></div>
+  </div>
+
+  <div class="sec">
+    <h3>1. 疼痛 <span class="en">Pain</span></h3>
+    <blockquote class="q">
+      <div class="qt">"If the channels are free there is no pain; if the channels are obstructed there is pain."</div>
+      <div class="qz">「通則不痛，痛則不通。」</div>
+      <cite>— 黃帝內經 Huang Di Nei Jing</cite>
+    </blockquote>
+
+    <div class="pair must">
+      <div class="en">
+        <h4><span class="seal-must">必記</span>Nature — Excess or Deficiency?</h4>
+        <p><b>Excess 實：</b>Excess factors block Qi &amp; Blood in the channels. Usually sudden onset; "intense", "sharp", "distending". Causes: Qi/Blood stagnation, Interior Cold or Heat, food retention, Phlegm obstruction, invasion of external pathogens.</p>
+        <p><b>Deficiency 虛：</b>Deficient substances → malnourished channels. Slower onset, lingering; dull or less intense. Causes: Qi/Blood Def, Fluid/Yin Def.</p>
+      </div>
+      <div class="zh">
+        <h4><span class="seal-must">必記</span>辨性——實或虛？</h4>
+        <p><b>實：</b>實邪阻滯經中氣血。多驟發；「劇烈」「銳利」「脹」。病因：氣血瘀滯、內寒或內熱、食積、痰阻、外邪侵襲。</p>
+        <p><b>虛：</b>物質不足 → 經脈失養。多緩發、綿延；隱痛或較輕。病因：氣血虛、津液或陰虛。</p>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>Relieving / Aggravating Factors 緩解與加重</h4>
+        <p><b>Relieved by:</b> heat = Cold · cold = Heat · pressure = Def · eating = Def · bowel movement = Excess · vomiting = Excess · rest = Def · movement = Excess · lying down = Def · sitting up = Excess.</p>
+        <p><b>Aggravated by:</b> pressure = Excess · eating = Excess · humidity = Damp · bowel movement = Def · vomiting = Def · rest = Excess · movement = Def.</p>
+      </div>
+      <div class="zh">
+        <h4>緩解與加重因素</h4>
+        <p><b>得…則緩：</b>得熱＝寒 · 得涼＝熱 · 得按＝虛 · 得食＝虛 · 便後＝實 · 嘔後＝實 · 休息＝虛 · 活動＝實 · 平臥＝虛 · 坐起＝實。</p>
+        <p><b>遇…則甚：</b>按壓＝實 · 進食＝實 · 潮濕＝濕 · 排便＝虛 · 嘔吐＝虛 · 休息＝實 · 活動＝虛。</p>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>By Cause 依病因</h4>
+        <p><b>Qi Stagnation:</b> bloating, fullness, distension, no fixed location; stress-related, comes &amp; goes; common in abdomen/epigastrium.</p>
+        <p><b>Liver Yang Rising:</b> Qi rebellion (severe stagnation); distending, throbbing headaches.</p>
+        <p><b>Blood Stasis:</b> sharp, stabbing, severe, fixed location; head, chest, epigastrium, abdomen, Uterus.</p>
+        <p><b>Cold:</b> cramping, colicky; aggravated by cold weather/food, relieved by heat; digestive tract, Uterus, joints.</p>
+        <p><b>Heat:</b> burning; aggravated by heat, relieved by cold; often + Damp → heaviness.</p>
+        <p><b>EPFs:</b> all 6 can cause pain — Wind (occipital HA, stiffness), Damp (heavy head/joints/abdomen). <b>Food Retention:</b> stomach/abdomen, full &amp; intense, common in children.</p>
+      </div>
+      <div class="zh">
+        <h4>依病因分</h4>
+        <p><b>氣滯：</b>脹滿、痞悶、走竄無定處；與壓力相關、時作時止；多見於腹與胃脘。</p>
+        <p><b>肝陽上亢：</b>氣逆（氣滯之甚）；脹痛、搏動性頭痛。</p>
+        <p><b>血瘀：</b>銳痛、刺痛、劇烈、痛處固定；多見於頭、胸、胃脘、腹、子宮。</p>
+        <p><b>寒：</b>絞痛、痙攣；遇冷（天氣/飲食）加重、得熱則緩；多見於消化道、子宮、關節。</p>
+        <p><b>熱：</b>灼痛；遇熱加重、得涼則緩；常兼濕成濕熱而見沉重感。</p>
+        <p><b>外邪：</b>六淫皆可致痛——風（後枕頭痛、僵硬）、濕（頭/關節/腹沉重）。<b>食積：</b>胃腹脹滿而痛，小兒多見。</p>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>Location 部位</h4>
+        <p><b>Headache 頭痛:</b> Forehead = Yang Ming; Temples = Shao Yang; Occipital = Tai Yang; Vertex = Jue Yin.</p>
+        <p>Chest = HT, LU · Hypochondrium = LR, GB · Epigastrium = ST · Abdomen = SI, LI, LR, SP · Hypogastrium = LR, BL, Uterus · Lower back = KD, Uterus, BL channel · Limbs = follow the channels.</p>
+      </div>
+      <div class="zh">
+        <h4>部位</h4>
+        <p><b>頭痛：</b>前額＝陽明；兩顳＝少陽；後枕＝太陽；巔頂＝厥陰。</p>
+        <p>胸＝心、肺 · 脅＝肝、膽 · 胃脘＝胃 · 腹＝小腸、大腸、肝、脾 · 小腹＝肝、膀胱、子宮 · 腰＝腎、子宮、膀胱經 · 四肢＝循經定位。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>2. 飲食與口味 <span class="en">Food &amp; Taste</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>Useful to determine SP &amp; ST function.</p>
+        <p><b>Food 食：</b>no appetite = SP Qi Def · voracious = ST Heat · fullness after eating = food retention/Damp · distension after eating = Qi stagnation · sharp pain = Blood stasis · heaviness = Damp · worse w/ cold food, better w/ warm = Cold · worse w/ hot, better w/ cool = Heat.</p>
+        <p><b>Taste 味：</b>bitter = LR/HT Fire · sweet = SP Qi Def or Damp-Heat · sour = food retention or LR/ST disharmony · bland = SP &amp; ST Def.</p>
+        <p><b>Vomiting 嘔:</b> sudden/loud = Excess · slow/quiet = Def · sour = LR/ST disharmony · bitter = LR/GB Heat · clear/watery = Cold in ST with fluid · after eating = Heat.</p>
+      </div>
+      <div class="zh">
+        <p>有助判斷脾胃功能。</p>
+        <p><b>食：</b>納呆＝脾氣虛 · 消穀善飢＝胃熱 · 食後脹滿＝食積/濕 · 食後脹＝氣滯 · 刺痛＝血瘀 · 沉重＝濕 · 進冷食甚、得溫則緩＝寒 · 進熱食甚、得涼則緩＝熱。</p>
+        <p><b>口味：</b>口苦＝肝火或心火 · 口甜＝脾氣虛或濕熱 · 口酸＝食積或肝胃不和 · 口淡無味＝脾胃虛。</p>
+        <p><b>嘔吐：</b>驟發響亮＝實 · 緩慢無聲＝虛 · 酸＝肝胃不和 · 苦＝肝膽熱 · 清稀水樣＝寒飲停胃 · 食後即吐＝熱。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>3. 二便 <span class="en">Stool &amp; Urine</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>Bowel function reflects SP &amp; LI; movement of food is influenced by smooth LR Qi. <b>Excess feels better after a BM; Deficiency feels worse.</b></p>
+        <h4>Constipation 便秘</h4>
+        <p>Relies on smooth LR Qi; LI extracts water as content moves. Qi stagnation → bowel stops, too much water extracted. Heat → dry, hard stool. Yin/Fluid Def → dry stool. Less commonly Qi/Yang Def → slow bowels, weak to push (stool not dry/hard).</p>
+      </div>
+      <div class="zh">
+        <p>大便反映脾與大腸；食物運行受肝氣疏泄影響。<b>實證便後舒；虛證便後更差。</b></p>
+        <h4>便秘</h4>
+        <p>賴肝氣條達；大腸於傳導時吸收水分。氣滯 → 腸不動、水分吸收過多。熱 → 便乾硬。陰/津虛 → 便乾。較少見者為氣/陽虛 → 腸蠕動慢、無力推送（便不乾硬）。</p>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>Diarrhea 泄瀉</h4>
+        <p><b>Deficiency 虛:</b> chronic loose stool = SP/KI Yang Def · early-morning "cock's crow / daybreak" diarrhea (五更瀉) = KI Yang Def · undigested food = SP Qi Def · borborygmi + diarrhea = SP Qi Def.</p>
+        <p><b>Excess 實:</b> fullness/abdo pain relieved by passing stool, mild smell = Internal Cold in LI · mucus = Damp · mucus + blood = Damp-Heat · (blood <em>before</em> stool = Blood-Heat/Damp-Heat; blood <em>after</em> = SP not holding Blood) · burning &amp; foul = Heat/Toxic Heat (often bad food).</p>
+        <p><b>Alternating loose &amp; constipation</b> = classic LR invading SP.</p>
+        <p><b>Flatulence</b> = LR Qi stagnation (± SP Qi). Foul = Damp-Heat in SP/ST; no smell = Internal Cold or SP Yang Def.</p>
+      </div>
+      <div class="zh">
+        <h4>泄瀉</h4>
+        <p><b>虛：</b>慢性便溏＝脾/腎陽虛 · 五更泄（黎明瀉）＝腎陽虛 · 完穀不化＝脾氣虛 · 腸鳴兼瀉＝脾氣虛。</p>
+        <p><b>實：</b>脹滿/腹痛便後緩、氣味不重＝大腸內寒 · 黏液＝濕 · 黏液帶血＝濕熱 ·（<em>便前</em>下血＝血熱/濕熱；<em>便後</em>下血＝脾不統血）· 灼熱穢臭＝熱/熱毒（多因不潔飲食）。</p>
+        <p><b>便溏與便秘交替</b>＝典型肝木乘脾。</p>
+        <p><b>矢氣（腸胃脹氣）</b>＝肝氣鬱滯（可兼脾氣）。臭穢＝脾胃濕熱；無味＝內寒或脾陽虛。</p>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>Urination 小便</h4>
+        <p>Urine is formed in the Bladder, relies on KI Qi.</p>
+        <p>Polyuria (copious &amp; clear) = KI Def / Interior Cold (KI Yang Def) · Incontinence = KI Yang Def · Nocturia = KI Def (Qi/Yin/Yang) · Dribbling = KI Qi Def or Damp-Heat in LJ · clear = Cold · dark = Heat · Urgency (burning, decreased) = Damp-Heat in BL/LJ.</p>
+        <p><b>Dysuria = Lin Syndrome (淋證):</b> burning = Heat in BL/LJ · cloudy = Damp/Damp-Heat in BL · bloody = Damp-Heat in BL or KI Yin Def, chronic = SP not holding · hesitant = LR Qi stagnation · weak = Qi Def (SP/KI) · stone = Damp-Heat in BL.</p>
+      </div>
+      <div class="zh">
+        <h4>小便</h4>
+        <p>尿液成於膀胱，賴腎氣。</p>
+        <p>多尿（清長）＝腎虛/內寒（腎陽虛）· 失禁＝腎陽虛 · 夜尿＝腎虛（氣/陰/陽）· 餘瀝＝腎氣虛或下焦濕熱 · 清＝寒 · 黃＝熱 · 尿急（灼痛量少）＝膀胱/下焦濕熱。</p>
+        <p><b>小便不利＝淋證：</b>灼熱＝膀胱/下焦熱 · 混濁＝膀胱濕/濕熱 · 尿血＝膀胱濕熱或腎陰虛，慢性＝脾不統 · 澀滯＝肝氣鬱 · 無力＝氣虛（脾腎）· 砂石＝膀胱濕熱（石淋）。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>4. 口渴飲水 <span class="en">Thirst &amp; Drink</span></h3>
+    <div class="pair">
+      <div class="en">
+        <ul>
+          <li>Large thirst, cold drinks = <span class="term">Excess Heat</span></li>
+          <li>Thirst for cold but only sips = <span class="term">Yin Def</span></li>
+          <li>No thirst / prefers warm = <span class="term">Cold</span></li>
+          <li>Thirsty but doesn't want to drink = <span class="term">Damp-Heat</span> (Heat → thirst; Damp → reluctance to add fluid)</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <ul>
+          <li>大渴喜冷飲＝<span class="term">實熱</span></li>
+          <li>喜冷飲但僅欲小啜＝<span class="term">陰虛</span></li>
+          <li>不渴或喜溫飲＝<span class="term">寒證</span></li>
+          <li>渴而不欲飲＝<span class="term">濕熱</span>（熱故渴，濕故不欲多飲）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>5. 精力（疲勞） <span class="en">Energy / Fatigue</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>Fatigue is often pathognomonic for <b>SP Qi Def</b> — but don't neglect other Deficient organs (LU, KI) or Excess causes:</p>
+        <ul>
+          <li>Damp &amp; Phlegm → complaints of fatigue.</li>
+          <li>LR Qi stagnation → fatigue; may feel better after a brisk walk.</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <p>疲勞常為<b>脾氣虛</b>之特徵——但勿忽略其他虛臟（肺、腎）及實性病因：</p>
+        <ul>
+          <li>濕與痰 → 訴疲乏。</li>
+          <li>肝氣鬱 → 疲乏；快步走後可能反覺較佳。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>6. 頭、面、身 <span class="en">Head, Face &amp; Body</span></h3>
+    <div class="pair">
+      <div class="en">
+        <h4>Headache 頭痛 — location</h4>
+        <ul>
+          <li>Nape 項 = Tai Yang (External W-C) or KI Def</li>
+          <li>Forehead 前額 = Yang Ming or Blood Def</li>
+          <li>Temples 顳 = Shao Yang or LR/GB Fire</li>
+          <li>Vertex 巔 = Jue Yin or LR Blood Def</li>
+          <li>Whole head 滿頭 = Exterior W-C, or if dull = KI Def</li>
+        </ul>
+        <h4>Onset &amp; Quality 起病與性質</h4>
+        <ul>
+          <li>Acute = Exterior (Wind-Cold)</li>
+          <li>Gradual = Interior</li>
+          <li>Heavy/muzzy, cloudy = Damp or Phlegm</li>
+          <li>Distending &amp; throbbing = LR Yang Rising</li>
+          <li>Stabbing/sharp/boring = Blood Stasis</li>
+          <li>Pulling = Internal Wind</li>
+          <li>Dull, worse standing = Deficiency</li>
+        </ul>
+        <h4>Aggravating 加重</h4>
+        <p>Heat = Heat · Cold = Cold · fatigue (better rest) = Qi Def · stress/emotion = Qi stagnation or Yang rising · sexual activity = KI Def · aversion to Wind/Cold = Exterior.</p>
+      </div>
+      <div class="zh">
+        <h4>頭痛——部位</h4>
+        <ul>
+          <li>項後＝太陽（外感風寒）或腎虛</li>
+          <li>前額＝陽明或血虛</li>
+          <li>兩顳＝少陽或肝膽火</li>
+          <li>巔頂＝厥陰或肝血虛</li>
+          <li>滿頭＝外感風寒；若隱痛＝腎虛</li>
+        </ul>
+        <h4>起病與性質</h4>
+        <ul>
+          <li>急起＝外感（風寒）</li>
+          <li>漸起＝內傷</li>
+          <li>沉重昏蒙、頭腦不清＝濕或痰</li>
+          <li>脹痛搏動＝肝陽上亢</li>
+          <li>刺痛、鑽痛＝血瘀</li>
+          <li>牽掣痛＝內風</li>
+          <li>隱痛、站立更甚＝虛</li>
+        </ul>
+        <h4>加重因素</h4>
+        <p>遇熱＝熱 · 遇冷＝寒 · 勞累（休息減輕）＝氣虛 · 壓力/情緒＝氣滯或陽亢 · 房事＝腎虛 · 惡風惡寒＝外感。</p>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>Dizziness 眩暈</h4>
+        <ul>
+          <li>Room spinning + loss of balance = Internal Wind</li>
+          <li>+ throbbing headache = LR Yang Rising</li>
+          <li>Heavy/muzzy = Phlegm obstructing "clear Yang" from rising</li>
+          <li>Mild, worse when tired = Blood Def</li>
+          <li>Sudden = Excess; Gradual = Deficiency</li>
+        </ul>
+        <h4>Face 面 · Nose 鼻 · Gums/Mouth 齒齦口</h4>
+        <p><b>Face:</b> flushing/heat = Heat (Excess or Yin Def Empty Heat); facial pain = Wind-Heat/Wind-Cold, or Internal (Damp-Heat, LR Heat/Fire, Qi Def + Blood stasis).</p>
+        <p><b>Nose:</b> new runny nose = External Wind (usually W-C); chronic clear/runny = LU Qi/Wei Qi Def, or deeper KI &amp; LU Yang Def; thick yellow sticky = Damp-Heat.</p>
+        <p><b>Gums:</b> bleeding/swollen = ST Heat (Excess or Yin Def); if chronic, consider SP not holding Blood.</p>
+      </div>
+      <div class="zh">
+        <h4>眩暈</h4>
+        <ul>
+          <li>天旋地轉、失去平衡＝內風</li>
+          <li>兼搏動性頭痛＝肝陽上亢</li>
+          <li>沉重昏蒙＝痰阻，清陽不升</li>
+          <li>輕微、疲時加重＝血虛</li>
+          <li>驟起＝實；漸起＝虛</li>
+        </ul>
+        <h4>面 · 鼻 · 齒齦口</h4>
+        <p><b>面：</b>潮紅/發熱＝熱（實熱或陰虛虛熱）；面痛＝風熱/風寒，或內因（濕熱、肝熱/火、氣虛夾血瘀）。</p>
+        <p><b>鼻：</b>新起流涕＝外感風邪（多風寒）；久而清稀流涕＝肺氣/衛氣虛，或更深之腎肺陽虛；涕黃稠黏＝濕熱。</p>
+        <p><b>齒齦：</b>出血腫脹＝胃熱（實熱或陰虛）；若慢性，考慮脾不統血。</p>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>Mouth Ulcers / Cold Sores 口瘡・唇皰疹</h4>
+        <p><b>Ulcers:</b> persistent = Excess; intermittent = Def. Very painful, red-rimmed = ST Excess Heat; pale-rimmed = ST Yin Def (worse when fatigued → KI Yin Def); on tongue tip = HT (Yin Def or Excess Heat).</p>
+        <p><b>Cold sores:</b> sudden + burning = ST Excess Heat; chronic/recurrent = ST Yin Def; chronic in bouts, pale = Qi Def.</p>
+        <h4>Body Pain 身痛</h4>
+        <p><b>Whole body:</b> sudden + chills/fever = External invasion; + tiredness = Qi &amp; Blood Def; dull + heavy limbs = Damp in muscles.</p>
+        <p><b>Joints:</b> wandering = Wind · fixed &amp; very painful = Cold · fixed + swelling/numbness = Damp · swollen &amp; red = Damp-Heat · severe/stabbing = Blood stasis.</p>
+        <p><b>Back:</b> low-grade, better rest = KI Def · recent/severe/fixed (± injury), stiff = Blood Stasis · worse damp-cold, better heat = Damp-Cold.</p>
+        <p><b>Numbness:</b> symmetrical hands/feet = Blood Def · one-sided = Wind-Phlegm blocking channels.</p>
+      </div>
+      <div class="zh">
+        <h4>口瘡・唇皰疹</h4>
+        <p><b>口瘡：</b>持續＝實；間歇＝虛。劇痛、紅邊＝胃實熱；淡邊＝胃陰虛（疲時更甚→腎陰虛）；生於舌尖＝心（陰虛或實熱）。</p>
+        <p><b>唇皰疹：</b>驟發灼痛＝胃實熱；慢性反覆＝胃陰虛；慢性成簇、色淡＝氣虛。</p>
+        <h4>身痛</h4>
+        <p><b>周身痛：</b>驟起兼寒熱＝外邪侵襲；兼疲倦＝氣血虛；隱痛兼四肢沉重＝濕滯肌肉。</p>
+        <p><b>關節：</b>遊走＝風 · 固定劇痛＝寒 · 固定兼腫脹麻木＝濕 · 腫紅＝濕熱 · 劇烈刺痛＝血瘀。</p>
+        <p><b>腰痛：</b>綿綿、休息減輕＝腎虛 · 新起劇烈固定（多伴外傷）、僵硬＝血瘀 · 遇濕冷甚、得熱減＝寒濕。</p>
+        <p><b>麻木：</b>對稱手足＝血虛 · 單側＝風痰阻絡。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>7. 胸與腹 <span class="en">Chest &amp; Abdomen</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p><b>Chest 胸</b> (if not musculoskeletal): sharp/crushing = HT Blood Stasis · cough + yellow sputum = LU Heat (profuse = LU Phlegm-Heat) · oppression related to mood = LR insulting LU.</p>
+        <p><b>Hypochondrium 脅 = Liver:</b> stabbing = LR Blood stasis · distending, comes &amp; goes = LR Qi stagnation.</p>
+        <p><b>Epigastrium 胃脘 = Stomach:</b> dull, relieved by eating = Deficiency (ST Qi/Yang/Yin Def) · severe, aggravated by eating = Excess (food retention, ST Heat, ST Damp-Heat, ST Phlegm-Fire, Blood stasis, LR invading ST).</p>
+        <p><b>Abdomen 腹 (SP/SI/LI/BL/Uterus):</b> aggravated by pressure or relieved by BM = Excess · relieved by pressure = Def · distending/diffuse, comes &amp; goes = Qi stagnation · fixed/sharp/stabbing = Blood stasis · relieved by warmth = Internal Cold/Yang Def/Qi stagnation.</p>
+      </div>
+      <div class="zh">
+        <p><b>胸</b>（非肌肉骨骼者）：銳痛/壓榨痛＝心血瘀 · 咳兼黃痰＝肺熱（痰多＝肺痰熱）· 悶而與情緒相關＝肝木侮肺。</p>
+        <p><b>脅＝肝：</b>刺痛＝肝血瘀 · 脹痛、時作時止＝肝氣鬱。</p>
+        <p><b>胃脘＝胃：</b>隱痛、得食則緩＝虛（胃氣/陽/陰虛）· 劇痛、食後加重＝實（食積、胃熱、胃濕熱、胃痰火、血瘀、肝犯胃）。</p>
+        <p><b>腹（脾/小腸/大腸/膀胱/子宮）：</b>按之甚或便後緩＝實 · 按之緩＝虛 · 脹而瀰漫、時作時止＝氣滯 · 固定、銳利、刺痛＝血瘀 · 得溫則緩＝內寒/陽虛/氣滯。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>8. 四肢 <span class="en">Limbs</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>Affected by: weakness, pain/paresthesia, atrophy, tremors, temperature &amp; heaviness sensations.</p>
+        <p><b>Weakness:</b> ST Qi Def, Qi &amp; Blood Def, or KI Def.</p>
+        <p><b>Paresthesia:</b> tingling = Blood Def · numbness = Damp (swollen, lower limb), Phlegm (heavy), Wind (elderly); painful+numb = Qi &amp; Blood stagnation · muscle ache = Damp in muscles/interstices.</p>
+        <p><b>Bi Zheng 痺證 (Painful Obstruction):</b> Wind = joint to joint · Cold = fixed &amp; intense · Damp = swollen · Damp-Heat = swollen, red, hot.</p>
+        <p><b>Atrophy 痿:</b> ST/SP Qi Def not transporting nutrients; over time → Yin Def (LR/KI) or Yang Def (SP/KI).</p>
+        <p><b>Tremors 顫:</b> LR Wind — from LR Blood Def, LR/KI Yin Def + Empty Heat, LR Yang Rising, or LR Heat/Fire.</p>
+        <p><b>Cold/Warm:</b> cold hands = Yang Def/Blood Def/Qi stagnation · cold feet = KI Yang Def · hot palms/soles = Yin Def (if Yang side of hand also hot = Excess Heat) · heavy legs = Damp/Phlegm.</p>
+      </div>
+      <div class="zh">
+        <p>可見：無力、疼痛/感覺異常、萎縮、顫抖、溫度覺、沉重感。</p>
+        <p><b>無力：</b>胃氣虛、氣血虛或腎虛。</p>
+        <p><b>感覺異常：</b>刺麻感＝血虛 · 麻木＝濕（腫、多下肢）、痰（重）、風（老人）；痛而麻＝氣血瘀滯 · 肌肉痠痛＝濕留肌肉腠理。</p>
+        <p><b>痺證（痛痺阻滯）：</b>風＝遊走關節 · 寒＝固定劇痛 · 濕＝腫脹 · 濕熱＝腫紅灼熱。</p>
+        <p><b>痿證：</b>胃脾氣虛不能布津於四肢；日久→陰虛（肝腎）或陽虛（脾腎）。</p>
+        <p><b>顫抖：</b>肝風——由肝血虛、肝腎陰虛兼虛熱、肝陽上亢或肝熱/火所致。</p>
+        <p><b>寒溫：</b>手冷＝陽虛/血虛/氣滯 · 足冷＝腎陽虛 · 手足心熱＝陰虛（若手背亦熱＝實熱）· 腿沉重＝濕/痰。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>9. 睡眠 <span class="en">Sleep</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>Restful sleep depends on healthy LR &amp; HT, and adequate Yin &amp; Blood to nourish and anchor the Shen &amp; Hun.</p>
+        <h4>Insomnia 不寐</h4>
+        <ul>
+          <li>Difficulty falling asleep = Blood Def</li>
+          <li>Frequent waking + palpitations + night sweats = Yin Def (HT/LR/KI)</li>
+          <li>Early waking, can't fall back = GB Qi Def</li>
+        </ul>
+        <h4>Quality 質</h4>
+        <ul>
+          <li>Heavy sleeper / snores = Damp constitution</li>
+          <li>Restless, hot, agitated, too much dreaming = Excess Heat/Fire in LR or HT (LR Heat → physical restlessness; HT Heat → mental); also food retention</li>
+          <li>Light sleeper, frequent waking, many dreams, anxiety = Qi &amp; Blood Def</li>
+        </ul>
+        <h4>Other 其他</h4>
+        <p>Teeth grinding = food retention, parasites, or restless Shen (stress). Non-restorative sleep = LR not cleaning Blood, or Blood Def. Sleepiness after eating = SP Qi Def (if larger build → Damp/Phlegm).</p>
+      </div>
+      <div class="zh">
+        <p>安睡有賴肝心功能健全，及充足之陰血以濡養、潛藏神與魂。</p>
+        <h4>不寐</h4>
+        <ul>
+          <li>難以入睡＝血虛</li>
+          <li>夜間頻醒兼心悸、盜汗＝陰虛（心/肝/腎）</li>
+          <li>早醒難再入睡＝膽氣虛</li>
+        </ul>
+        <h4>睡眠品質</h4>
+        <ul>
+          <li>沉睡/打鼾＝痰濕體質</li>
+          <li>煩躁、發熱、不安、多夢＝肝或心之實熱/火（肝熱→形體不安；心熱→神志不安）；亦見於食積</li>
+          <li>淺眠、頻醒、多夢、焦慮＝氣血虛</li>
+        </ul>
+        <h4>其他</h4>
+        <p>磨牙＝食積、寄生蟲或神不安（壓力）。睡而不解乏＝肝不藏血/血虛。食後嗜睡＝脾氣虛（體胖者→痰濕）。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>10. 汗 <span class="en">Sweating</span></h3>
+    <div class="pair">
+      <div class="en">
+        <ul>
+          <li><span class="term">Spontaneous 自汗</span> = Wei Qi Def or Yang Qi Def (can't control pore closing)</li>
+          <li><span class="term">Night sweats 盜汗</span> = traditionally HT Yin Def; but any Heat (External, Internal Excess, Damp-Heat) can cause it</li>
+          <li><span class="term">Hot flashes 潮熱</span> = traditionally KI Yin Def; other Heat/stagnation possible</li>
+          <li>Excessive with exertion = Qi/Yang Def</li>
+          <li>When nervous = HT condition</li>
+          <li>Lack of sweat = External Excess Cold or Qi stagnation</li>
+          <li>Yellow sweat = Heat or Damp-Heat</li>
+          <li>Head sweat = upper-jiao Heat/Damp-Heat (Damp envelops body, pushes Heat up → "chimney flue")</li>
+          <li>Hands &amp; feet = SP/ST Damp, Damp-Heat, or Yang Def with Damp</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <ul>
+          <li><span class="term">自汗</span>＝衛氣虛或陽氣虛（不能司腠理開闔）</li>
+          <li><span class="term">盜汗</span>＝傳統屬心陰虛；然任何內熱（外熱、內實熱、濕熱）皆可致之</li>
+          <li><span class="term">潮熱（烘熱）</span>＝傳統屬腎陰虛；其他內熱/瘀滯亦可</li>
+          <li>動則汗甚＝氣/陽虛</li>
+          <li>緊張則汗＝心之病</li>
+          <li>無汗＝外感實寒或氣滯</li>
+          <li>黃汗＝熱或濕熱</li>
+          <li>頭汗＝上焦熱/濕熱（濕包於身、逼熱上蒸如煙囪）</li>
+          <li>手足汗＝脾胃濕、濕熱或陽虛夾濕</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>11. 耳與目 <span class="en">Ears &amp; Eyes</span></h3>
+    <div class="pair">
+      <div class="en">
+        <h4>Tinnitus / Deafness 耳鳴・耳聾 — KI Def or LR Excess</h4>
+        <ul>
+          <li>Sudden onset = Excess (LR Fire, LR Yang rising, LR Wind on GB channel)</li>
+          <li>Gradual = Deficiency (KI Yin/Yang/Essence)</li>
+          <li>Pressing louder = Excess; pressing better = Deficiency</li>
+          <li>Loud &amp; high-pitched = Excess LR; low-pitched = KI Deficiency</li>
+          <li>Deafness: sudden = LR Fire/Yang/Wind; gradual = Deficiency (KI or HT)</li>
+        </ul>
+        <h4>Eyes 目 — nourished by LR Blood</h4>
+        <p>Also consider KI (Essence), SP, HT as Blood contributors.</p>
+        <p><b>Pain:</b> red eyes + needle-sharp pain = Toxic Heat in HT channel · pain/swelling/redness = Wind-Heat or LR Fire · burning = LR Fire/Heat, External Wind-Heat · dull pressure = KI Yin Def · eyestrain = LR Blood Def.</p>
+        <p><b>Vision:</b> floaters = LR Blood/Yin Def · photophobia = LR Heat, LR Yang Rising, LR Blood Def · night blindness = LR Blood/Yin Def · poor vision = LR Blood/Yin Def, KI Yin Def.</p>
+        <p><b>Other:</b> dryness = LR/KI Yin Def · yellow sclera = SP Damp or LR/GB Damp-Heat · red canthi = HT; sclera belongs to LU.</p>
+      </div>
+      <div class="zh">
+        <h4>耳鳴・耳聾——腎虛或肝實</h4>
+        <ul>
+          <li>驟起＝實（肝火、肝陽上亢、肝風擾膽經）</li>
+          <li>漸起＝虛（腎陰/陽/精）</li>
+          <li>按之更響＝實；按之減輕＝虛</li>
+          <li>響而高調＝肝實；低調＝腎虛</li>
+          <li>耳聾：驟起＝肝火/陽/風；漸起＝虛（腎或心）</li>
+        </ul>
+        <h4>目——賴肝血濡養</h4>
+        <p>亦須考慮腎（精）、脾、心為血之來源。</p>
+        <p><b>目痛：</b>目赤兼針刺樣痛＝心經熱毒 · 痛腫紅＝風熱或肝火 · 灼痛＝肝火/熱、外感風熱 · 隱隱脹痛＝腎陰虛 · 眼疲勞＝肝血虛。</p>
+        <p><b>視覺：</b>飛蚊＝肝血/陰虛 · 畏光＝肝熱、肝陽上亢、肝血虛 · 夜盲＝肝血/陰虛 · 視力差＝肝血/陰虛、腎陰虛。</p>
+        <p><b>其他：</b>目乾＝肝腎陰虛 · 鞏膜黃＝脾濕或肝膽濕熱 · 眥紅＝心；白睛（鞏膜）屬肺。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>12. 寒、熱、發熱 <span class="en">Cold, Heat, Fever</span></h3>
+    <div class="pair must">
+      <div class="en">
+        <h4><span class="seal-must">必記</span>Cold vs Heat</h4>
+        <p>Cold can be Interior/Exterior and Excess/Deficient.</p>
+        <ul>
+          <li><span class="term">Aversion to Cold (惡寒 Wu Han)</span> = Cold pathogenic factor, <em>not</em> relieved by warmth.</li>
+          <li><span class="term">Intolerance to Cold (畏寒 Wei Han)</span> = Yang Deficiency, <em>relieved</em> by warmth.</li>
+        </ul>
+        <p>"Fever/Heat" can mean high temperature or a subjective feeling of heat.</p>
+      </div>
+      <div class="zh">
+        <h4><span class="seal-must">必記</span>寒與熱</h4>
+        <p>寒有表裏、虛實之別。</p>
+        <ul>
+          <li><span class="term">惡寒（Wu Han）</span>＝寒邪為患，得溫<em>不</em>減。</li>
+          <li><span class="term">畏寒（Wei Han）</span>＝陽虛，得溫<em>則</em>減。</li>
+        </ul>
+        <p>「發熱／熱」可指體溫升高，亦可指主觀熱感。</p>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>Aversion to Cold WITH Fever (simultaneously) 惡寒發熱並見</h4>
+        <p>Wind + pathogen enters the outer body, inhibits Wei Qi (Yang) → chills/aversion to Cold (stronger pathogen → more aversion). Zheng Qi mobilises to the surface → heat sensation (stronger fever → more anti-pathogenic Qi).</p>
+        <ul>
+          <li><b>A)</b> Severe aversion to Cold, slight fever + headache, body pain, <b>NO sweat</b> = External Cold (Excess) — Tai Yang Cold (Shang Han Lun).</li>
+          <li><b>B)</b> High fever, slight aversion to Cold + sore throat, red tongue, rapid pulse, sweating = External Heat.</li>
+          <li><b>C)</b> Aversion to Wind, slight fever + sweating = External Wind — Tai Yang Wind (Shang Han Lun).</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <h4>惡寒發熱並見</h4>
+        <p>風邪挾他邪入於淺表、遏抑衛陽 → 寒戰惡寒（邪盛則惡寒甚）。正氣趨表抗邪 → 熱感（熱甚則抗邪之氣足）。</p>
+        <ul>
+          <li><b>A)</b> 惡寒重、微發熱＋頭痛、身痛、<b>無汗</b>＝外感實寒——太陽傷寒（表實）。</li>
+          <li><b>B)</b> 高熱、微惡寒＋咽痛、舌紅、脈數、有汗＝外感熱證。</li>
+          <li><b>C)</b> 惡風、微熱＋有汗＝外感風證——太陽中風（表虛）。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>Cold with NO Fever 但寒不熱</h4>
+        <p><b>Excess Cold 實寒</b> (Cold pathogen enters Interior): shivering, pain (Cold constricts/blocks channels), objectively cold, not warmed by clothing. Pulse Strong/Full/Tight, usually Slow. Palpate abdomen: upper = ST, lower = LI/Uterus.</p>
+        <p><b>Empty Cold 虛寒</b> (Yang Def): chronic, feels cold often, may be cold to touch. Cold limbs = LU/HT Yang Def; cold abdomen = SP Yang Def; cold flanks/low back/knees/feet = KI Yang Def. Pulse weak, deep, slow. Better with extra clothing / socks to bed.</p>
+        <p><b>Qi Stagnation:</b> Qi can't reach limbs → cold hands/feet (or just fingers/toes). Treat with Qi regulators, not warming/scattering herbs. <b>Blood Def:</b> HT Blood Def → cold hands/chest; LR Blood Def → cold feet.</p>
+      </div>
+      <div class="zh">
+        <h4>但寒不熱</h4>
+        <p><b>實寒</b>（寒邪入裏）：寒戰、疼痛（寒性收引閉阻經絡）、觸之客觀發涼、加衣不暖。脈強/實/緊，多遲。按腹定位：上＝胃，下＝大腸/子宮。</p>
+        <p><b>虛寒</b>（陽虛）：慢性、常畏寒、觸之亦涼。四肢冷＝肺/心陽虛；腹冷＝脾陽虛；脅、腰、膝、足冷＝腎陽虛。脈弱、沉、遲。加衣、穿襪入睡則舒。</p>
+        <p><b>氣滯：</b>氣不達四末 → 手足（或僅指趾）冷。宜用理氣藥，非溫散寒之品。<b>血虛：</b>心血虛→手與胸冷；肝血虛→足冷。</p>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>Heat (Fever) 發熱</h4>
+        <p>Heat = Excess/Deficient, External/Internal.</p>
+        <p><b>Interior Heat:</b> may penetrate from outside or arise internally (diet/lifestyle/emotions). Hyper-functioning organ + heat sensation, irritability, restlessness, wants less clothing, cold water. Heat rises → chest/head/Heart; + Damp → settles lower.</p>
+        <p><b>Excess Internal Heat example — "4 Bigs" (四大症):</b> fever &gt;39°C, red face, thirst, profuse sweat, big pulse = Yang Ming Syndrome (Shang Han Lun) → White Tiger Decoction (白虎湯).</p>
+      </div>
+      <div class="zh">
+        <h4>發熱</h4>
+        <p>熱有虛實、內外之別。</p>
+        <p><b>裏熱：</b>可由外入或內生（飲食/生活/情志）。臟腑功能亢進＋熱感、煩躁、不安、欲減衣、喜冷飲。熱性上炎→胸/頭/心；兼濕→下注。</p>
+        <p><b>裏實熱範例——四大症：</b>發熱＞39°C、面赤、口渴、大汗、脈洪大＝陽明證（傷寒論）→ 白虎湯。</p>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>Tidal Fever 潮熱 &amp; Low Fever 低熱</h4>
+        <p><b>Tidal Fever</b> (comes &amp; goes like a tide):</p>
+        <ul>
+          <li>Yang Ming Tidal Fever (3–5 pm) + abdo distension/pain, constipation (dry feces block LI).</li>
+          <li>Damp-Warm Tidal Fever (epidemic Warm disease): afternoon fever, quite regular; may not feel hot at first (Damp blocks Heat surfacing) → chest oppression, body heaviness, greasy coat.</li>
+          <li>Yin Deficiency Tidal Fever: afternoon/evening heat + 5-centre Heat, night sweats, "steaming bones" (骨蒸).</li>
+        </ul>
+        <p><b>Low Fever:</b> Yin Def (as above) · Qi Def (worse after activity + SOB, low energy — SP Qi not ascending, stagnation → heat) · Young kids' summer fever (restlessness, thirst, low fever, no sweat, ↑ urination; heals by autumn).</p>
+        <h4>Alternating Heat &amp; Cold 寒熱往來</h4>
+        <p>Distinct alternating = pathogen stuck at half-interior / half-exterior = <b>Shao Yang</b> stage (6 Stages).</p>
+      </div>
+      <div class="zh">
+        <h4>潮熱與低熱</h4>
+        <p><b>潮熱</b>（如潮汐般定時來去）：</p>
+        <ul>
+          <li>陽明潮熱（下午 3–5 時）＋腹脹痛、便秘（燥屎阻大腸）。</li>
+          <li>濕溫潮熱（溫疫）：午後發熱、頗規律；初按可不覺熱（濕遏熱不外達）→ 胸悶、身重、苔膩。</li>
+          <li>陰虛潮熱：午後/傍晚熱＋五心煩熱、盜汗、骨蒸。</li>
+        </ul>
+        <p><b>低熱：</b>陰虛（如上）· 氣虛（活動後加重＋氣短、乏力——脾氣不升、鬱而化熱）· 小兒夏季熱（煩躁、口渴、低熱、無汗、尿多；入秋自癒）。</p>
+        <h4>寒熱往來</h4>
+        <p>寒熱交替分明＝邪居半表半裏＝<b>少陽</b>證（六經）。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>13. 情志症狀 <span class="en">Emotional Symptoms</span></h3>
+    <div class="pair must">
+      <div class="en">
+        <h4><span class="seal-must">必記</span>Emotions &amp; the 5 Phases / Qi Movement</h4>
+        <p>Fire – Joy · Earth – Worry · Metal – Sadness &amp; Grief · Water – Fear &amp; Fright · Wood – Anger.</p>
+        <ul>
+          <li>Joy → Qi becomes sluggish (緩)</li>
+          <li>Worry → Qi stagnates (結)</li>
+          <li>Sadness &amp; Grief → consume Qi (消)</li>
+          <li>Fear → Qi descends (下); Fright → Qi scatters (亂)</li>
+          <li>Anger → Qi stagnates or ascends (上)</li>
+        </ul>
+        <p>All emotions are filtered through the <b>Heart</b>; smooth emotional flow depends on smooth <b>Liver</b> Qi → always consider HT &amp; LR in emotional pathology.</p>
+      </div>
+      <div class="zh">
+        <h4><span class="seal-must">必記</span>情志與五行／氣機</h4>
+        <p>火——喜 · 土——思 · 金——悲憂 · 水——恐驚 · 木——怒。</p>
+        <ul>
+          <li>喜 → 氣緩</li>
+          <li>思 → 氣結</li>
+          <li>悲憂 → 氣消</li>
+          <li>恐 → 氣下；驚 → 氣亂</li>
+          <li>怒 → 氣鬱或氣上</li>
+        </ul>
+        <p>一切情志皆經<b>心</b>而顯；情志條暢賴<b>肝</b>氣疏泄 → 情志病變恆須顧及心與肝。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>14. 性方面症狀 <span class="en">Sexual Symptoms</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>Sexual health depends on well-functioning zang-fu, sufficient Qi/Blood/Fluids, Yin-Yang balance; Shen &amp; emotions matter too.</p>
+        <p><b>Why ask?</b> Sexual symptoms can uncover other causes — e.g. sexual activity aggravating low back pain/fatigue = KI Qi Def; post-coital migraine = rebellious Qi in Chong channel, HT Fire flare, or KI Yin Def → Yang flare.</p>
+        <p><b>Impotence 陽痿:</b> often KI Yang Def (erections are Yang). But also stress/emotions (HT via Bao Mai; LR channel encircles genitals) or infection. Differentiate: night/morning erections decline in true Yang Def, but not in HT/LR patterns.</p>
+        <p><b>Low libido 性慾低下:</b> often KI (Qi Def, Qi stagnation, or emotional). High libido = Heat (Excess or Yin Def Empty-Heat).</p>
+        <p><b>Premature ejaculation 早洩:</b> KI Qi not holding, KI Yin Def with Empty-Heat, or HT (emotional).</p>
+      </div>
+      <div class="zh">
+        <p>性健康賴臟腑功能健全、氣血津液充足、陰陽平衡；神與情志亦關鍵。</p>
+        <p><b>為何要問？</b>性方面症狀可揭示他病之因——如房事加重腰痛/疲勞＝腎氣虛；性交後偏頭痛＝衝脈氣逆、心火上炎，或腎陰虛致陽亢。</p>
+        <p><b>陽痿：</b>多屬腎陽虛（勃起屬陽）。然亦可因壓力情志（心經由胞脈；肝經繞陰器）或感染。鑑別：真陽虛者夜間/晨勃減退，心/肝證則多無影響。</p>
+        <p><b>性慾低下：</b>多責之腎（氣虛、氣滯或情志）。性慾亢進＝熱（實熱或陰虛虛熱）。</p>
+        <p><b>早洩：</b>腎氣不固、腎陰虛兼虛熱，或心（情志）。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>15. 婦科（月經與帶下） <span class="en">Gynaecological Health</span></h3>
+    <div class="pair">
+      <div class="en">
+        <h4>Menstruation 月經</h4>
+        <p><b>Cycle:</b> consistently early = Heat in Blood (if bright red) or Qi Def (if pale/watery) · consistently late = Blood Def, Blood stagnation, or Cold · irregular = LR overacting on SP (LR Qi stagnation + SP Qi Def).</p>
+        <p><b>Amount:</b> heavy = Heat or Qi Def · scanty = Blood Def, stagnation, or Cold.</p>
+        <p><b>Colour:</b> dark/bright red = Blood-Heat · fresh red = Yin Def Empty-Heat · pale = Blood/Qi Def · purplish/blackish = Blood stasis or Cold.</p>
+        <p><b>Quality:</b> clots = Blood stasis/Cold (larger = more stasis) · watery = Qi/Blood/Yin Def · turbid = Blood-Heat or Cold.</p>
+        <p><b>Pain:</b> pre-menstrual = Qi stagnation/Blood stasis · during = Blood-Heat/stasis/Cold · post = Blood Def.</p>
+      </div>
+      <div class="zh">
+        <h4>月經</h4>
+        <p><b>週期：</b>經常提前＝血熱（鮮紅）或氣虛（淡稀）· 經常延後＝血虛、血滯或寒 · 不定＝肝木乘脾（肝鬱＋脾虛）。</p>
+        <p><b>量：</b>量多＝熱或氣虛 · 量少＝血虛、瘀滯或寒。</p>
+        <p><b>色：</b>暗紅/鮮紅＝血熱 · 淡鮮紅＝陰虛虛熱 · 淡＝血/氣虛 · 紫暗黑＝血瘀或寒。</p>
+        <p><b>質：</b>夾塊＝血瘀/寒（塊大瘀甚）· 稀水＝氣/血/陰虛 · 混濁＝血熱或寒。</p>
+        <p><b>痛：</b>經前＝氣滯/血瘀 · 經期＝血熱/血瘀/寒 · 經後＝血虛。</p>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div class="en">
+        <h4>Leucorrhoea 帶下</h4>
+        <p><b>Colour:</b> white = Cold (SP/KI) or LR Qi stagnation · yellow = Heat (Damp-Heat in LJ) · greenish = Damp-Heat in LR channel · red &amp; white = Damp-Heat · yellow with pus/blood = Toxic Damp-Heat in Uterus.</p>
+        <p><b>Consistency:</b> watery = Cold-Damp · thick = Damp-Heat. <b>Odour:</b> fishy/bleach = Damp-Cold · leathery/rotten eggs = Damp-Heat.</p>
+        <h4>Fertility 生育</h4>
+        <p>Infertility = KI Essence Def (also Blood Def, Blood stasis, Damp-Heat in LJ). Pregnancy nausea/vomiting = Chong Mai fullness → ST Qi counterflow. Early miscarriage = KI Essence Def; later = LR Blood stasis or SP not holding. Postpartum depression = Blood Def worsened by delivery blood loss.</p>
+      </div>
+      <div class="zh">
+        <h4>帶下</h4>
+        <p><b>色：</b>白＝寒（脾/腎）或肝氣鬱 · 黃＝熱（下焦濕熱）· 綠＝肝經濕熱 · 赤白＝濕熱 · 黃而膿血＝子宮濕熱毒。</p>
+        <p><b>質：</b>稀水＝寒濕 · 稠厚＝濕熱。<b>氣味：</b>腥/漂白味＝寒濕 · 皮革/臭雞蛋味＝濕熱。</p>
+        <h4>生育</h4>
+        <p>不孕＝腎精虛（亦血虛、血瘀、下焦濕熱）。孕吐＝衝脈壅盛→胃氣上逆。早期流產＝腎精虛；晚期＝肝血瘀或脾不統。產後抑鬱＝血虛，因產時失血而甚。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>16. 小兒症狀 <span class="en">Children's Symptoms</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>A child's intake should include: developmental milestones, digestion/eating, respiratory illness, sleep, emotional health.</p>
+        <h4>Paediatric Pearls 小兒要點</h4>
+        <ul>
+          <li>Extra channels develop <em>in utero</em>; primary channels not complete until age <b>7</b>.</li>
+          <li>Children are comparatively <b>Yang</b> → prone to Heat.</li>
+          <li>"3 Deficiencies &amp; 2 Excesses": SP, LU, and/or KI Qi Def; LR Heat, HT Fire.</li>
+          <li>Childhood diseases change rapidly.</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <p>小兒問診應含：發育里程碑、消化/飲食、呼吸道疾病、睡眠、情緒。</p>
+        <h4>小兒要點</h4>
+        <ul>
+          <li>奇經於<em>胎中</em>發育；正經至 <b>7 歲</b>方全。</li>
+          <li>小兒體屬純<b>陽</b>（相對陽盛）→ 易熱化。</li>
+          <li>「三虛二實」：脾、肺和/或腎氣虛；肝熱、心火。</li>
+          <li>小兒疾病傳變迅速。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- 2D PULSE ---------- -->
+  <div class="mod-banner" id="m2d" style="margin-top:22px;background:var(--jade);"><span class="mno" style="color:#F4EFE4;">2·4</span><span class="mcn">切診・脈診</span><span class="men">Pulse-Taking</span></div>
+
+  <div class="sec">
+    <h3>診脈之道 <span class="en">The Way of Pulse-Feeling</span></h3>
+    <div class="pair">
+      <div class="en">
+        <ul>
+          <li>Concentrate Heart-Mind; wisdom-intuition — "keep tranquil without distraction when taking the pulse."</li>
+          <li>Arrangement of fingers; general pressure &amp; single-finger pressure.</li>
+          <li>Lifting (舉), Pressing (按), Searching (尋).</li>
+          <li>Examine the conditions.</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <ul>
+          <li>凝神定志；以智慧直覺——「診脈時當虛靜無擾」。</li>
+          <li>布指；總按與單按。</li>
+          <li>舉、按、尋。</li>
+          <li>審察病情。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note"><b>講師筆記：</b>診脈當「候氣血、以意會之」。左手候陰血、右手候陽氣。「男左女右」——男子多左脈較強，女子多右脈較強；若相反，則陰陽不調。（另有一說：左尺強為女胎，右尺強為男胎。）
+      <span class="en">Notes: Left = Yin/Blood, Right = Yang/Qi. "Man left, woman right" — men usually left-strong, women right-strong; opposite = Yin-Yang imbalance.</span></div>
+  </div>
+
+  <div class="sec">
+    <h3>脈位（寸關尺） <span class="en">Pulse Positions</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>左手 Left（陰・血）</th><th>部位 Position</th><th>右手 Right（陽・氣）</th></tr></thead>
+      <tbody>
+        <tr><th>心（小腸）Heart (SI)</th><td class="cjk">寸 Cun</td><td class="cjk">肺（大腸）Lung (LI)</td></tr>
+        <tr><th>肝（膽）Liver (GB)</th><td class="cjk">關 Guan</td><td class="cjk">脾（胃）Spleen (ST)</td></tr>
+        <tr><th>腎陰 Kidney Yin</th><td class="cjk">尺 Chi</td><td class="cjk">腎陽 Kidney Yang</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>平脈（正常脈） <span class="en">Normal Pulse</span></h3>
+    <div class="pair must">
+      <div class="en">
+        <p><span class="seal-must">必記</span>Four to five beats per breath (≈72–82 bpm). Neither superficial nor deep; stable, peaceful, harmonious, forceful, with regular rhythm. Three hallmarks:</p>
+        <ul>
+          <li>Full of <span class="term">Stomach-Qi (有胃)</span></li>
+          <li>Full of <span class="term">Spirit / vitality (有神)</span></li>
+          <li>Being <span class="term">rooted (有根)</span></li>
+        </ul>
+      </div>
+      <div class="zh">
+        <p><span class="seal-must">必記</span>一息四至五至（約 72–82 次/分）。不浮不沉；從容和緩、和諧有力、節律規整。三大特徵：</p>
+        <ul>
+          <li><span class="term">有胃</span>氣</li>
+          <li><span class="term">有神</span>（生機）</li>
+          <li><span class="term">有根</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>年齡 Age (yr)</th><th>常率 Rate (bpm)</th></tr></thead>
+      <tbody>
+        <tr><th>1–4</th><td class="cjk">90 或以上</td></tr>
+        <tr><th>4–10</th><td class="cjk">84</td></tr>
+        <tr><th>10–16</th><td class="cjk">78/80</td></tr>
+        <tr><th>16–35</th><td class="cjk">76</td></tr>
+        <tr><th>35–50</th><td class="cjk">72/70</td></tr>
+        <tr><th>50+</th><td class="cjk">68</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>脈與八綱 <span class="en">Pulse according to 8 Principles</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>八綱 Principle</th><th>脈性 Quality</th><th>描述 Description</th><th>脈類 Pulse types</th></tr></thead>
+      <tbody>
+        <tr><th>表 Exterior</th><td class="cjk">浮 Superficial</td><td class="cjk">輕取即得</td><td class="cjk">浮、濡、虛、革、散</td></tr>
+        <tr><th>裏 Interior</th><td class="cjk">沉 Deep</td><td class="cjk">重按始得</td><td class="cjk">沉、牢、伏</td></tr>
+        <tr><th>熱 Hot</th><td class="cjk">數 Rapid</td><td class="cjk">＞80 次/分</td><td class="cjk">數、疾、促</td></tr>
+        <tr><th>寒 Cold</th><td class="cjk">遲 Slow</td><td class="cjk">＜65 次/分</td><td class="cjk">遲、緊、結</td></tr>
+        <tr><th>實 Excess</th><td class="cjk">實 Full</td><td class="cjk">大、長、有力</td><td class="cjk">實、大、弦、洪、緊、長、滑</td></tr>
+        <tr><th>虛 Deficient</th><td class="cjk">虛 Empty</td><td class="cjk">小、短、無力</td><td class="cjk">虛、弱、細、微、短、散、澀</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="note"><b>臨床綜合舉例：</b>沉（寸雙沉弱）＝上焦頭部氣虛（心肺）→ 頭痛眩暈、健忘、聲低易倦｜浮（右寸）＝肺之痰、氣滯 → 鼻竇問題、過敏、咳、流涕｜弦滑（左關）＝痰濕聚、陽亢（肝）→ 脂肪肝、高血壓、易怒｜澀（左寸）＝血虛（心）→ 胸痛、心悸、失眠。</div>
+  </div>
+
+  <div class="sec">
+    <h3>異常脈的八綱歸類 <span class="en">Abnormal Pulses — grouped</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>Pulses can be abnormal in <b>location, depth, speed, strength, rhythm, quality</b>. Examine each in turn.</p>
+        <ul>
+          <li><b>Floating 浮脈類</b> (Exterior / Interior Def): Floating, Surging, Soggy, Scattered, Hollow, Drum-skin</li>
+          <li><b>Deep 沉脈類</b> (Interior): Deep, Hidden, Firm</li>
+          <li><b>Slow 遲脈類</b> (Cold): Slow, Moderate, Choppy, Knotted</li>
+          <li><b>Rapid 數脈類</b> (Heat): Rapid, Racing, Hasty</li>
+          <li><b>Deficient 虛脈類</b> (Def): Deficient, Thready, Faint, Intermittent, Short</li>
+          <li><b>Excessive 實脈類</b> (Excess): Excessive, Slippery, Wiry, Tight, Long, Large</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <p>脈之異常可見於<b>位、深、速、力、律、形</b>；當逐一審察。</p>
+        <ul>
+          <li><b>浮脈類</b>（表證/裏虛）：浮、洪、濡、散、芤、革</li>
+          <li><b>沉脈類</b>（裏證）：沉、伏、牢</li>
+          <li><b>遲脈類</b>（寒證）：遲、緩、澀、結</li>
+          <li><b>數脈類</b>（熱證）：數、疾、促</li>
+          <li><b>虛脈類</b>（虛證）：虛、細、微、代、短</li>
+          <li><b>實脈類</b>（實證）：實、滑、弦、緊、長、大</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note"><b>八要素觀察：</b>位（Location）、力（Strength）、速（Speed）、長（Length）、津量（Volume of fluid）、滑澀（Smoothness）、張力（Tension）、律（Rhythm）。滑主痰飲黏液；弦主肝。
+      <span class="en">8 axes: Location · Strength · Speed · Length · Fluid volume · Smoothness · Tension · Rhythm.</span></div>
+  </div>
+
+  <div class="sec">
+    <h3>脈診練習病案 <span class="en">Pulse Practice Cases</span></h3>
+    <div class="case">
+      <div class="ct">Case 1 · 男 65 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Weak urinary stream &amp; incontinence for years; occasional low back ache; enlarged prostate. <b>T:</b> light purple. <b>P:</b> Excessive &amp; Large in right Chi; Weak in left Chi.</p></div>
+        <div class="zh"><p>小便無力、失禁數年；偶有腰痠；前列腺肥大。<b>舌</b>淡紫。<b>脈</b>右尺實大、左尺弱。</p></div>
+      </div>
+      <div class="ans"><b>診斷：</b>腎氣虛兼瘀滯（Kidney-Qi deficiency with stagnation）。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 2 · 男 52 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Very poor sleep ×5 months, often fully sleepless (occasionally 2–3 h); severe night sweats; very tired/low energy by day. <b>T:</b> bright red, thin coat. <b>P:</b> left Cun Deficient, Floating, Long (to base of thumb) &amp; Rapid; both Chi too deep to feel.</p></div>
+        <div class="zh"><p>嚴重失眠 5 月，常整夜不眠（偶睡 2–3 小時）；嚴重盜汗；日間極倦、精力低下。<b>舌</b>鮮紅、薄苔。<b>脈</b>左寸虛、浮、長（延至拇指根）而數；雙尺沉不可及。</p></div>
+      </div>
+      <div class="ans"><b>診斷：</b>心陰虛兼虛火，及腎氣虛（Heart-Yin deficiency with empty Heat-Fire, and Kidney-Qi deficiency）。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 3 · 女 57 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Sinus headaches, allergies, tires easily; cannot eat cold food/water → diarrhea/loose stool several times/day. <b>T:</b> light-pale, normal centre coat. <b>P:</b> right Cun Excessive; other regions Weak &amp; Deep.</p></div>
+        <div class="zh"><p>鼻竇性頭痛、過敏、易倦；不能進冷食冷水，否則一日數次腹瀉/便溏。<b>舌</b>淡白、中苔正常。<b>脈</b>右寸實；他部弱而沉。</p></div>
+      </div>
+      <div class="ans"><b>診斷：</b>肺氣鬱滯兼脾氣虛（Lung-Qi stagnation with Spleen-Qi deficiency）。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 4 · 女 40 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Stressed &amp; depressed; right breast two benign lumps (egg-sized &amp; ~2 cm); loses appetite &amp; bloats easily; poor sleep. <b>T:</b> dark purple, thin coat. <b>P:</b> left Guan Wiry &amp; Enlarged; right Guan weak &amp; floating.</p></div>
+        <div class="zh"><p>壓力大、抑鬱；右乳兩腫塊（雞蛋大及約 2 公分，切片證實良性）；納呆易脹；睡眠差。<b>舌</b>暗紫、薄苔。<b>脈</b>左關弦而大；右關弱而浮。</p></div>
+      </div>
+      <div class="ans"><b>診斷：</b>肝氣鬱結兼脾氣虛（Liver-Qi stagnation with Spleen-Qi deficiency）。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 5 · 男 66 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Hypertension ×15 yr (medicated, controlled); lately poor sleep &amp; tired; occasional low back pain. <b>T:</b> light purple, thin coat. <b>P:</b> left Cun Floating &amp; Deficient; left Guan Wiry at middle level; both Chi too deep to feel.</p></div>
+        <div class="zh"><p>高血壓 15 年（服藥控制）；近日睡眠差、疲倦；偶有腰痛。<b>舌</b>淡紫、薄苔。<b>脈</b>左寸浮而虛；左關中取弦；雙尺沉不可及。</p></div>
+      </div>
+      <div class="ans"><b>診斷：</b>心肝陰虛兼陽亢，及腎氣虛（Heart–Liver Yin deficiency with Yang rising, and Kidney-Qi deficiency）。</div>
+    </div>
+  </div>
+
+  <!-- ---------- 2E PULSE CHART ---------- -->
+  <div class="mod-banner" id="m2e" style="margin-top:22px;background:var(--cinnabar-deep);"><span class="mno" style="color:#F4EFE4;">2·5</span><span class="mcn">脈象總表</span><span class="men">Pulse Significance Chart — 28 脈</span></div>
+
+  <div class="sec">
+    <p class="lead">下表為課程原附之脈象總表（英文描述＋古典中文脈訣與主病）。中文為課程原文，非機器翻譯。〔〕內為八綱歸類。</p>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>類 Type</th><th>脈名 Pulse</th><th>指感 Feeling</th><th>主病 Significance</th></tr></thead>
+      <tbody>
+        <tr><th>—</th><td class="pname">緩 Moderate〔遲〕</td><td>Normal depth/speed/strength/width｜一息四至，來去怠緩</td><td>Generally a healthy pulse｜主濕，脾胃虛弱</td></tr>
+        <tr><th rowspan="2">深 Depth</th><td class="pname">浮 Floating〔浮〕</td><td>Felt with light pressing｜輕取即得，重按稍弱而不空</td><td>Exterior; Yin Def w/ Empty Heat; severe Interior Qi Def｜表證，亦主虛證</td></tr>
+        <tr><td class="pname">沉 Deep〔沉〕</td><td>Felt near the bone｜輕取不應，重按始得</td><td>Interior; Qi/Blood stasis (excess) or Yang Def (weak)｜裏證。有力為裏實，無力為裏虛</td></tr>
+        <tr><th rowspan="3">速 Speed</th><td class="pname">遲 Slow〔遲〕</td><td>3 beats/breath (&lt;65 bpm)｜一息三至，脈來遲慢</td><td>Cold — Excess (strong) or Def (weak)｜寒證。有力為冷積，無力為虛寒</td></tr>
+        <tr><td class="pname">數 Rapid〔數〕</td><td>5+ beats/breath (&gt;82 bpm)｜一息五至以上</td><td>Heat — Excess or Def (empty)｜熱證。有力為實熱，無力為虛熱</td></tr>
+        <tr><td class="pname">疾 Racing〔數〕</td><td>Very rapid, urgent｜脈來急疾，一息七八至</td><td>Heat consuming Yin｜陽極陰竭，元氣將脫</td></tr>
+        <tr><th rowspan="2">力 Force</th><td class="pname">虛 Deficient〔虛〕</td><td>Big but empty on pressure, soft｜三部舉之無力，按之空虛</td><td>Qi &amp; Blood Def (Qi Def w/ Damp)｜虛證</td></tr>
+        <tr><td class="pname">實 Excessive〔實〕</td><td>Full, hard, rather long｜三部舉按皆有力</td><td>Excess｜實證</td></tr>
+        <tr><th rowspan="3">滑澀 Smooth</th><td class="pname">滑 Slippery〔實〕</td><td>Smooth, rounded, oily｜往來流利，如盤走珠，應指圓滑</td><td>Phlegm/Damp; +weak = Phlegm w/ Qi Def; normal in pregnancy｜痰飲，食滯，實熱</td></tr>
+        <tr><td class="pname">澀 Choppy〔遲〕</td><td>Rough, jagged｜遲細而短，往來艱澀，與滑脈正反</td><td>Blood/Fluid Def; if strong = Blood stasis｜傷精，血少，氣滯血瘀，挾痰食</td></tr>
+        <tr><td class="pname">弦 Wiry〔實〕</td><td>Taut like a string｜端直以長，如按琴弦</td><td>LR disharmony; pain｜肝膽病，諸痛，痰飲，瘧疾</td></tr>
+        <tr><th>浮弱滑</th><td class="pname">濡 Soggy〔浮〕</td><td>Superficial, soft, slightly floating｜浮而細軟</td><td>Qi Def w/ Damp; Yin/Essence Def｜主虛，又主濕</td></tr>
+        <tr><th rowspan="5">寬＋力 Width</th><td class="pname">洪 Full/Surging〔浮〕</td><td>Overflows the channel｜狀若波濤洶湧，來盛去衰</td><td>Excess Heat injuring fluids｜氣分熱盛</td></tr>
+        <tr><td class="pname">微 Feeble〔虛〕</td><td>Extremely thin, hard to feel｜極細極軟，按之欲絕，若有若無</td><td>Severe Qi &amp; Blood Def｜陽衰少氣，陰陽氣血諸虛</td></tr>
+        <tr><td class="pname">細 Thready〔虛〕</td><td>Thinner than normal｜脈細如線，但應指明顯</td><td>Qi/Blood/Yin Def｜氣血兩虛，諸虛勞損，又主濕</td></tr>
+        <tr><td class="pname">弱 Weak〔沉〕</td><td>Soft, weak, thin, deep｜極軟而沉細</td><td>Extreme Qi Def｜氣血不足</td></tr>
+        <tr><td class="pname">大 Large</td><td>Broad in diameter, distinct｜脈體寬大</td><td>Excess Heat in ST/Intestines｜胃腸實熱</td></tr>
+        <tr><th>—</th><td class="pname">散 Scattered〔浮〕</td><td>Small, superficial, no wave, broken｜浮散無根，至數不齊</td><td>Severe Qi/Blood or KI Qi Def｜元氣離散</td></tr>
+        <tr><th>—</th><td class="pname">緊 Tight〔實〕</td><td>Twisted like a rope｜脈來繃急，狀如牽繩轉索</td><td>Cold, pain｜主寒，主痛，主宿食</td></tr>
+        <tr><th>—</th><td class="pname">芤 Hollow〔浮〕</td><td>Empty in the middle｜浮大中空，如按蔥管</td><td>Hemorrhage; forthcoming (if rapid)｜失血，傷陰</td></tr>
+        <tr><th>—</th><td class="pname">革 Drum-skin〔浮〕</td><td>Hard/tight surface, empty deep｜弦急中空，如按鼓皮</td><td>Severe KI Essence/Yin Def｜亡血，失精，半產，漏下</td></tr>
+        <tr><th>—</th><td class="pname">動 Moving〔數〕</td><td>Bean-shaped, short, trembling｜如豆，厥厥動搖，滑數有力</td><td>Shock, anxiety, fright, pain｜主驚，主痛</td></tr>
+        <tr><th>沉弱</th><td class="pname">伏 Hidden〔沉〕</td><td>Hidden beneath the bone｜重手推筋按骨始得</td><td>Severe Yang Def; blockage｜邪閉，厥證，痛極，又主陽衰</td></tr>
+        <tr><th>沉實</th><td class="pname">牢 Firm〔沉〕</td><td>Deep, hard, wiry｜沉按實大弦長</td><td>Blood stasis; Interior Cold; pain｜陰寒內實，疝氣癥瘕</td></tr>
+        <tr><th rowspan="3">律 Rhythm</th><td class="pname">促 Skipping/Hasty〔數〕</td><td>Rapid, irregular stops｜脈來急促而有不規則間歇</td><td>Heat agitating Qi/Blood; HT Qi Def｜陽熱亢盛，氣滯血瘀，痰食停滯</td></tr>
+        <tr><td class="pname">結 Knotted〔遲〕</td><td>Slow, irregular stops｜脈來緩慢而有不規則間歇</td><td>Cold obstructing Blood → HT Blood stasis (often Yang Def)｜陰盛氣結，寒痰血瘀</td></tr>
+        <tr><td class="pname">代 Intermittent〔虛/實〕</td><td>Regular skipped beats｜脈來有規律間歇，間歇較長</td><td>Severe HT pathology; organ exhaustion｜臟氣衰微，風證，痛證，驚恐，跌打損傷</td></tr>
+        <tr><th rowspan="2">長短 Length</th><td class="pname">長 Long〔實〕</td><td>Beyond normal position｜首尾端直，超過本位</td><td>Heat｜肝陽有餘，陽盛內熱等有餘之證</td></tr>
+        <tr><td class="pname">短 Short〔虛〕</td><td>Shorter than normal｜首尾俱短，不能滿部</td><td>Severe Qi Def; ST Qi Def｜有力為氣鬱，無力為氣損</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="note"><b>另附「學生練習版（Student View）」：</b>課程另有一份空白練習表，列出 28 脈名（浮、沉、遲、數、虛、實、滑、澀、弦、濡、洪、微、細、弱、大、散、緊、芤、革、疾、動、伏、緩、促、結、代、長、短），供自行填寫「指感」與「主病」——可對照上表作答。</div>
+  </div>
+
+  <!-- ==================== MODULE 5 ==================== -->
+  <div class="mod-banner" id="m3"><span class="mno">03</span><span class="mcn">臟腑辨證</span><span class="men">Zang-Fu Syndrome Differentiation</span></div>
+
+  <!-- ---------- 5A HEART & SI ---------- -->
+  <div class="mod-banner" id="m3a" style="margin-top:22px;background:var(--cinnabar);"><span class="mno" style="color:#F4EFE4;">3·1</span><span class="mcn">心與小腸</span><span class="men">Heart &amp; Small Intestine — 手少陰・手太陽</span></div>
+
+  <div class="sec">
+    <h3>心的生理功能 <span class="en">Heart Physiologic Functions</span></h3>
+    <div class="pair">
+      <div class="en">
+        <ol>
+          <li>Controls the Blood and the Vessels 主血脈</li>
+          <li>Controls &amp; Houses the Shen 主神明、藏神</li>
+          <li>Opens into the Tongue 開竅於舌</li>
+          <li>Manifests in the Complexion 其華在面</li>
+          <li>Related to the Small Intestine 與小腸相表裏</li>
+        </ol>
+      </div>
+      <div class="zh">
+        <ol>
+          <li>主血脈</li>
+          <li>主神明、藏神</li>
+          <li>開竅於舌</li>
+          <li>其華在面</li>
+          <li>與小腸相表裏</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>心之證候 <span class="en">Heart Syndromes</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>證 Syndrome</th><th>病因 Cause</th><th>主症 Clinical Manifestations</th><th>舌脈 T / P</th></tr></thead>
+      <tbody>
+        <tr><th>心氣虛<br>HT Qi Def</th><td class="cjk">先天不足、久病、年老</td><td class="cjk">心悸、氣短（動則甚）、面色蒼白、倦怠、自汗、乏力</td><td class="cjk">舌淡白苔｜脈細弱或結代</td></tr>
+        <tr><th>心陽虛<br>HT Yang Def</th><td class="cjk">心氣虛進一步發展</td><td class="cjk">心悸、氣短（動則甚）、畏寒、四肢冷、面色晦黃、胸中脹痛</td><td class="cjk">舌淡胖而潤｜脈沉弱而遲，或結、代</td></tr>
+        <tr><th>心陽暴脫<br>Depleted HT Yang</th><td class="cjk">心陽虛之極，或寒/痰阻遏心陽</td><td class="cjk">大汗淋漓、四肢厥冷、口唇青紫、呼吸微弱、譫妄或神志喪失</td><td class="cjk">脈微欲絕</td></tr>
+        <tr><th>心血虛<br>HT Blood Def</th><td class="cjk">脾氣虛（生化不足）、失血、久病、久思久慮耗血</td><td class="cjk">心悸、健忘、失眠、多夢，兼眩暈、面色蒼白</td><td class="cjk">舌淡（唇亦淡）｜脈細弱</td></tr>
+        <tr><th>心陰虛<br>HT Yin Def</th><td class="cjk">久慮、肝腎陰虛傳變、溫病後耗傷陰液</td><td class="cjk">心悸、健忘、失眠、多夢，兼五心煩熱、盜汗、口乾</td><td class="cjk">舌紅乾、苔薄或無｜脈細數</td></tr>
+        <tr><th>心火亢盛<br>HT Fire</th><td class="cjk">情志化火、過食辛熱等</td><td class="cjk">煩躁、失眠、面赤、口渴、口舌生瘡；重則狂躁譫妄，兼尿赤、尿痛、尿血</td><td class="cjk">舌紅｜脈數</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>心脈痺阻（四型） <span class="en">Obstruction of Heart Collaterals &amp; Vessels</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>型 Type</th><th>主症 Manifestations</th><th>舌脈 T / P</th></tr></thead>
+      <tbody>
+        <tr><th>1. 心血瘀阻<br>Blood stasis</th><td class="cjk">心悸、時作劇烈心悸、間歇性胸悶窒痛、痛引肩背臂、刺痛</td><td class="cjk">舌暗紅，見瘀點瘀斑｜脈細澀或結代</td></tr>
+        <tr><th>2. 痰阻心脈<br>Phlegm</th><td class="cjk">咯痰量多、身體遲滯、胸中窒悶劇痛、或血脂升高</td><td class="cjk">苔白黏膩｜脈沉滑</td></tr>
+        <tr><th>3. 寒凝心脈<br>Cold</th><td class="cjk">得溫則減之銳痛、畏寒、四肢冷</td><td class="cjk">舌淡白苔｜脈沉遲或沉緊</td></tr>
+        <tr><th>4. 心氣鬱滯<br>Qi stagnation</th><td class="cjk">情志所致之脹痛</td><td class="cjk">舌淡或深紅、薄白苔｜脈弦</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>痰擾／痰火之心神病 <span class="en">Phlegm affecting the Heart-Shen</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>證 Syndrome</th><th>主症 Manifestations</th><th>舌脈 T / P</th></tr></thead>
+      <tbody>
+        <tr><th>痰迷心竅<br>Mental confusion d/t Phlegm</th><td class="cjk">表情淡漠、癡呆、抑鬱、舉止失常，或突然神昏、譫妄；面色晦黃、胸中窒悶、痰多</td><td class="cjk">苔黏膩｜脈滑</td></tr>
+        <tr><th>痰火擾心<br>Phlegm-Fire</th><td class="cjk">煩躁、口渴、失眠、多夢；痰多、胸中窒悶、面赤、呼吸粗、便秘、尿赤；重則各種神志失常</td><td class="cjk">舌紅、苔厚黏黃｜脈滑數有力或弦</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="note"><b>心之診斷要點（基本症）：</b>心律紊亂、睡眠障礙、記憶或專注力差、神志失常——見其一即考慮心之病，再依虛實寒熱定證。
+      <span class="en">Basic Heart symptoms: rhythm disruption · sleep disturbance · poor memory/concentration · Shen disturbance.</span></div>
+  </div>
+
+  <div class="sec">
+    <h3>小腸 <span class="en">Small Intestine</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p><b>Heat in the SI 小腸實熱:</b> Heat in the Heart, or hot-type mouth ulcers, PLUS burning/concentrated urine. (Or definite LI Excess Heat plus burning/concentrated urine.)</p>
+        <p><b>Worms in the SI 小腸蟲證:</b> itchy anus with pinworms/tapeworms; desire to eat strange things; abdominal pain with vomiting of roundworms.</p>
+      </div>
+      <div class="zh">
+        <p><b>小腸實熱：</b>心經有熱、或熱性口瘡，兼小便灼熱/短赤。（或大腸實熱兼小便灼熱短赤。）</p>
+        <p><b>小腸蟲證：</b>肛門瘙癢見蟯蟲/絛蟲；嗜食異物；腹痛而吐蛔。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>心・小腸 臨床病案 <span class="en">Cases</span></h3>
+    <div class="case">
+      <div class="ct">Case 1 · 女 42 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Depressed after her sister's suicide 6 months ago; palpitations, very tired despite 10–12 h sleep; Dx depression + SSRI, wants TCM first. Also PMS, menstrual pain, allergic rhinitis. <b>T:</b> light-purple, little coat. <b>P:</b> deep &amp; weak.</p></div>
+        <div class="zh"><p>半年前妹妹自殺後抑鬱；心悸、雖睡 10–12 小時仍極倦；西醫診抑鬱、予 SSRI，欲先試中醫。另有經前症候、痛經、過敏性鼻炎。<b>舌</b>淡紫、少苔。<b>脈</b>沉弱。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>心（脾）氣血虛、氣滯——心脾兩虛兼肝鬱之象（悲傷耗氣、沉弱脈、淡紫舌）。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 2 · 女 40 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Chest pain ×2 yr, worse when tired; recently very busy, more pain in heart region + SOB. ECG normal. <b>T:</b> purplish-blue, white coat. <b>P:</b> deep &amp; choppy.</p></div>
+        <div class="zh"><p>胸痛 2 年、疲時加重；近日繁忙，心區痛甚兼氣短。心電圖正常。<b>舌</b>青紫、白苔。<b>脈</b>沉澀。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>心血瘀阻（青紫舌、沉澀脈、固定心痛）。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 3 · 男 49 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Depression ×10 yr; main complaint insomnia — great difficulty falling asleep, uses sleeping pills (waning effect, needs larger doses); dizzy &amp; tired, worse after pills. <b>T:</b> pale, thin white coat. <b>P:</b> weak.</p></div>
+        <div class="zh"><p>抑鬱 10 年；主訴失眠——極難入睡、賴安眠藥（效減、需加量）；頭暈疲倦，服藥後更甚。<b>舌</b>淡、薄白苔。<b>脈</b>弱。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>心（脾）氣血虛——難入睡屬血虛，淡舌弱脈（心脾兩虛）。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 4 · 男 68 歲（臨床應變）</div>
+      <div class="grid2">
+        <div class="en"><p>Chest pain + bluish lips/face. Most likely cause? → <b>Stagnation of Heart Blood</b> (vs phlegm). While talking, chest pain worsens.</p><p><b>Q2</b> next step → lay patient down &amp; needle Ren 14 (Jujue) <em>or</em> ask if he has chest-pain pills &amp; have him take them. <b>Q3</b> then → <b>call 911</b>.</p></div>
+        <div class="zh"><p>胸痛＋唇面青紫。最可能病因？→ <b>心血瘀阻</b>（相對痰阻）。談話間胸痛加劇。</p><p><b>Q2</b> 下一步 → 令病人平臥、針巨闕（Ren 14），或詢問是否備有胸痛藥並囑服用。<b>Q3</b> 再下一步 → <b>撥打 911</b> 求援。</p></div>
+      </div>
+      <div class="ans"><b>要點：</b>胸痛加劇為急症警訊——先穩定、給藥，隨即呼叫急救（辨識需緊急轉診之情況）。</div>
+    </div>
+  </div>
+
+  <!-- ---------- 5B LUNG & LI ---------- -->
+  <div class="mod-banner" id="m3b" style="margin-top:22px;background:var(--cinnabar);"><span class="mno" style="color:#F4EFE4;">3·2</span><span class="mcn">肺與大腸</span><span class="men">Lung &amp; Large Intestine — 手太陰・手陽明</span></div>
+
+  <div class="sec">
+    <h3>肺的生理功能 <span class="en">Lung Physiologic Functions</span></h3>
+    <div class="pair">
+      <div class="en">
+        <ol>
+          <li><b>Governs Qi &amp; Respiration 主氣、司呼吸</b> — low: feeble voice, Qi Def, difficult exhalation</li>
+          <li><b>Dispersing &amp; Descending 宣發肅降</b> — fails: cough, asthma, SOB, chest pain</li>
+          <li><b>Regulates Water Passages 通調水道</b> — fails: fluid retention/edema (mostly upper jiao)</li>
+          <li><b>Opens into the Nose 開竅於鼻</b> — weak: stuffy/runny nose, sneezing, anosmia</li>
+          <li><b>Controls Skin &amp; Body Hair 主皮毛</b> — weak Wei Qi: spontaneous sweat, aversion to Wind, catches cold; fails to nourish: dry hair, lustreless skin</li>
+          <li><b>Throat as window 喉為門戶</b> — itchy/sore throat, hoarseness, loss of voice</li>
+        </ol>
+      </div>
+      <div class="zh">
+        <ol>
+          <li><b>主氣、司呼吸</b>——功能低下：聲怯、氣虛諸症、呼氣困難</li>
+          <li><b>主宣發肅降</b>——失司：咳、喘、氣短、胸痛</li>
+          <li><b>通調水道</b>——失布津液：水停水腫（多上焦）</li>
+          <li><b>開竅於鼻</b>——鼻竅不利：鼻塞、流涕、噴嚏、嗅覺失靈</li>
+          <li><b>主皮毛</b>——衛氣弱：自汗、惡風、易感冒；失養：毛髮乾、膚無澤</li>
+          <li><b>喉為門戶</b>——咽癢、咽痛、聲嘶、失音</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>肺之證候 <span class="en">Lung Syndromes</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>證 Syndrome</th><th>病因 Cause</th><th>主症 Manifestations</th><th>舌脈 T / P</th></tr></thead>
+      <tbody>
+        <tr><th>肺氣虛<br>LU Qi Def</th><td class="cjk">久咳、脾氣虛、先天不足、久病</td><td class="cjk">咳嗽、氣短、呼吸無力（動則甚）、倦怠、聲怯、自汗、惡風、面色蒼白</td><td class="cjk">舌淡｜脈弱</td></tr>
+        <tr><th>肺陰虛<br>LU Yin Def</th><td class="cjk">熱邪傷津、多汗或久咳</td><td class="cjk">乾咳無痰或痰少而黏、口咽乾、消瘦、午後潮熱、五心煩熱、盜汗、顴紅、咳血、聲嘶</td><td class="cjk">舌紅乾、少苔｜脈細數</td></tr>
+        <tr><th>風寒犯肺<br>Wind-Cold</th><td class="cjk">外感風寒入裏</td><td class="cjk">咳嗽、痰稀白、鼻塞流清涕、微惡寒、低熱、無汗（外證較顯、咳較輕）</td><td class="cjk">舌象無變｜脈浮緊</td></tr>
+        <tr><th>風熱犯肺<br>Wind-Heat</th><td class="cjk">外邪入侵</td><td class="cjk">咳嗽、痰黃稠、鼻塞流黃濁涕、發熱、微惡風寒、口乾、咽痛（主症為咳）</td><td class="cjk">舌無變或舌紅黃苔｜脈浮數</td></tr>
+        <tr><th>熱邪壅肺<br>Heat accum.</th><td class="cjk">外邪入裏、內因（情志/飲食/瘀滯）</td><td class="cjk">咳如犬吠、痰黃稠、氣短、呼吸粗、高熱、口渴、胸痛、咳吐膿臭痰、便秘、尿深黃</td><td class="cjk">舌紅黃苔｜脈滑數</td></tr>
+        <tr><th>燥邪犯肺<br>Dryness</th><td class="cjk">外燥入侵、乾燥環境</td><td class="cjk">乾咳、痰少難咯、唇舌咽鼻膚乾、發熱惡寒、胸痛</td><td class="cjk">苔薄乾｜脈細數</td></tr>
+        <tr><th>痰濕阻肺<br>Phlegm-Damp</th><td class="cjk">脾氣虛、脾濕、肺水道失調、飲食</td><td class="cjk">咳嗽痰多、或痰稀白起沫、胸中窒悶、喉中痰鳴</td><td class="cjk">舌淡、白膩苔｜脈弦滑或濡緩</td></tr>
+        <tr><th>寒痰阻肺<br>Cold-Phlegm</th><td class="cjk">外感風寒、陽虛體質、過食肥甘生冷</td><td class="cjk">咳痰稀白、畏寒、手冷、胸中滿悶、喉中痰鳴、頭重眩暈</td><td class="cjk">舌胖潤白苔｜脈滑遲</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="note"><b>痰飲</b>（另一鑑別）：痰稀如水起沫，胸中可聞水聲，臥則氣促——相當於肺水腫。
+      <span class="en">Phlegm-Fluids: watery frothy sputum, water heard in chest, dyspnea when lying → pulmonary edema.</span></div>
+  </div>
+
+  <div class="sec">
+    <h3>肺之診斷思路 <span class="en">Lung Diagnostic Algorithm</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p><b>Qi Def</b> = Lung Def dx + spontaneous sweat (worse w/ movement) / pale tongue / dip in Lung area / SP-KD Qi-Yang Def.</p>
+        <p><b>Yin Def</b> = Lung Def dx + KI Yin tongue / creases-peeling in Lung area / dry cough / scanty thick sputum.</p>
+        <p><b>Wind-Phlegm lodged</b> (allergic) = one basic Lung sign, chronic with flares, triggered by irritants / skin itch.</p>
+        <p><b>Dryness</b> = basic Lung signs + dry cough &amp; dry orifices (no Def needed).</p>
+        <p><b>Excess</b> = one basic Lung sign + worse lying down / loud cough / strong constitution.</p>
+        <p>→ <b>Phlegm</b> (profuse phlegm, chest oppression, wet/thick coat) · <b>Phlegm-Heat</b> (yellow/green/dark phlegm, thick yellow coat) · <b>Phlegm-Damp</b> (watery frothy phlegm).</p>
+        <p><b>External Invasion</b> = basic Lung sign + viral feeling (achy, fever/chills, sore throat, aversion to Wind). → <b>Wind-Cold</b> (chills predominant, pale mucosa) · <b>Wind-Heat</b> (chills&lt;fever, hot orifices, yellow mucus, red mucosa) · <b>Wind-Water</b> (upper-body swelling, scanty pale urine).</p>
+      </div>
+      <div class="zh">
+        <p><b>肺氣虛</b>＝肺虛診斷＋自汗（動則甚）/舌淡/舌肺區凹陷/脾腎氣陽虛。</p>
+        <p><b>肺陰虛</b>＝肺虛診斷＋腎陰虛舌象/肺區橫紋剝落/乾咳/痰少而稠。</p>
+        <p><b>風痰阻肺</b>（過敏型）＝一項肺基本徵、慢性反覆、遇刺激物/皮膚癢誘發。</p>
+        <p><b>肺燥</b>＝肺基本徵＋乾咳、諸竅乾（不需虛象）。</p>
+        <p><b>肺實</b>＝一項肺基本徵＋臥則甚/咳聲響/體實少虛。</p>
+        <p>→ <b>痰阻肺</b>（痰多、胸悶、苔濕厚）· <b>痰熱阻肺</b>（痰黃綠暗、苔黃厚）· <b>痰濕阻肺</b>（痰稀水起沫）。</p>
+        <p><b>外邪犯肺</b>＝肺基本徵＋外感樣（身痛、寒熱、咽痛、惡風）。→ <b>風寒</b>（惡寒為主、鼻咽黏膜淡）· <b>風熱</b>（惡寒＜發熱、諸竅灼熱、涕黃、黏膜紅）· <b>風水</b>（上身漸腫、尿少色淡）。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>大腸之證候 <span class="en">Large Intestine Syndromes</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>證 Syndrome</th><th>病因 Cause</th><th>主症 Manifestations</th><th>舌脈 T / P</th></tr></thead>
+      <tbody>
+        <tr><th>大腸濕熱<br>Damp-Heat</th><td class="cjk">肥甘辛熱飲食、憂思</td><td class="cjk">腹痛、下痢膿血黏液、裏急後重或臭穢腹瀉兼肛門灼熱；尿赤、口渴，或惡寒發熱</td><td class="cjk">舌紅、黃膩苔｜脈滑數</td></tr>
+        <tr><th>大腸熱結<br>Heat</th><td class="cjk">過食辛熱燥物</td><td class="cjk">便秘乾結、肛門灼熱腫脹、尿短赤、口乾或口灼；熱結則腹痛發熱</td><td class="cjk">苔黃厚乾｜脈實數</td></tr>
+        <tr><th>寒滯大腸<br>Cold</th><td class="cjk">外寒入侵（久坐濕冷處等）</td><td class="cjk">突發絞痛、腹瀉而痛、周身或腹部發涼</td><td class="cjk">白厚苔｜脈沉緊</td></tr>
+        <tr><th>大腸津虧<br>Fluid insuff.</th><td class="cjk">乾燥環境、飲食不當</td><td class="cjk">習慣性便秘、頭暈、口臭</td><td class="cjk">舌紅、黃乾苔｜脈細澀</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="note"><b>大腸診斷思路：</b>凡便後或腹症緩解者屬大腸實。濕熱＝瀉臭穢或便夾膿血；實熱＝舌紅、苔黃褐/黃黑、便乾、肛門紅灼；熱結＝實/熱兼便秘腹痛；寒＝腸症遇冷甚、得溫緩；氣滯＝腸症兼氣滯症；腸燥＝乾結型便秘（血虛、陰虛或熱）。</div>
+  </div>
+
+  <div class="sec">
+    <h3>肺・大腸 臨床病案 <span class="en">Cases</span></h3>
+    <div class="case">
+      <div class="ct">Case 1 · 女 55 歲（8 月）</div>
+      <div class="grid2">
+        <div class="en"><p>Onset in summer after a big ice cream; headache &amp; stuffy nose ×1 week; tired, nausea, vomiting, poor appetite. <b>T:</b> pale, white-greasy coat. <b>P:</b> slow.</p></div>
+        <div class="zh"><p>夏日大量食冰淇淋後起病；頭痛、鼻塞 1 週；疲倦、噁心、嘔吐、納呆。<b>舌</b>淡、白膩苔。<b>脈</b>遲。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>寒濕困脾兼外感——生冷傷中、白膩苔遲脈屬寒濕。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 2 · 女 40 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Weak constitution, catches cold often; asthma since teens; had a cold ×1 wk, Dx exterior wind-heat &amp; given Yin Qiao San but worsened. Now: headache, dizziness, body ache, dry mouth + bitter taste, fever &amp; chill, dry hot eyes, no sweat. <b>T:</b> dark-red, slightly yellow coat. <b>P:</b> floating-thready.</p></div>
+        <div class="zh"><p>體弱易感、少年起哮喘；感冒 1 週，診為外感風熱、予銀翹散反重。現：頭痛、眩暈、身痛、口乾口苦、寒熱、目乾灼、無汗。<b>舌</b>暗紅、微黃苔。<b>脈</b>浮細。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>陰虛兼外感（少陽/風熱化燥）——口苦、寒熱往來、暗紅舌、浮細脈，本虛（陰虛）而標實。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 3 · 男 52 歲（6 月）</div>
+      <div class="grid2">
+        <div class="en"><p>Pollen allergy ×2 yr, worsening despite antihistamines/steroids: stuffy-runny nose disrupting sleep, profuse clear morning discharge, red nose &amp; eyes, itchy swollen eyes, itchy stuffy ears, headache, fatigue, watery stool (2–3×/day). <b>T:</b> pale, dark-red tip. <b>P:</b> floating in Cun, weak in Guan/Chi. Eats lots of grapes before bed + watermelon, banana.</p></div>
+        <div class="zh"><p>花粉過敏 2 年、抗組織胺與類固醇治療下反重：鼻塞流涕擾眠、晨起清涕多、鼻眼紅、眼癢腫、耳癢悶、頭痛、疲勞、便溏（每日 2–3 次）。<b>舌</b>淡、舌尖暗紅。<b>脈</b>寸浮、關尺弱。睡前大量食葡萄，並多食西瓜、香蕉。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>肺脾（腎）氣虛兼風邪／寒濕——寸浮（表/肺）、關尺弱（脾腎虛）、便溏、生冷傷脾。</div>
+    </div>
+  </div>
+
+  <!-- ---------- 5C SPLEEN & STOMACH ---------- -->
+  <div class="mod-banner" id="m3c" style="margin-top:22px;background:var(--cinnabar);"><span class="mno" style="color:#F4EFE4;">3·3</span><span class="mcn">脾與胃</span><span class="men">Spleen &amp; Stomach — 足太陰・足陽明</span></div>
+
+  <div class="sec">
+    <h3>脾的生理功能 <span class="en">Spleen Physiologic Functions</span></h3>
+    <div class="pair">
+      <div class="en">
+        <ol>
+          <li>Governs Transformation &amp; Transportation 主運化</li>
+          <li>Governs raising of Clear Qi 主升清</li>
+          <li>Controls the Blood 統血 — fails: hematochezia, hematuria, epistaxis, menorrhagia, metrorrhagia</li>
+          <li>Controls Muscles &amp; Limbs 主肌肉四肢 — fails to T&amp;T: thin body, flaccid muscles, weak limbs</li>
+          <li>Opens into the Mouth 開竅於口 — fails: bland/absent taste, sweet or greasy sensation</li>
+        </ol>
+      </div>
+      <div class="zh">
+        <ol>
+          <li>主運化</li>
+          <li>主升清</li>
+          <li>統血——失統：便血、尿血、鼻衄、月經過多、崩漏</li>
+          <li>主肌肉四肢——運化失司：形瘦、肌肉痿軟、四肢無力</li>
+          <li>開竅於口——失和：口淡無味、口甜或口膩</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>脾之證候 <span class="en">Spleen Syndromes</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>證 Syndrome</th><th>病因 Cause</th><th>主症 Manifestations</th><th>舌脈 T / P</th></tr></thead>
+      <tbody>
+        <tr><th>脾氣虛<br>SP Qi Def</th><td class="cjk">飲食、憂思、濕氣候、久病</td><td class="cjk">納呆、食後脘脹、便溏、懶言乏力、倦怠、消瘦、面色萎黃</td><td class="cjk">舌淡白苔｜脈弱</td></tr>
+        <tr><th>脾陽虛<br>SP Yang Def</th><td class="cjk">飲食、憂思、寒濕氣候、久病</td><td class="cjk">脾氣虛＋得溫得按則減之痛、四肢冷、便溏、或肢體浮腫</td><td class="cjk">舌淡潤、白滑苔｜脈沉弱遲</td></tr>
+        <tr><th>脾氣下陷<br>SP Qi Sinking</th><td class="cjk">飲食、憂思、濕氣候、久病</td><td class="cjk">納呆、食後脘脹、脘腹墜脹感、頭暈、聲怯、倦怠、自汗、裏急後重、久瀉，或脫肛、子宮脫垂</td><td class="cjk">舌淡白苔｜脈弱</td></tr>
+        <tr><th>脾不統血<br>Not holding Blood</th><td class="cjk">飲食、憂思、濕氣候、久病</td><td class="cjk">便血、汗血、月經過多、崩漏、漏下，及他處出血，兼脾氣虛諸症</td><td class="cjk">舌淡白苔｜脈細弱</td></tr>
+        <tr><th>寒濕困脾<br>Cold-Damp</th><td class="cjk">寒濕入侵或過受寒（實證、急性；脾陽虛為慢性）</td><td class="cjk">脘腹脹滿、納呆、噁心嘔吐、口淡不渴、腹痛便溏、頭重如裹、身體遲滯、浮腫、面色萎黃、膚面發黃</td><td class="cjk">舌胖、白膩苔｜脈濡緩</td></tr>
+        <tr><th>脾濕熱<br>Damp-Heat</th><td class="cjk">外感濕熱（濕熱天氣）或食不潔物</td><td class="cjk">脘腹窒悶、噁心、納呆、肢體身重遲滯、便溏、小便不利、尿赤、面目膚黃、皮膚瘙癢、汗出熱不退</td><td class="cjk">黃膩苔｜脈濡數</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="note"><b>脾之診斷要點（運化失司）：</b>噁心、嘔吐、腹脹、腹痛、矢氣、大便不調、腸鳴、納呆、嘈雜（gnawing hunger）——見其一即考慮脾之運化障礙。</div>
+  </div>
+
+  <div class="sec">
+    <h3>胃之證候 <span class="en">Stomach Syndromes</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>證 Syndrome</th><th>病因 Cause</th><th>主症 Manifestations</th><th>舌脈 T / P</th></tr></thead>
+      <tbody>
+        <tr><th>胃陰虛<br>ST Yin Def</th><td class="cjk">飲食不節（夜食、斷食、邊做邊吃）、體質、發熱、某些藥物</td><td class="cjk">胃脘隱痛、飢不欲食、口咽乾、便乾、脘部滿悶或噯氣呃逆</td><td class="cjk">舌紅乾、苔少｜脈細數</td></tr>
+        <tr><th>食滯胃脘<br>Food Retention</th><td class="cjk">暴食、進食過快、匆忙進食</td><td class="cjk">胃脘脹痛、吐後痛減、腸鳴、納呆、噯腐、或吐未化食、矢氣、臭穢腹瀉（小兒多見）</td><td class="cjk">厚膩苔｜脈滑或沉實</td></tr>
+        <tr><th>胃寒<br>Cold in ST</th><td class="cjk">過食生冷、受寒、外寒入侵</td><td class="cjk">胃脘或輕或重之痛、遇冷甚、得溫緩、口淡不渴、倦怠、四肢冷、食後痛減；或胃中有水聲、吐清水</td><td class="cjk">舌淡白苔｜脈遲</td></tr>
+        <tr><th>胃熱／火<br>Heat/Fire in ST</th><td class="cjk">過食辛熱、吸菸、飲酒、憤怒鬱怒</td><td class="cjk">胃脘灼痛、胃脘不適、泛酸、食後即吐、口渴喜冷飲、口臭、齒齦潰瘍出血、便秘、尿赤</td><td class="cjk">舌紅、黃苔｜脈滑數</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>脾・胃 臨床病案 <span class="en">Cases</span></h3>
+    <div class="case">
+      <div class="ct">Case 1 · 男 42 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Multiple ER visits for throat obstruction d/t esophageal spasm, stress-related; yesterday again stuffy, aching, difficult swallowing. GP referred for acupuncture. <b>T:</b> slightly red. <b>P:</b> wiry.</p></div>
+        <div class="zh"><p>因食道痙攣致咽部梗阻多次急診，與壓力相關；昨起又覺梗塞、痠脹、吞嚥困難。家醫轉介針灸。<b>舌</b>略紅。<b>脈</b>弦。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>肝氣鬱滯犯胃（梅核氣）——弦脈、壓力誘發、咽中梗阻。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 2 · 女 40 歲</div>
+      <div class="grid2">
+        <div class="en"><p>×6 months stomach fullness &amp; aching after meals, with burning, involving hypochondria; bitter taste. <b>T:</b> thin coat. <b>P:</b> wiry &amp; thready.</p></div>
+        <div class="zh"><p>6 個月來食後脘部脹滿痠痛、兼灼熱、連及脅肋；口苦。<b>舌</b>薄苔。<b>脈</b>弦細。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>肝胃不和兼胃陰虛（弦脈、口苦、灼熱、細脈）。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 3 · 女 45 歲</div>
+      <div class="grid2">
+        <div class="en"><p>×2 yr sensitive to milk &amp; meat → diarrhea after either. WM Dx: IBS. <b>T:</b> thick greasy coat, teeth marks on sides. <b>P:</b> soggy.</p></div>
+        <div class="zh"><p>2 年來對奶類與肉類敏感，食後即瀉。西醫診腸躁症。<b>舌</b>厚膩苔、邊有齒痕。<b>脈</b>濡。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>脾氣虛兼濕（濕困脾）——齒痕舌、厚膩苔、濡脈、食後泄瀉。</div>
+    </div>
+  </div>
+
+  <!-- ---------- 5D LIVER & GB ---------- -->
+  <div class="mod-banner" id="m3d" style="margin-top:22px;background:var(--cinnabar);"><span class="mno" style="color:#F4EFE4;">3·4</span><span class="mcn">肝與膽</span><span class="men">Liver &amp; Gallbladder — 足厥陰・足少陽</span></div>
+
+  <div class="sec">
+    <h3>肝的生理功能 <span class="en">Liver Physiologic Functions</span></h3>
+    <div class="pair">
+      <div class="en">
+        <ol>
+          <li>Maintains the free flow of Qi 主疏泄</li>
+          <li>Stores the Blood 藏血</li>
+          <li>Controls tendons/sinews, manifests in nails 主筋、其華在爪</li>
+          <li>Opens into the eyes 開竅於目</li>
+        </ol>
+      </div>
+      <div class="zh">
+        <ol>
+          <li>主疏泄（調暢氣機）</li>
+          <li>藏血</li>
+          <li>主筋、其華在爪</li>
+          <li>開竅於目</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>肝之實證 <span class="en">Liver Patterns — Excess</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>證 Syndrome</th><th>主症 Manifestations</th><th>舌脈 T/P</th><th>病機 Etiology</th></tr></thead>
+      <tbody>
+        <tr><th>1. 肝氣鬱結<br>LR Qi Stagnation</th><td class="cjk">精神抑鬱、易怒、脅肋脹痛或走竄痛、乳房脹、胸悶、善太息、脘腹脹痛、納呆、噯氣、月經不調、痛經</td><td class="cjk">薄白苔｜弦</td><td class="cjk">情志不遂、鬱怒</td></tr>
+        <tr><th>2. 肝火（肝熱）<br>LR Heat/Fire</th><td class="cjk">頭脹痛搏動、眩暈、目赤腫痛、口苦口乾、易怒、脅肋灼痛、尿黃便秘、吐血、鼻衄</td><td class="cjk">舌紅黃苔｜數、弦</td><td class="cjk">肝鬱化熱化火、吸菸飲酒、辛熱飲食</td></tr>
+        <tr><th>3. 肝陽上亢<br>LR Yang Rising</th><td class="cjk">頭脹痛搏動、眩暈、耳鳴、面紅目赤、易怒、失眠多夢、心悸、健忘、腰膝痠軟</td><td class="cjk">舌紅、薄黃苔｜數、細、弦</td><td class="cjk">肝鬱化火傷肝陰；肝腎陰虛體質（上實下虛）</td></tr>
+        <tr><th>5. 寒滯肝脈<br>Cold in LR Channel</th><td class="cjk">少腹脹痛、牽引睪丸陰囊、得溫則減、男子陰囊收縮/女子陰道緊縮、惡寒、手足冷、吐清稀涎</td><td class="cjk">舌淡潤、白滑苔｜沉、弦、遲</td><td class="cjk">外寒入侵肝經、阻遏氣血</td></tr>
+        <tr><th>6. 肝膽濕熱<br>Damp-Heat in LR</th><td class="cjk">脅肋脹痛、口苦、身重、發熱、陰部濕疹、黃臭帶下、陰癢、納呆、噁心嘔吐、腹脹、尿短黃</td><td class="cjk">舌紅、黃膩苔｜數、弦</td><td class="cjk">外感濕熱、肥甘辛熱飲食</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>4. 肝風（三型） <span class="en">Liver Wind — 3 types</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>型 Type</th><th>主症 Manifestations</th><th>舌脈 T/P</th><th>病機 Etiology</th></tr></thead>
+      <tbody>
+        <tr><th>① 肝陽化風<br>LR Yang → Wind</th><td class="cjk">眩暈、頭痛、肢體震顫或麻木、言語不利；重則突然昏倒、昏迷、舌強、口眼歪斜、半身不遂</td><td class="cjk">舌紅而顫、黃苔｜數而弦</td><td class="cjk">同肝陽上亢；情志劇變、勞倦、酗酒進一步耗陰，致陽亢化風</td></tr>
+        <tr><th>② 熱極生風<br>Extreme Heat → Wind</th><td class="cjk">高熱、抽搐、頸項強直、兩目上視；重則角弓反張、昏迷、牙關緊閉</td><td class="cjk">舌深紅而強、黃乾苔｜數而弦</td><td class="cjk">外感熱病，熱盛引動肝風</td></tr>
+        <tr><th>③ 血虛生風<br>Blood Def → Wind</th><td class="cjk">細微震顫、面部抽動、眩暈、面色蒼白、視物模糊、目乾、肢麻、抽筋（小腿）、健忘、失眠、經量少或閉經</td><td class="cjk">舌淡｜細</td><td class="cjk">飲食不當（營養不足或脾虛致血虛）、情志壓力、失血</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>肝之虛證 <span class="en">Liver Patterns — Deficiency</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>證 Syndrome</th><th>主症 Manifestations</th><th>舌脈 T/P</th><th>病機 Etiology</th></tr></thead>
+      <tbody>
+        <tr><th>1. 肝血虛<br>LR Blood Def</th><td class="cjk">面色蒼白、眩暈、視物模糊兼目乾、夜盲、肢麻、抽筋、抑鬱、經量少或閉經</td><td class="cjk">舌淡｜細</td><td class="cjk">飲食不當（缺營養/過度節食、脾虛不生血）、情志壓力、失血</td></tr>
+        <tr><th>2. 肝陰虛<br>LR Yin Def</th><td class="cjk">眩暈、肢麻、視物模糊兼目乾、夜盲、經量少或閉經、面色蒼白兼顴紅、抽筋、爪甲枯脆、髮乾、抑鬱焦慮、五心煩熱、盜汗</td><td class="cjk">舌紅、少苔｜細數</td><td class="cjk">同肝血虛；腎陰虛亦可致（水不涵木）</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>膽之證候 <span class="en">Gallbladder Syndromes</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p><b>Review:</b> GB is a Fu organ &amp; an Extraordinary Fu organ; paired with LR (Biao-Li). Functions: stores &amp; discharges bile, governs decisions. Key S/Sx: jaundice (yellow sclera/skin/urine), hypochondriac pain/fullness, digestive problems.</p>
+      </div>
+      <div class="zh">
+        <p><b>複習：</b>膽為六腑之一，亦為奇恆之腑；與肝相表裏。功能：貯藏並排泄膽汁、主決斷。主症：黃疸（目黃、膚黃、尿黃）、脅痛/脹滿、消化問題。</p>
+      </div>
+    </div>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>證 Syndrome</th><th>主症 Manifestations</th><th>舌脈 T/P</th><th>病機 Etiology</th></tr></thead>
+      <tbody>
+        <tr><th>膽濕熱（實）<br>Damp-Heat in GB</th><td class="cjk">脅痛脹滿、眩暈、耳鳴、身重、目黃膚黃、噁心嘔吐、尿短黃、發熱、渴不欲飲、口苦、便溏或便秘</td><td class="cjk">舌紅、黃厚苔｜數、滑或弦</td><td class="cjk">同肝膽濕熱（外感濕熱）、肥甘辛熱飲食、情志壓力（肝鬱）</td></tr>
+        <tr><th>膽氣虛（虛）<br>GB Qi Def</th><td class="cjk">眩暈、視物模糊、飛蚊、緊張、膽怯、易驚、缺乏主動、猶豫不決、缺乏勇氣、善太息、早醒、亂夢</td><td class="cjk">舌淡或正常｜弱</td><td class="cjk">多視為性格特質；可能有兒時受欺凌史</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ---------- 5E KIDNEY & BLADDER ---------- -->
+  <div class="mod-banner" id="m3e" style="margin-top:22px;background:var(--cinnabar);"><span class="mno" style="color:#F4EFE4;">3·5</span><span class="mcn">腎與膀胱</span><span class="men">Kidney &amp; Bladder — 足少陰・足太陽</span></div>
+
+  <div class="sec">
+    <h3>腎的生理功能 <span class="en">Kidney Physiologic Functions</span></h3>
+    <div class="pair">
+      <div class="en">
+        <ol>
+          <li>Stores Essence; governs growth, development &amp; reproduction 藏精，主生長發育與生殖</li>
+          <li>Governs Water; controls discharge of stool &amp; urine 主水，司二便</li>
+          <li>Governs receiving Qi 主納氣</li>
+          <li>Dominates bones, produces Marrow 主骨生髓</li>
+          <li>Opens into the ears; manifests in the hair 開竅於耳，其華在髮</li>
+        </ol>
+      </div>
+      <div class="zh">
+        <ol>
+          <li>藏精，主生長發育與生殖</li>
+          <li>主水，司二便</li>
+          <li>主納氣</li>
+          <li>主骨生髓</li>
+          <li>開竅於耳，其華在髮</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>腎之證候 <span class="en">Kidney Syndromes</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>證 Syndrome</th><th>病因 Cause</th><th>主症 Manifestations</th><th>舌脈 T / P</th></tr></thead>
+      <tbody>
+        <tr><th>腎陽虛<br>KI Yang Def</th><td class="cjk">久病、房勞過度、勞力過度、飲食</td><td class="cjk">面色蒼白或晦黃、畏寒、身冷（尤足冷）、腰膝痠軟、倦怠、陽痿、精冷、宮寒不孕、性感覺減退、性慾減退；小便清長、夜尿多或尿少、骶部浮腫、腹脹；或兼心悸、氣短、咳嗽、喉中痰鳴</td><td class="cjk">舌淡胖潤、多齒痕（舌可胖軟）｜脈沉弱遲、兩尺尤甚</td></tr>
+        <tr><th>腎陰虛<br>KI Yin Def</th><td class="cjk">過勞、房勞、失津、失血、久病、過服溫熱藥</td><td class="cjk">眩暈、耳鳴、視力減退、健忘、失眠、腰膝痠軟、消瘦、口乾（夜甚）、五心煩熱、潮熱、盜汗、顴紅、遺精、經量少、崩漏</td><td class="cjk">舌紅、薄乾苔｜脈細數</td></tr>
+        <tr><th>腎氣不固<br>Unconsolidated KI Qi</th><td class="cjk">房勞過度、分娩、勞力過度</td><td class="cjk">倦怠、耳鳴、腰痠、膝軟；小便頻而清長、尿後餘瀝、遺尿或失禁、滑精、早洩；崩漏、久帶、滑胎、大便失禁、腹瀉</td><td class="cjk">舌淡白苔｜脈沉弱</td></tr>
+        <tr><th>腎精不足<br>KI Essence Insuff.</th><td class="cjk">先天不足、房勞過度、失血、分娩</td><td class="cjk">性功能低下、男子精少不育、女子閉經不孕、性功能障礙；小兒發育遲緩、囟門遲閉、智能障礙、發育障礙、身材矮小、動作遲鈍；骨弱、早衰、脫髮、齒鬆、耳鳴、聽力減退、健忘、足弱</td><td class="cjk">無苔（偏腎陰虛）、舌淡（偏腎陽虛）｜脈浮而空或革</td></tr>
+        <tr><th>腎不納氣<br>KI fails to grasp Qi</th><td class="cjk">先天不足、久病、勞力過度</td><td class="cjk">咳嗽、喘（動則甚）、呼吸不勻（呼多吸少）、自汗、倦怠、聲怯、腰膝痠軟、小便清</td><td class="cjk">舌淡白苔｜脈沉弱</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="note"><b>腎不納氣之變證：</b>① 喘甚、冷汗淋漓、四肢冷、面色灰青、脈浮（陽脫危象）；② 或見氣短、面紅、煩躁、口乾、舌紅、脈細數（陰虛型）。<br>
+    <b>腎之診斷基本徵（見一即可）：</b>腰、膝、髖、踝之無力或疼痛；夜尿；目下暗圈（虛者）；小腹空虛感；舌下焦區凹陷。</div>
+  </div>
+
+  <div class="sec">
+    <h3>膀胱之證候 <span class="en">Bladder Syndrome</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>Bladder governs storing &amp; expelling of urine.</p>
+        <p><b>Damp-Heat in the Bladder 膀胱濕熱:</b> frequent, urgent urination; burning pain in urethra; scanty deep-yellow urine; lower abdominal distension; fever; low back pain; hematuria; urinary stones. <b>T:</b> red, sticky yellow coat. <b>P:</b> rapid, possibly slippery or wiry.</p>
+      </div>
+      <div class="zh">
+        <p>膀胱主貯尿與排尿。</p>
+        <p><b>膀胱濕熱：</b>尿頻尿急、尿道灼痛、尿短深黃、小腹脹、發熱、腰痛、尿血、尿路結石。<b>舌</b>紅、黃膩苔。<b>脈</b>數，或滑或弦。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>腎・膀胱 臨床病案 <span class="en">Cases</span></h3>
+    <div class="case">
+      <div class="ct">Case 1 · 女 48 歲</div>
+      <div class="grid2">
+        <div class="en"><p>3-wk UTI; main symptom urinary frequency (every 10 min); bladder spasm &amp; pain; developed insomnia &amp; distending headache; on Cipro, Detrol, sleeping pills ×2 wk. <b>T:</b> red, little coat. <b>P:</b> deep &amp; fast.</p></div>
+        <div class="zh"><p>泌尿道感染 3 週；主症尿頻（每 10 分鐘一次）；膀胱痙攣疼痛；並發失眠、脹性頭痛；服 Cipro、Detrol、安眠藥 2 週。<b>舌</b>紅、少苔。<b>脈</b>沉數。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>膀胱濕熱兼腎陰虛（尿頻灼、紅少苔、沉數脈；久則傷陰）。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 2 · 男 56 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Sperm count &amp; motility below normal for age; tired, poor sleep, waking easily. <b>T:</b> pale, little coat. <b>P:</b> deep &amp; weak.</p></div>
+        <div class="zh"><p>精子數與活動力低於同齡正常值；疲倦、睡眠差、易醒。<b>舌</b>淡、少苔。<b>脈</b>沉弱。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>腎精不足／腎氣虛（淡舌、沉弱脈、生殖功能低下）。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 3 · 女 53 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Sudden sacral pain radiating to thigh (after skating); difficulty moving sit↔stand &amp; when hips flexed; weak constitution, h/o stomachache, poor sleep; very food-sensitive (no cold/deep-fried); chronic low back pain; osteopenia on bone scan; pale complexion, cold feet. <b>T:</b> slightly red, white coat, teeth marks. <b>P:</b> deep &amp; weak.</p></div>
+        <div class="zh"><p>溜冰後骶部突發痛、放射至大腿；坐立轉換與屈髖時活動困難；體弱、有胃痛及睡眠差史；對食物極敏感（不能食生冷、油炸）；慢性腰痛；骨掃描示骨質缺乏；面色蒼白、足冷。<b>舌</b>略紅、白苔、齒痕。<b>脈</b>沉弱。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>腎陽虛（骨弱）兼脾（陽）虛——足冷、齒痕舌、沉弱脈、骨質疏鬆、生冷不耐；標有局部氣血瘀阻（外傷）。</div>
+    </div>
+  </div>
+
+  <!-- ---------- 5F MULTI-ORGAN & 5 PHASES ---------- -->
+  <div class="mod-banner" id="m3f" style="margin-top:22px;background:var(--cinnabar-deep);"><span class="mno" style="color:#F4EFE4;">3·6</span><span class="mcn">多臟腑合病・五行辨證</span><span class="men">Multiple-Organ &amp; Five-Phase Differentiation</span></div>
+
+  <div class="sec">
+    <h3>兩臟同病（12 證） <span class="en">Syndromes of Two Organs</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>證 Syndrome</th><th>主症 Manifestations</th><th>舌脈 T / P</th></tr></thead>
+      <tbody>
+        <tr><th>心腎不交<br>Discord HT–KI</th><td class="cjk">心煩、失眠、心悸、眩暈、耳鳴、健忘；腰痠膝軟、腰常冷；五心煩熱、咽乾口燥</td><td class="cjk">舌紅｜細數</td></tr>
+        <tr><th>心腎陽虛<br>HT &amp; KI Yang Def</th><td class="cjk">畏寒肢冷、心悸（或持續而重）、昏昏欲睡；小便不利、水腫、唇甲青紫</td><td class="cjk">舌暗紫、白滑苔｜沉、微</td></tr>
+        <tr><th>心肺氣虛<br>HT &amp; LU Qi Def</th><td class="cjk">心悸、咳嗽、氣短（動則甚）、胸中窒悶、痰稀、面色蒼白、眩暈、自汗、聲怯</td><td class="cjk">舌淡白苔｜沉、弱或結</td></tr>
+        <tr><th>心脾兩虛<br>HT &amp; SP Def</th><td class="cjk">心悸（或持續而重）、失眠、多夢、眩暈、健忘；面色萎黃、納呆、腹脹、便溏、倦怠、皮下出血、經量少或崩漏</td><td class="cjk">舌淡｜細、弱</td></tr>
+        <tr><th>心肝血虛<br>HT &amp; LR Blood Def</th><td class="cjk">心悸、失眠、多夢；眩暈、耳鳴、面色蒼白、目乾視糊、爪甲色淡、肢麻、震顫、抽搐、經量少</td><td class="cjk">舌淡白苔｜細、弱</td></tr>
+        <tr><th>肝火犯肺<br>LR-Fire → LU</th><td class="cjk">胸脅灼痛、易怒暴躁；眩暈、目赤、口苦、咳嗽、痰少黏黃</td><td class="cjk">舌紅、薄黃苔｜弦、數</td></tr>
+        <tr><th>肝脾不調<br>LR–SP disharmony</th><td class="cjk">脅肋脹痛走竄、喜太息、情志抑鬱、易怒；納呆、腹脹、便溏、腸鳴矢氣，或腹痛腹瀉、瀉後痛減</td><td class="cjk">舌淡、白膩苔｜弦</td></tr>
+        <tr><th>肝胃不和<br>LR–ST disharmony</th><td class="cjk">胸脅脘部脹痛滿悶、呃逆噯氣、胃脘不適、泛酸、易怒</td><td class="cjk">舌紅、薄黃苔｜弦滑或弦數</td></tr>
+        <tr><th>肝血腎陰虛<br>LR Blood &amp; KI Yin Def</th><td class="cjk">眩暈、耳鳴、健忘、失眠、多夢、咽乾口燥；腰膝痠軟、脅痛；五心煩熱、顴紅、盜汗、遺精、經量少</td><td class="cjk">舌紅、少苔｜細數</td></tr>
+        <tr><th>脾腎陽虛<br>SP &amp; KI Yang Def</th><td class="cjk">畏寒肢冷、面色蒼白、腰膝小腹冷痛；慢性腹瀉、下痢或五更瀉、完穀不化、小便不利、水腫</td><td class="cjk">舌淡胖、白滑苔｜沉、細</td></tr>
+        <tr><th>脾肺氣虛<br>SP &amp; LU Qi Def</th><td class="cjk">久咳、氣短；痰稀白量多、納呆、腹脹便溏、聲怯、倦怠、面色蒼白、水腫</td><td class="cjk">舌淡白苔｜細、弱</td></tr>
+        <tr><th>肺腎陰虛<br>LU &amp; KI Yin Def</th><td class="cjk">咳嗽痰少或痰血、口咽乾、聲嘶；腰膝痠軟、午後潮熱、顴紅、盜汗、遺精、月經不調</td><td class="cjk">舌紅、少苔｜細數</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="note"><b>心腎不交病機：</b>心火不下溫腎，腎水不上濟心。
+      <span class="en">Mechanism (HT–KI discord): HT Fire fails to descend to warm KI; KI Water fails to ascend to cool HT Fire.</span></div>
+  </div>
+
+  <div class="sec">
+    <h3>五行辨證 <span class="en">Five-Element Differentiation</span></h3>
+    <div class="pair must">
+      <div class="en">
+        <h4><span class="seal-must">必記</span>Four sequences 四序</h4>
+        <p><b>Generating 相生 · Controlling 相剋 · Over-Acting 相乘 · Insulting 相侮.</b></p>
+        <h4>Generating Sequence syndromes 母病及子</h4>
+        <ul>
+          <li>Fire not generating Earth 火不生土: loose stool, chilliness, weakness</li>
+          <li>Wood not generating Fire 木不生火: GB Deficiency</li>
+          <li>Earth not generating Metal 土不生金: SP Def → Phlegm formation</li>
+          <li>Metal not generating Water 金不生水: KI not receiving Qi</li>
+          <li>Water not generating Wood 水不生木: KI &amp; LR Yin Def</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <h4><span class="seal-must">必記</span>四序</h4>
+        <p><b>相生 · 相剋 · 相乘（剋之太過）· 相侮（反剋）。</b></p>
+        <h4>相生序病證（母子相及）</h4>
+        <ul>
+          <li>火不生土：便溏、畏寒、乏力</li>
+          <li>木不生火：膽虛</li>
+          <li>土不生金：脾虛生痰</li>
+          <li>金不生水：腎不納氣</li>
+          <li>水不生木：肝腎陰虛</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pair">
+      <div class="en">
+        <h4>Over-Acting 相乘</h4>
+        <ul>
+          <li>Wood over-acting on Earth 木乘土: hypochondriac &amp; epigastric pain</li>
+          <li>Earth over-acting on Water 土乘水: edema</li>
+          <li>Water over-acting on Fire 水乘火: no clear interaction (KI Yin Def → HT Heat)</li>
+          <li>Fire over-acting on Metal 火乘金: cough, profuse yellow sputum, heat, red face</li>
+          <li>Metal over-acting on Wood 金乘木: tiredness, irritability</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <h4>相乘</h4>
+        <ul>
+          <li>木乘土：脅痛、胃脘痛</li>
+          <li>土乘水：水腫</li>
+          <li>水乘火：無明顯對應（腎陰虛可致心熱）</li>
+          <li>火乘金：咳、痰黃量多、發熱、面紅</li>
+          <li>金乘木：疲倦、易怒</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pair">
+      <div class="en">
+        <h4>Insulting 相侮</h4>
+        <ul>
+          <li>Wood insulting Metal 木侮金: cough, chest &amp; hypochondriac distension</li>
+          <li>Metal insulting Fire 金侮火: LU &amp; HT Qi Def</li>
+          <li>Fire insulting Water 火侮水: KI &amp; HT not harmonized</li>
+          <li>Water insulting Earth 水侮土: KI &amp; SP Yang Def</li>
+          <li>Earth insulting Wood 土侮木: Dampness → jaundice, hypochondriac pain &amp; distension</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <h4>相侮（反剋）</h4>
+        <ul>
+          <li>木侮金：咳、胸脅脹</li>
+          <li>金侮火：肺心氣虛</li>
+          <li>火侮水：心腎不和</li>
+          <li>水侮土：脾腎陽虛</li>
+          <li>土侮木：濕邪 → 黃疸、脅痛脹滿</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>五行・綜合練習病案 <span class="en">Practice Cases</span></h3>
+    <div class="case">
+      <div class="ct">Case 1 · 女 32 歲</div>
+      <div class="grid2">
+        <div class="en"><p>6 miscarriages in 6 yr of marriage; regular periods; tired, dizzy, poor appetite, loose stool; low back weakness, no libido. <b>T:</b> pale. <b>P:</b> weak.</p></div>
+        <div class="zh"><p>婚後 6 年流產 6 次；月經規律；疲倦、眩暈、納呆、便溏；腰弱、無性慾。<b>舌</b>淡。<b>脈</b>弱。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>脾腎（陽）虛——腎虛滑胎、脾虛便溏納呆，淡舌弱脈。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 2 · 女 25 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Endometriosis &amp; ovarian cyst; one ovary removed 1 yr ago; drug therapy stopped (side effects); on strong contraception, very depressed. Today menses w/ severe hot painful flow; took painkillers; low back &amp; leg weakness. <b>T:</b> purplish, dark spots, lacking fluid, no coat. <b>P:</b> wiry, thready, deep.</p></div>
+        <div class="zh"><p>子宮內膜異位與卵巢囊腫；一年前切除一側卵巢；因副作用停藥；服強效避孕藥、極抑鬱。今經行伴劇烈熱痛；服止痛藥；腰腿無力。<b>舌</b>紫、有暗斑、少津、無苔。<b>脈</b>弦細沉。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>肝腎陰虛兼血瘀、肝鬱化熱——紫暗少津無苔（陰虛血瘀）、弦脈（肝鬱）、熱痛。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 3 · 男 28 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Eczema + h/o asthma; father (deceased) also had eczema; severe ×4 yr, hormone therapy stopped (ineffective); uses hormone cream 2–3×/day; skin thick, dry, dark-purple, peeling on face/back/limbs. Loves Indian spicy food. <b>T:</b> dark-red, yellow-greasy coat. <b>P:</b> slightly smooth, rapid.</p></div>
+        <div class="zh"><p>濕疹兼哮喘史；已故父親亦有濕疹；4 年前加重、荷爾蒙治療無效而停；每日用類固醇乳膏 2–3 次；皮膚增厚、乾燥、暗紫、脫屑，見於面背四肢。嗜印度辛辣食物。<b>舌</b>暗紅、黃膩苔。<b>脈</b>略滑、數。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>濕熱蘊膚兼血熱血瘀（血燥）——暗紅舌、黃膩苔滑數脈、辛辣助熱、皮厚暗紫。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 4 · 男 55 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Brain tumour Dx 3 months ago + 3 liver tumours; had chemo, radiotherapy, surgery. Now severe daily headache needing codeine/morphine; very tired, nausea, no appetite, cold sweating, cold limbs. <b>T:</b> pale, slightly white coat. <b>P:</b> weak, slow.</p></div>
+        <div class="zh"><p>3 個月前診腦瘤、另肝內 3 瘤；已行化療、放療及手術。現每日劇烈頭痛、需可待因/嗎啡；極倦、噁心、納呆、冷汗、四肢冷。<b>舌</b>淡、微白苔。<b>脈</b>弱、遲。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>脾腎陽虛、氣血大虛（正氣虛衰）——冷汗肢冷、淡舌弱遲脈，久病重症之虛象。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 5 · 男 59 歲</div>
+      <div class="grid2">
+        <div class="en"><p>ER 5 days ago for severe dizziness &amp; vomiting; still can't eat, dizzy, nausea, burping, difficult swallowing, bitter taste, much saliva; stomachache with acid regurgitation at night. <b>T:</b> dark-red, white coat. <b>P:</b> wiry in LR position, full in SP position.</p></div>
+        <div class="zh"><p>5 天前因劇烈眩暈嘔吐急診；仍不能進食、頭暈、噁心、噯氣、吞嚥困難、口苦、多涎；夜間胃痛泛酸。<b>舌</b>暗紅、白苔。<b>脈</b>肝位弦、脾位滿實。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>肝胃不和（肝木乘脾/犯胃）——弦脈（肝）、脾位滿實、口苦泛酸、眩嘔。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 6 · 男 45 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Kidney stone; severe pain in kidney region of low back; on painkillers, no further treatment; urinary retention ×48 h; left hospital to seek acupuncture. <b>T:</b> red, yellow coat. <b>P:</b> full &amp; excess in kidney position.</p></div>
+        <div class="zh"><p>腎結石；腰部腎區劇痛；服止痛藥、尚無進一步治療；尿瀦留 48 小時；離院求針灸。<b>舌</b>紅、黃苔。<b>脈</b>腎位滿實。</p></div>
+      </div>
+      <div class="ans"><b>參考：</b>膀胱／下焦濕熱、石淋（實證）——紅舌黃苔、腎位實脈、結石尿閉。</div>
+    </div>
+  </div>
+
+  <!-- ==================== MODULE 6 ==================== -->
+  <div class="mod-banner" id="m4"><span class="mno">04</span><span class="mcn">其他辨證體系</span><span class="men">Other Differentiation Systems</span></div>
+
+  <!-- ---------- 6A FOUR LEVELS & TRIPLE WARMER ---------- -->
+  <div class="mod-banner" id="m4a" style="margin-top:22px;background:var(--gold);"><span class="mno" style="color:#3A2E12;">4·1</span><span class="mcn">衛氣營血・三焦</span><span class="men">Four Levels &amp; Triple Warmer</span></div>
+
+  <div class="sec">
+    <h3>衛氣營血辨證（溫病） <span class="en">Four Levels Differentiation</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p>Used for strongly infectious, epidemic illnesses caused by <b>Warm pathogens</b>. Wind-Warm enters via mouth &amp; nose (vs Wind-Cold via Tai Yang/skin). Includes childhood infections: measles, mumps, chicken pox, rubella, flu.</p>
+        <p><b>Four levels (progressively deeper):</b> Wei (Defensive) → Qi → Ying (Nutritive) → Xue (Blood).</p>
+      </div>
+      <div class="zh">
+        <p>用於<b>溫邪</b>所致之強傳染性、流行性疾病。風溫從口鼻而入（風寒則從太陽/皮毛入）。包括麻疹、腮腺炎、水痘、風疹、流感等小兒傳染病。</p>
+        <p><b>四級（由淺入深）：</b>衛分 → 氣分 → 營分 → 血分。</p>
+      </div>
+    </div>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>階段 Stage</th><th>病機 Mechanism</th><th>主症 Manifestations</th><th>舌脈 T / P</th></tr></thead>
+      <tbody>
+        <tr><th>衛分<br>Defensive (Wei)</th><td class="cjk">侵襲初期，風溫犯淺表衛分，症多歸肺（肺與衛氣相關、又為風溫入口）</td><td class="cjk">發熱、微惡風寒、少汗或無汗、頭痛、咳嗽、咽痛、口乾微渴</td><td class="cjk">舌邊紅、薄白或微黃苔｜脈浮數</td></tr>
+        <tr><th>氣分<br>Qi</th><td class="cjk">邪已勝衛、入裏；正氣大戰而見「大症」。屬裏、實、熱；可犯肺、大腸、胃</td><td class="cjk">大熱、大渴、大汗、咳嗽氣短、咯黃稠痰——不再惡寒。肺：咳喘痰胸痛；胃：渴喜冷飲；大腸：便秘、熱結旁流、腹痛</td><td class="cjk">舌紅、黃或黑苔｜脈洪大、滑數</td></tr>
+        <tr><th>營分<br>Nutritive (Ying)</th><td class="cjk">邪勝氣分、深入。營與血密切、關乎心。溫邪傷陰，屬虛、裏、熱</td><td class="cjk">發熱夜甚、心煩不安、失眠或譫語、口渴而僅小啜、隱隱斑疹</td><td class="cjk">舌絳、乾苔或剝｜脈細數</td></tr>
+        <tr><th>血分<br>Blood (Xue)</th><td class="cjk">最深層。心主血、肝藏血，故涉此二臟。血熱迫血則出血，甚則死。屬裏、熱、實（熱）兼虛（陰）</td><td class="cjk">出血：咯血、鼻衄、尿血、便血；痙攣、抽搐、震顫；發熱夜甚、煩躁、失眠或狂、口渴而僅小啜、斑疹密布</td><td class="cjk">舌絳｜脈數、弦、小</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>三焦辨證（濕熱） <span class="en">Triple Warmer Differentiation</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>階段 Stage</th><th>病機 Mechanism</th><th>主症 Manifestations</th><th>舌脈 T / P</th></tr></thead>
+      <tbody>
+        <tr><th>上焦<br>Upper Jiao</th><td class="cjk">濕邪侵襲初期，先犯肺與皮毛，亦可及脾胃；此期熱不甚，任其進展則熱象漸顯</td><td class="cjk">黏液分泌與發炎：黃鼻涕、目耳分泌發炎；肺咳黃稠痰；頸部淋巴腫；微熱/無熱/午後熱，或兼惡寒/畏寒；頭痛兼沉重感；鼻竇鼻塞</td><td class="cjk">—</td></tr>
+        <tr><th>中焦<br>Middle Jiao</th><td class="cjk">濕熱犯中焦，脾易為濕困、運化受損；因脾胃相關，胃受納亦礙</td><td class="cjk">腹部不適：脹、氣、消化不良、納呆；噁心嘔吐；腹瀉（或夾白黏液）；黃疸（膚目，濕熱盛時面呈晦濁暗黃）；發熱（微熱/午後熱/汗後減又升）；肢體沉重；口乾不欲飲；神識減退、乏力；尿頻灼</td><td class="cjk">灰、白和/或黃苔｜脈緩，或滑</td></tr>
+        <tr><th>下焦<br>Lower Jiao</th><td class="cjk">三焦辨證末段，主涉大腸與膀胱，見排泄或生殖問題</td><td class="cjk">臭穢腹瀉、或兼灼熱（大腸濕熱）；小便不利、灼熱、尿短深黃；黃臭帶下；或生殖器皰疹、骨盆腔炎；小腹脹；眩暈（濕阻清陽不升）</td><td class="cjk">灰、白或黃膩苔｜脈濡、數，略滑</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>衛氣營血・三焦 練習病案 <span class="en">Practice Cases</span></h3>
+    <div class="case">
+      <div class="ct">Case 1 · 男（四級辨證）</div>
+      <div class="grid2">
+        <div class="en"><p>Severe fever, slight aversion to wind, headache, cough, absent/slight sweat, mild thirst, swollen sore throat; red tongue tip &amp; borders, thin white coat; floating rapid pulse. → Which level?</p></div>
+        <div class="zh"><p>高熱、微惡風、頭痛、咳嗽、無汗或少汗、微渴、咽腫痛；舌尖邊紅、薄白苔；脈浮數。→ 屬何級？</p></div>
+      </div>
+      <div class="ans"><b>答：A. 衛分</b>（Defensive Qi）——浮數脈、微惡風、薄白苔屬表衛。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 2 · 男（四級辨證）</div>
+      <div class="grid2">
+        <div class="en"><p>Irritability, restlessness, delirium, fever, thirst. → Which level?</p></div>
+        <div class="zh"><p>煩躁、不安、譫語、發熱、口渴。→ 屬何級？</p></div>
+      </div>
+      <div class="ans"><b>答：C. 營分</b>（Nutritive Qi）——譫語、心煩、發熱屬熱入營分擾心。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 3 · 男 42 歲（7 月）</div>
+      <div class="grid2">
+        <div class="en"><p>Moderate fever, sweating; suffocating epigastric feeling, nausea; sluggish body &amp; limbs, loose stools, turbid urine; sticky tongue coat; moderate pulse.</p></div>
+        <div class="zh"><p>中度發熱、汗出；脘部窒悶、噁心；身體四肢遲滯、便溏、尿濁；苔膩；脈緩。</p></div>
+      </div>
+      <div class="ans"><b>答：中焦濕熱</b>（Middle Jiao Damp-Heat）——脘悶、身重、便溏、膩苔緩脈屬濕困中焦。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 4 · 男 30 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Fever, nose bleeding, cough; thirst with desire for cold drink, constipation; red tongue; rapid floating pulse. → Dx?</p></div>
+        <div class="zh"><p>發熱、鼻衄、咳嗽；渴喜冷飲、便秘；舌紅；脈浮數。→ 診斷？</p></div>
+      </div>
+      <div class="ans"><b>答：D. 肺胃熱盛</b>（Extreme Heat in Lungs &amp; Stomach）——鼻衄咳嗽（肺）、渴冷便秘（胃）、紅舌數脈。</div>
+    </div>
+  </div>
+
+  <!-- ---------- 6B CHANNEL & SIX STAGES ---------- -->
+  <div class="mod-banner" id="m4b" style="margin-top:22px;background:var(--gold);"><span class="mno" style="color:#3A2E12;">4·2</span><span class="mcn">經絡・六經</span><span class="men">Channel &amp; Six Stages (Liu Jing)</span></div>
+
+  <div class="sec">
+    <h3>六經配屬 <span class="en">Six Channels &amp; their organ pairs</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>經 Stage</th><th>中文</th><th>配屬 Organs</th></tr></thead>
+      <tbody>
+        <tr><th>Tai Yang</th><td class="cjk">太陽（巨陽）</td><td class="cjk">小腸、膀胱 (SI, BL)</td></tr>
+        <tr><th>Yang Ming</th><td class="cjk">陽明</td><td class="cjk">大腸、胃 (LI, ST)</td></tr>
+        <tr><th>Shao Yang</th><td class="cjk">少陽</td><td class="cjk">三焦、膽 (TW, GB)</td></tr>
+        <tr><th>Tai Yin</th><td class="cjk">太陰</td><td class="cjk">肺、脾 (LU, SP)</td></tr>
+        <tr><th>Shao Yin</th><td class="cjk">少陰</td><td class="cjk">心、腎 (HT, KI)</td></tr>
+        <tr><th>Jue Yin</th><td class="cjk">厥陰</td><td class="cjk">肝、心包 (LR, PC)</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>十二正經病證 <span class="en">Syndromes of the 12 Regular Meridians</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>經 Meridian</th><th>主症 Clinical Manifestations</th></tr></thead>
+      <tbody>
+        <tr><th>手太陰肺經</th><td class="cjk">胸滿、咳嗽、氣短、身寒熱、自汗；肩背痛，上肢內側前緣痠痛</td></tr>
+        <tr><th>手陽明大腸經</th><td class="cjk">齒痛、頸腫咽痛、目黃、口乾、鼻衄；肩、上臂、拇指與食指痠痛、活動受限</td></tr>
+        <tr><th>足陽明胃經</th><td class="cjk">脘腹脹、腸鳴、高熱、譫語、鼻衄；唇疹、頭痛、面癱、頸腫咽痛，腹股溝、下肢前外側、足背與第三趾疼痛或活動受限</td></tr>
+        <tr><th>足太陰脾經</th><td class="cjk">嘔吐、胃痛、腹脹、納呆、便溏、黃疸、小便不利、身體遲滯；舌強、大腿與膝內側腫、足趾活動受限</td></tr>
+        <tr><th>手少陰心經</th><td class="cjk">心區與脅肋痛、咽乾、口渴、目黃；上肢內側後緣痛、手掌心熱</td></tr>
+        <tr><th>手太陽小腸經</th><td class="cjk">耳聾、頰頜腫、咽痛、目黃；頸肩臂及上肢外側後緣疼痛、活動受限</td></tr>
+        <tr><th>足太陽膀胱經</th><td class="cjk">寒熱、瘧疾、鼻衄、頭痛、目黃、目銳痛；項、腰、大腿、膕窩、小腿與小趾疼痛、活動受限</td></tr>
+        <tr><th>足少陰腎經</th><td class="cjk">面色晦黑、精神萎靡、氣逆、氣短、心悸、易驚；舌乾、咽腫、足心熱、煩躁、心區痛、咯血、背與大腿內側後緣痛、腰膝痠痛、下肢肌肉萎縮</td></tr>
+        <tr><th>手厥陰心包經</th><td class="cjk">心悸、心區痛、煩躁、面赤、狂；胸脅痛、上肢痙攣、手掌心熱</td></tr>
+        <tr><th>手少陽三焦經</th><td class="cjk">耳聾、耳鳴、咽痛；目外眥痛，耳後、肩、上臂外側、前臂與肘部疼痛，或活動受限</td></tr>
+        <tr><th>足少陽膽經</th><td class="cjk">寒熱往來、口苦、胸脅痛、偏頭痛；大腿外側、膝、脛、小趾與第四趾疼痛</td></tr>
+        <tr><th>足厥陰肝經</th><td class="cjk">胸脅滿痛、腹痛、嘔吐、腹瀉、小便不通（癃閉）、腰痛</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>奇經八脈病證 <span class="en">Syndromes of the 8 Extra Meridians</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>脈 Meridian</th><th>主症 Manifestations</th></tr></thead>
+      <tbody>
+        <tr><th>任脈 Ren</th><td class="cjk">男子疝氣；女子帶下、少腹結塊</td></tr>
+        <tr><th>督脈 Du</th><td class="cjk">虛證見脊柱強直；實證見眩暈</td></tr>
+        <tr><th>衝脈 Chong</th><td class="cjk">氣逆上衝、腹中拘急疼痛</td></tr>
+        <tr><th>帶脈 Dai</th><td class="cjk">腹部脹滿，腰部痠、軟、冷如坐水中；女子赤白帶下</td></tr>
+        <tr><th>陽蹻・陰蹻<br>Yang/Yin Qiao</th><td class="cjk">陽蹻：陰緩陽急（陰側弛而陽側急）、狂躁、失眠；陰蹻：陽緩陰急、肢冷</td></tr>
+        <tr><th>陽維・陰維<br>Yang/Yin Wei</th><td class="cjk">陽維：寒熱；陰維：心區痛</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>六經辨證（傷寒） <span class="en">Six Stages Differentiation</span></h3>
+    <div class="pair">
+      <div class="en">
+        <p><b>Treatise on Cold-Damage (傷寒論):</b> mainly for externally-contracted disease (also interior). Cold (KI, Winter, Water, Yin evil) damages Yang, impairs body-temp regulation, slows life activities, causes contraction/congealing → stagnation, pain, stiffness; affects low back/knees/joints and ST/Intestines/LR; thin, watery, pale, cold discharges.</p>
+        <p><b>Three Yang = more exterior/excess/heat; Three Yin = interior/deficient/cold:</b></p>
+        <ul>
+          <li>Tai Yang 太陽 — exterior syndrome</li>
+          <li>Shao Yang 少陽 — half exterior / half interior</li>
+          <li>Yang Ming 陽明 — interior (Excess Heat)</li>
+          <li>Tai Yin 太陰 — interior</li>
+          <li>Shao Yin 少陰 — interior</li>
+          <li>Jue Yin 厥陰 — interior</li>
+        </ul>
+      </div>
+      <div class="zh">
+        <p><b>《傷寒論》：</b>主論外感（兼及內傷）。寒（屬腎、冬、水、陰邪）傷陽，礙體溫調節、遲緩生機、令收引凝滯 → 停滯、疼痛、僵硬；易犯腰膝關節與胃腸肝；排出物稀、水樣、色淡、寒涼。</p>
+        <p><b>三陽偏表/實/熱；三陰屬裏/虛/寒：</b></p>
+        <ul>
+          <li>太陽——表證</li>
+          <li>少陽——半表半裏</li>
+          <li>陽明——裏證（實熱）</li>
+          <li>太陰——裏證</li>
+          <li>少陰——裏證</li>
+          <li>厥陰——裏證</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>太陽病 <span class="en">Tai Yang Syndromes</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>證 Type</th><th>主症 Symptoms</th><th>辨析 Differentiation</th></tr></thead>
+      <tbody>
+        <tr><th>太陽中風<br>Wind Strike</th><td class="cjk">發熱、惡風、項強痛、自汗，脈浮緩，或兼喘</td><td class="cjk">表虛證——有汗、脈浮緩</td></tr>
+        <tr><th>太陽傷寒<br>Cold Damage</th><td class="cjk">惡寒、發熱、項與關節強痛、無汗、喘，脈浮緊</td><td class="cjk">表實證——無汗、脈浮緊</td></tr>
+        <tr><th>太陽蓄水<br>Organ Water Retention</th><td class="cjk">表證未解（發熱惡寒浮脈）＋膀胱氣化失司：小便不利、少腹脹滿、津不上承而口渴、飲入即吐（水逆）</td><td class="cjk">邪傳膀胱、氣化受阻</td></tr>
+        <tr><th>太陽蓄血<br>Organ Blood Amassment</th><td class="cjk">熱與血結於下焦：如狂、健忘等血熱擾心；少腹硬滿疼痛、大便色黑（帶血）</td><td class="cjk">脈沉澀或沉結（邪實於裏、阻血脈）</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>陽明・少陽 <span class="en">Yang Ming &amp; Shao Yang</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>證 Syndrome</th><th>主症 Manifestations</th><th>舌脈 T / P</th></tr></thead>
+      <tbody>
+        <tr><th>陽明經證<br>YM Channel</th><td class="cjk">熱充陽明經：高熱、不惡寒、大汗、大渴喜冷飲、惡熱、面紅、煩躁（四大症）</td><td class="cjk">苔黃乾｜脈洪大</td></tr>
+        <tr><th>陽明腑證<br>YM Organ</th><td class="cjk">午後潮熱、手足汗出、腹痛脹滿、便秘、煩躁、譫語</td><td class="cjk">苔黃乾，或舌起芒刺、黃黑苔，或乾黑苔｜脈沉實有力，或滑數有力</td></tr>
+        <tr><th>少陽證<br>Shao Yang</th><td class="cjk">半表半裏：寒熱往來、口苦、咽乾、目眩、胸脅苦滿、煩躁、嘔吐、納呆</td><td class="cjk">脈弦</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>太陰・少陰・厥陰 <span class="en">Three Yin Syndromes</span></h3>
+    <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>證 Syndrome</th><th>主症 Manifestations</th><th>舌脈 T / P</th></tr></thead>
+      <tbody>
+        <tr><th>太陰證<br>Tai Yin</th><td class="cjk">脾陽虛致內生寒濕：腹滿、嘔吐、納呆、腹瀉、腹痛（得按得溫則減）、不渴</td><td class="cjk">舌淡、白滑苔｜脈緩弱</td></tr>
+        <tr><th>少陰寒化<br>Shao Yin — Cold</th><td class="cjk">陽虛陰寒盛：惡寒、無熱、蜷臥、四肢冷、完穀不化之瀉、嘔吐、納呆、小便清長、不渴喜熱飲；或陰盛格陽（身反熱、不惡寒、面赤）</td><td class="cjk">舌淡、白苔｜脈沉微無力</td></tr>
+        <tr><th>少陰熱化<br>Shao Yin — Heat</th><td class="cjk">水火不濟、陰虛火旺：煩躁、失眠、口咽乾</td><td class="cjk">舌尖紅、津少苔少，或舌深紅少苔｜脈細數</td></tr>
+        <tr><th>厥陰證<br>Jue Yin</th><td class="cjk">寒熱錯雜：消渴、氣上衝心（撞胸而痛兼熱感）、飢而不欲食、食則吐蛔、四肢厥冷、下利、嘔吐</td><td class="cjk">—</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="note"><b>六氣圓運動：</b>① 厥陰風木 · ② 少陰君火 · ③ 少陽相火（暑）· ④ 太陰濕土 · ⑤ 陽明燥金 · ⑥ 太陽寒水。四季升降浮沉：春升、夏浮、秋降、冬沉。
+      <span class="en">Six Qi circular motion: Jue Yin Wind-Wood · Shao Yin Emperor Fire · Shao Yang Prime-Minister Fire · Tai Yin Damp-Earth · Yang Ming Dry-Metal · Tai Yang Cold-Water.</span></div>
+  </div>
+
+  <div class="sec">
+    <h3>六經・經絡 練習病案 <span class="en">Practice Cases</span></h3>
+    <div class="case">
+      <div class="ct">Case 1 · 男 60 歲（高血壓）</div>
+      <div class="grid2">
+        <div class="en"><p>Headache, dizziness, red eyes; headache at vertex; vertigo, bitter taste, yellow urine; tongue red w/ yellow coat; wiry &amp; fast pulse. → Dx?</p></div>
+        <div class="zh"><p>頭痛、眩暈、目赤；頭痛在巔頂；眩暈、口苦、尿黃；舌紅黃苔；脈弦數。→ 診斷？</p></div>
+      </div>
+      <div class="ans"><b>答：(2) 肝火上炎</b>（Rising Liver Fire）——目赤口苦、紅舌黃苔、弦數脈屬肝火（相對肝陽上亢無明顯熱盛實象）。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 2 · 經絡選擇題</div>
+      <div class="grid2">
+        <div class="en"><p>The kidney meridian connects to all these organs on its way up EXCEPT: Bladder / Heart / Spleen / Lung. &nbsp;｜&nbsp; Which meridian does NOT reach the eye: GB / ST / LI / TW?</p></div>
+        <div class="zh"><p>腎經上行「不」聯屬下列何臟腑：膀胱／心／脾／肺？&nbsp;｜&nbsp;下列何經「不」到眼：膽／胃／大腸／三焦？</p></div>
+      </div>
+      <div class="ans"><b>答：</b>腎經上行不聯屬<b>脾</b>（連膀胱、肝、肺、心）；<b>大腸經</b>不至眼（膽、胃、三焦皆抵目周）。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 3 · 女 50 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Alternating cold &amp; fever ×1 month, bitter taste, dry throat, vertigo, chest &amp; hypochondriac fullness, restlessness, vomiting, poor appetite; wiry pulse. → Dx?</p></div>
+        <div class="zh"><p>寒熱往來 1 月、口苦、咽乾、眩暈、胸脅苦滿、煩躁、嘔吐、納呆；脈弦。→ 診斷？</p></div>
+      </div>
+      <div class="ans"><b>答：少陽證</b>（Shao Yang）——寒熱往來、口苦咽乾、胸脅苦滿、弦脈，典型半表半裏。</div>
+    </div>
+    <div class="case">
+      <div class="ct">Case 4 · 男 35 歲</div>
+      <div class="grid2">
+        <div class="en"><p>Caught a cold 1 month ago; still mild fever, aversion to wind, neck rigidity &amp; pain, spontaneous sweating, tiredness; floating &amp; moderate pulse. → Dx?</p></div>
+        <div class="zh"><p>一月前感冒；仍微發熱、惡風、項強痛、自汗、疲倦；脈浮緩。→ 診斷？</p></div>
+      </div>
+      <div class="ans"><b>答：太陽中風</b>（Tai Yang Wind）——惡風、自汗、項強、浮緩脈，表虛證。</div>
+    </div>
+  </div>
+
+  <!-- ==================== PRACTICE QUIZ ==================== -->
+  <div class="mod-banner" id="quiz" style="background:var(--jade);"><span class="mno" style="color:#F4EFE4;">✎</span><span class="mcn">練習區・自我測驗</span><span class="men">Self-Test · 13 Questions</span></div>
+
+  <div class="sec">
+    <p class="lead">點選作答，即時顯示對錯與解析、自動計分。標<span class="added" style="vertical-align:middle;">補</span>者為原檔未附選項、由本講義依證型補上；其餘為原測驗選項（含批改結果）。</p>
+    <div id="quizwrap">
+      <div class="quiz-bar">
+        <div class="score">得分 <b><span id="qgot">0</span></b> / <b><span id="qtot">13</span></b>　已答 <b><span id="qans">0</span></b></div>
+        <div class="prog"><span id="qprog"></span></div>
+        <button onclick="resetQuiz()">重置 Reset</button>
+      </div>
+      <div id="quizroot"></div>
+    </div>
+  </div>
+
+  <footer>
+    科目二 · 中醫診斷學 &nbsp;|&nbsp; 中英對照重點 · 依課程投影片整理（講師 William Hossack）
+    <div class="en" style="margin-top:5px;">Sources: Maciocia G., <i>The Foundations of Chinese Medicine</i> (2005); <i>Diagnosis in Chinese Medicine</i> (2019). Elsevier. Personal collection of William Hossack &amp; Wendy Zhang.</div>
+  </footer>
+
+</div>
+</main>
+
+<a id="totop" href="#">↑ 頂端</a>
+<script>
+  const links=[...document.querySelectorAll('#toc a')];
+  const map=links.map(a=>({a,el:document.querySelector(a.getAttribute('href'))})).filter(x=>x.el);
+  const obs=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){
+      links.forEach(l=>l.classList.remove('active'));
+      const hit=map.find(m=>m.el===e.target); if(hit)hit.a.classList.add('active');
+    }});
+  },{rootMargin:'-10% 0px -80% 0px',threshold:0});
+  map.forEach(m=>obs.observe(m.el));
+  document.querySelectorAll('#toc a').forEach(a=>a.addEventListener('click',()=>document.getElementById('toc').classList.remove('open')));
+
+  /* ===== practice quiz ===== */
+  const QUIZ=[
+    {n:1, en:"The middle of the tongue corresponds to which internal organs?", zh:"舌中對應哪些臟腑？", added:true,
+     opts:[
+       {en:"Heart & Lung", zh:"心、肺"},
+       {en:"Spleen & Stomach", zh:"脾、胃", ok:true},
+       {en:"Liver & Gallbladder", zh:"肝、膽"},
+       {en:"Kidney", zh:"腎"}],
+     exp_zh:"舌面分區：舌尖＝心肺、舌中＝脾胃（中焦）、舌根＝腎、舌邊＝肝膽。", exp_en:"Tip = HT/LU · Centre = SP/ST · Root = KI · Sides = LR/GB.", ref:"②·1 望診 · 舌面分區"},
+
+    {n:2, en:"Leukorrhea that is red and white is due to which pattern?", zh:"赤白帶下屬何證？", added:true,
+     opts:[
+       {en:"Cold-Damp (SP/KI)", zh:"寒濕（脾腎）"},
+       {en:"Damp-Heat", zh:"濕熱", ok:true},
+       {en:"LR Qi stagnation", zh:"肝氣鬱滯"},
+       {en:"Toxic Damp-Heat in Uterus", zh:"子宮濕熱毒（黃膿血）"}],
+     exp_zh:"帶下色：白＝寒/肝鬱；黃＝濕熱；綠＝肝經濕熱；赤白＝濕熱；黃膿血＝濕熱毒。", exp_en:"Red & white leucorrhoea = Damp-Heat.", ref:"②·3 問診 · 帶下"},
+
+    {n:3, en:"Which most likely contributes to a copious volume of urine?", zh:"何者最可能導致尿量清長而多？",
+     opts:[
+       {en:"Kidney Yin Deficiency", zh:"腎陰虛"},
+       {en:"Spleen Dampness", zh:"脾濕"},
+       {en:"Damp-Heat in the Bladder", zh:"膀胱濕熱"},
+       {en:"Kidney Yang Deficiency", zh:"腎陽虛", ok:true}],
+     exp_zh:"小便清長量多＝腎陽虛／內寒；膀胱濕熱反見尿短赤，故非之。", exp_en:"Copious clear urine = KI Yang Def / Interior Cold. Damp-Heat gives scanty dark urine.", ref:"③·5 腎陽虛 · ②·3 小便"},
+
+    {n:4, en:"Hot sensations linger after a fever with large sweats; now pale tongue with peeled coating, and a thready, rapid, empty pulse. Most likely pattern?", zh:"大汗發熱後餘熱不退，舌淡而剝苔，脈細數而虛，最可能屬何證？", added:true,
+     opts:[
+       {en:"Excess Heat", zh:"實熱"},
+       {en:"Yin Def with Empty Fire", zh:"陰虛火旺"},
+       {en:"Qi & Yin Deficiency (with empty heat)", zh:"氣陰兩虛（兼虛熱）", ok:true},
+       {en:"Damp-Heat", zh:"濕熱"}],
+     exp_zh:"大汗＋發熱既耗氣（→舌淡、脈虛）又傷陰津（→剝苔、脈數、餘熱）。關鍵舌淡排除單純陰虛（陰虛舌應紅）。", exp_en:"Sweat+fever consume both Qi (pale tongue, empty pulse) and Yin/fluids (peeled coat, rapid pulse). Pale tongue rules out pure Yin Def (which is red).", ref:"②·3 潮熱/低熱 · ②·1 舌"},
+
+    {n:5, en:"Which pulse likely suggests a positive prognosis?", zh:"何種脈提示預後良好？",
+     opts:[
+       {en:"Strong pulse in the Cun position", zh:"寸部脈強"},
+       {en:"Deep and Weak pulse", zh:"沉弱脈"},
+       {en:"Pulse that is rooted in the Chi position", zh:"尺部脈有根", ok:true},
+       {en:"Short pulse", zh:"短脈"}],
+     exp_zh:"「有根」＝腎氣／元氣未竭，故預後佳。單一部位強不代表整體有根。", exp_en:"A rooted (Chi) pulse = intact KI/source Qi → good prognosis. One strong position ≠ rooted.", ref:"②·4 平脈：有胃・有神・有根"},
+
+    {n:6, en:"A thin, red tongue body with no coating indicates?", zh:"舌瘦、紅、無苔，主何證？", added:true,
+     opts:[
+       {en:"Qi & Blood Deficiency", zh:"氣血兩虛"},
+       {en:"Yang Deficiency", zh:"陽虛"},
+       {en:"Yin Deficiency (Empty Heat)", zh:"陰虛（虛熱）", ok:true},
+       {en:"Excess Heat", zh:"實熱"}],
+     exp_zh:"瘦＝虛；紅而無苔＝陰虛內熱（虛熱）。實熱之紅舌多有苔。", exp_en:"Thin & red without coat = Yin Def with Empty Heat (Excess Heat red tongue usually has a coat).", ref:"②·1 舌質色/舌形"},
+
+    {n:7, en:"Classic tongue in Kidney Yang Deficiency?", zh:"腎陽虛的典型舌象？",
+     opts:[
+       {en:"Bluish, Wet and Thin", zh:"青、濕、瘦"},
+       {en:"Bluish, Dry and Swollen", zh:"青、乾、胖"},
+       {en:"Pale, Thin and Glossy", zh:"淡、瘦、光"},
+       {en:"Pale, Swollen and Wet", zh:"淡、胖、潤", ok:true}],
+     exp_zh:"陽虛不化水濕 → 舌淡胖而潤（多齒痕）。", exp_en:"Yang Def fails to move fluids → pale, swollen, wet tongue (often teeth-marked).", ref:"③·5 腎陽虛 舌脈"},
+
+    {n:8, en:"Dizziness is LEAST likely to occur in which syndrome?", zh:"「最不易」出現眩暈的是哪一證？",
+     opts:[
+       {en:"Liver Yin Deficiency", zh:"肝陰虛"},
+       {en:"Liver Blood Deficiency", zh:"肝血虛"},
+       {en:"Liver Qi Stagnation", zh:"肝氣鬱結", ok:true},
+       {en:"Liver Yang Rising", zh:"肝陽上亢"}],
+     exp_zh:"肝陰虛、肝血虛、肝陽上亢皆常見眩暈；單純肝氣鬱結較不會。肝陽上亢必見眩暈，故非之。", exp_en:"LR Yin/Blood Def & Yang Rising all cause dizziness; pure LR Qi stagnation least so.", ref:"③·4 肝證 · ②·3 眩暈"},
+
+    {n:9, en:"Irregular menstruation is attributed to which pattern?", zh:"月經週期不定屬何證？", added:true,
+     opts:[
+       {en:"Blood-Heat", zh:"血熱"},
+       {en:"Blood Deficiency", zh:"血虛"},
+       {en:"LR overacting on SP (LR Qi stag + SP Qi Def)", zh:"肝鬱乘脾（肝脾不調）", ok:true},
+       {en:"Cold congealing Blood", zh:"寒凝血瘀"}],
+     exp_zh:"週期不定＝肝木乘脾（肝氣鬱＋脾氣虛）；提前多熱/氣虛，延後多血虛/血瘀/寒。", exp_en:"Irregular cycle = LR overacting on SP. (Early=Heat/Qi Def; Late=Blood Def/stasis/Cold.)", ref:"②·3 月經週期"},
+
+    {n:10, en:"Alternating dry and loose stools suggests which pattern?", zh:"大便乾溏交替，疑為何證？", added:true,
+     opts:[
+       {en:"Damp-Heat in the LI", zh:"大腸濕熱"},
+       {en:"LR invading SP (LR–SP disharmony)", zh:"肝木乘脾（肝脾不和）", ok:true},
+       {en:"SP & KI Yang Deficiency", zh:"脾腎陽虛"},
+       {en:"LI Fluid insufficiency", zh:"大腸津虧"}],
+     exp_zh:"便溏與便秘交替＝典型肝乘脾（疏泄失常，脾運不調）。", exp_en:"Alternating loose & constipated stool = classic LR invading SP.", ref:"②·3 泄瀉"},
+
+    {n:11, en:"Abdominal fullness and pain alleviated by pressure and heat indicates?", zh:"腹部脹痛、得按且得溫則減，屬何證？", added:true,
+     opts:[
+       {en:"Excess Heat", zh:"實熱"},
+       {en:"Qi Stagnation", zh:"氣滯"},
+       {en:"Deficient-Cold (Yang Def / Empty Cold)", zh:"虛寒（陽虛內寒）", ok:true},
+       {en:"Food Retention", zh:"食積"}],
+     exp_zh:"得按則減＝虛；得溫則減＝寒 → 虛寒（陽虛）。實證則拒按、遇熱不減。", exp_en:"Relieved by pressure = Deficiency; relieved by warmth = Cold → Empty Cold (Yang Def).", ref:"②·3 疼痛 · 緩解因素"},
+
+    {n:12, en:"Which factor is LEAST likely to cause constipation?", zh:"何者「最不易」造成便秘？", added:true,
+     opts:[
+       {en:"Heat binding in the LI", zh:"大腸熱結"},
+       {en:"LR Qi stagnation", zh:"肝氣鬱滯"},
+       {en:"Blood / Fluid (Yin) Deficiency", zh:"血虛／津（陰）虧"},
+       {en:"Cold-Damp encumbering SP", zh:"寒濕困脾", ok:true}],
+     exp_zh:"熱結（便乾）、氣滯（傳導不利）、陰血津虧（腸失濡潤）皆致便秘；寒濕困脾反致便溏泄瀉，故最不易致便秘。", exp_en:"Heat, Qi stagnation, and Blood/Fluid Def all cause constipation; Cold-Damp in SP causes loose stool/diarrhea instead.", ref:"②·3 便秘/泄瀉 · ③·3 脾"},
+
+    {n:13, en:"Premature ejaculation with frequent erections, aching-weak waist & knees, and heavy hair loss indicates?", zh:"早洩兼易勃起、腰膝痠軟、大量脫髮，屬何證？",
+     opts:[
+       {en:"Kidney Yang Deficiency", zh:"腎陽虛"},
+       {en:"Kidney Qi Deficiency", zh:"腎氣虛"},
+       {en:"Kidney Yin Deficiency", zh:"腎陰虛"},
+       {en:"Kidney Essence Deficiency", zh:"腎精不足", ok:true}],
+     exp_zh:"脫髮（其華在髮）＋生殖＋腰膝＝精虧。陽虛反使勃起減少，故非腎陽虛。", exp_en:"Hair loss (KI manifests in hair) + reproductive + waist/knees = Essence Def. Yang Def would reduce erections.", ref:"③·5 腎精不足"},
+  ];
+
+  const LET=['A','B','C','D','E'];
+  function renderQuiz(){
+    const root=document.getElementById('quizroot'); root.innerHTML='';
+    QUIZ.forEach((q,qi)=>{
+      const card=document.createElement('div'); card.className='qcard';
+      const badge=q.added?' <span class="added">補選項</span>':'';
+      let html='<div class="qstem"><span class="qnum">Q'+q.n+'</span>'+q.en+badge+'</div>'
+             + '<div class="qstem-zh">'+q.zh+'</div><div class="opts" data-qi="'+qi+'">';
+      q.opts.forEach((o,oi)=>{
+        html+='<button class="opt" data-oi="'+oi+'"><span class="mk">'+LET[oi]+'</span>'
+             +'<span class="otx">'+o.en+' <b>'+o.zh+'</b></span></button>';
+      });
+      html+='</div><div class="qexp" id="exp'+qi+'"><b>解析：</b>'+q.exp_zh
+           +'<span class="en">'+q.exp_en+'</span><span class="ref">▸ 對照 '+q.ref+'</span></div>';
+      card.innerHTML=html; root.appendChild(card);
+    });
+    root.querySelectorAll('.opts').forEach(g=>{
+      g.querySelectorAll('.opt').forEach(btn=>btn.addEventListener('click',()=>answer(g,btn)));
+    });
+    updateBar();
+  }
+  let answered=new Set(), correct=0;
+  function answer(group,btn){
+    const qi=+group.dataset.qi; if(answered.has(qi))return;
+    const oi=+btn.dataset.oi; const q=QUIZ[qi];
+    answered.add(qi);
+    group.querySelectorAll('.opt').forEach((b,i)=>{
+      b.classList.add('done');
+      if(q.opts[i].ok) b.classList.add('correct');
+      else b.classList.add('dim');
+    });
+    if(q.opts[oi].ok){ btn.classList.remove('dim'); correct++; }
+    else { btn.classList.remove('dim'); btn.classList.add('wrong'); }
+    document.getElementById('exp'+qi).classList.add('show');
+    updateBar();
+  }
+  function updateBar(){
+    document.getElementById('qgot').textContent=correct;
+    document.getElementById('qans').textContent=answered.size;
+    document.getElementById('qtot').textContent=QUIZ.length;
+    document.getElementById('qprog').style.width=(answered.size/QUIZ.length*100)+'%';
+  }
+  function resetQuiz(){ answered=new Set(); correct=0; renderQuiz();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'}); }
+  window.resetQuiz=resetQuiz;
+  renderQuiz();
+</script>
+</body>
+</html>
