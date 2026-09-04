@@ -4330,5 +4330,161 @@ box-shadow:0 2px 10px rgba(0,0,0,.2);transition:background .15s ease,transform .
 @media print{#back-to-index{display:none;}}
 </style>
 <a id="back-to-index" href="index.html" title="回到科目總覽">&#8592; 回總覽</a>
+
+<!-- study-kit (added by Claude): reading progress + resume -->
+<style>
+#sk-bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:99998;
+  background:linear-gradient(90deg,#A6382B,#9A7A33);transition:width .12s linear;pointer-events:none}
+#sk-resume{position:fixed;top:56px;left:50%;transform:translateX(-50%);z-index:99997;display:none;align-items:center;gap:8px;
+  background:#211E19;color:#F4EFE4;border:0;border-radius:999px;padding:9px 15px;cursor:pointer;
+  font-family:"Noto Serif TC","Microsoft JhengHei",serif;font-size:12.5px;line-height:1;
+  box-shadow:0 2px 10px rgba(0,0,0,.25)}
+#sk-resume:hover{background:#3E6152}
+#sk-resume b{color:#E8B24A;font-weight:600}
+#sk-resume .x{color:#8B857A;font-size:14px;line-height:1;padding-left:2px}
+@media print{#sk-bar,#sk-resume{display:none !important}}
+</style>
+<div id="sk-bar"></div>
+<button id="sk-resume" type="button"></button>
+<script>
+(function(){
+  var KEY='allreview:progress';
+  var page=decodeURIComponent((location.pathname.split('/').pop()||'index.html'));
+  var bar=document.getElementById('sk-bar'), pill=document.getElementById('sk-resume');
+
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ return {}; } }
+  function save(o){ try{ localStorage.setItem(KEY, JSON.stringify(o)); }catch(e){} }
+
+  function scrollPct(){
+    var d=document.documentElement, b=document.body;
+    var top=window.pageYOffset||d.scrollTop||0;
+    var h=Math.max(d.scrollHeight,b.scrollHeight)-window.innerHeight;
+    return h>0 ? Math.min(1, Math.max(0, top/h)) : 1;
+  }
+
+  var store=load(), mine=store[page]||{pct:0,y:0,t:0};
+  var lastWrite=0, pending=null;
+
+  function record(){
+    var pct=scrollPct(), y=window.pageYOffset||0;
+    bar.style.width=(pct*100).toFixed(1)+'%';
+    var now=Date.now();
+    if(now-lastWrite<1200){ pending=1; return; }
+    lastWrite=now; pending=null;
+    var s=load(); var cur=s[page]||{pct:0};
+    s[page]={pct:Math.max(pct, cur.pct||0), y:y, t:now};
+    save(s);
+  }
+  window.addEventListener('scroll', record, {passive:true});
+  window.addEventListener('resize', record);
+  setInterval(function(){ if(pending) record(); }, 1500);
+
+  // resume pill: only when there is a meaningful saved position and we start at the top
+  if(mine.y>400 && (window.pageYOffset||0)<40 && !location.hash){
+    pill.innerHTML='上次讀到 <b>'+Math.round((mine.pct||0)*100)+'%</b>　繼續 →<span class="x">✕</span>';
+    pill.style.display='inline-flex';
+    pill.addEventListener('click', function(e){
+      if(e.target && e.target.className==='x'){ pill.style.display='none'; return; }
+      window.scrollTo({top:mine.y, behavior:'smooth'});
+      pill.style.display='none';
+    });
+    setTimeout(function(){ pill.style.display='none'; }, 12000);
+  }
+  record();
+})();
+</script>
+
+<!-- unified toolbar (added by Claude): font size + 繁簡, Foundation style -->
+<style>
+#sk-tools{position:fixed;top:12px;right:14px;z-index:99990;display:flex;gap:8px;align-items:center;
+  background:rgba(251,248,241,.95);border:1px solid #D9CFBB;border-radius:10px;padding:6px 8px;
+  box-shadow:0 2px 10px rgba(33,30,25,.14);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  font-family:"Noto Serif TC","Microsoft JhengHei",serif;}
+#sk-tools .sk-grp{display:flex;align-items:center;gap:4px;}
+#sk-tools .sk-sep{width:1px;height:20px;background:#D9CFBB;}
+#sk-tools button{font-family:inherit !important;font-size:13px !important;line-height:1 !important;
+  border:1px solid #D9CFBB !important;background:#fff !important;color:#211E19 !important;
+  border-radius:7px !important;padding:5px 9px !important;cursor:pointer !important;
+  min-width:34px;text-align:center;box-shadow:none !important;letter-spacing:0 !important;
+  margin:0 !important;opacity:1 !important;height:auto !important;width:auto !important;float:none !important;}
+#sk-tools button:hover{background:#A6382B !important;color:#fff !important;border-color:#A6382B !important;}
+#sk-tools button.sk-on,#sk-tools button.active,#sk-tools button[aria-pressed="true"]{
+  background:#3E6152 !important;color:#fff !important;border-color:#3E6152 !important;}
+#sk-tools .sk-lbl{font-family:"Newsreader",Georgia,serif;font-size:11.5px;color:#5A544B;padding:0 2px;}
+@media (max-width:640px){
+  #sk-tools{top:8px;right:8px;padding:5px 6px;gap:6px;}
+  #sk-tools button{font-size:12px !important;padding:4px 7px !important;min-width:30px;}
+  #sk-tools .sk-lbl{display:none;}
+}
+@media print{#sk-tools{display:none !important;}}
+</style>
+<script>
+(function(){
+  var FONT = ['A−','A-','A－','A ＋','A＋','A+','A','重設','reset','Reset','100%','↺'];
+  var SCRIPT = ['繁','簡','简','繁體','繁体','簡體','简体'];
+  function norm(s){ return (s||'').replace(/\s+/g,'').trim(); }
+
+  function build(){
+    if(document.getElementById('sk-tools')) return;
+    var all = Array.prototype.slice.call(document.querySelectorAll('button'));
+    var fonts = [], scripts = [];
+    all.forEach(function(b){
+      if(b.closest('#sk-tools')) return;
+      var t = norm(b.textContent);
+      if(t.length > 6) return;
+      if(FONT.indexOf(t) > -1) fonts.push(b);
+      else if(SCRIPT.indexOf(t) > -1) scripts.push(b);
+    });
+    if(!fonts.length && !scripts.length) return;
+
+    var bar = document.createElement('div');
+    bar.id = 'sk-tools';
+    var parents = [];
+
+    function addGroup(list){
+      if(!list.length) return;
+      var g = document.createElement('div');
+      g.className = 'sk-grp';
+      list.forEach(function(b){
+        if(parents.indexOf(b.parentNode) === -1) parents.push(b.parentNode);
+        g.appendChild(b);                      // move keeps the handlers
+      });
+      bar.appendChild(g);
+    }
+    addGroup(fonts);
+    if(fonts.length && scripts.length){
+      var sep = document.createElement('span'); sep.className = 'sk-sep'; bar.appendChild(sep);
+    }
+    addGroup(scripts);
+    document.body.appendChild(bar);
+
+    // drop orphan labels ("字體", "Display 顯示"…) left behind by the moved buttons
+    var LBL = ['字體','字体','字級','字级','顯示','显示','Display','Display顯示','繁簡','繁简','語言','语言'];
+    parents.forEach(function(p){
+      var scope = [p, p.parentNode, p.parentNode && p.parentNode.parentNode];
+      scope.forEach(function(n){
+        if(!n || !n.children) return;
+        Array.prototype.slice.call(n.children).forEach(function(c){
+          if(c.querySelector && c.querySelector('button,input,select')) return;
+          if(LBL.indexOf(norm(c.textContent)) > -1) c.style.display='none';
+        });
+      });
+    });
+
+    // hide the containers the buttons came from, once they hold nothing visible
+    parents.forEach(function(p){
+      for(var i=0;i<3 && p && p!==document.body;i++){
+        var left = p.querySelectorAll('button, input, select, a');
+        var txt = norm(p.textContent);
+        if(left.length === 0 && txt.length < 12){ p.style.display='none'; p = p.parentNode; }
+        else break;
+      }
+    });
+  }
+
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build);
+  else build();
+})();
+</script>
 </body>
 </html>
