@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Foundation中醫概論</title>
+<title>Foundation 中醫基礎理論</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -4317,5 +4317,18 @@ section[id]{scroll-margin-top:16px;}
   };
 })();
 </script>
+
+<!-- back-to-index button (added by Claude) -->
+<style>
+#back-to-index{position:fixed;right:18px;bottom:78px;z-index:99999;display:inline-flex;align-items:center;gap:6px;
+background:#2f6b52;color:#fff !important;text-decoration:none;font-family:"Noto Sans TC","Microsoft JhengHei","Segoe UI",system-ui,sans-serif;
+font-size:13px;font-weight:500;line-height:1;padding:10px 15px;border-radius:999px;
+box-shadow:0 2px 10px rgba(0,0,0,.2);transition:background .15s ease,transform .15s ease;}
+#back-to-index:hover{background:#1f4d3a;transform:translateY(-1px);}
+#back-to-index:focus-visible{outline:2px solid #1f4d3a;outline-offset:2px;}
+@media (max-width:600px){#back-to-index{right:14px;bottom:70px;font-size:12.5px;padding:9px 13px;}}
+@media print{#back-to-index{display:none;}}
+</style>
+<a id="back-to-index" href="index.html" title="回到科目總覽">&#8592; 回總覽</a>
 </body>
 </html>
