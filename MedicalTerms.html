@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light only">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MedicalTerms 醫學詞彙</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+TC:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light only;
+  /* 奶油紙（預設）*/
+  --paper:#F5F1E6; --card:#FCFAF3; --sunk:#EBE4D4;
+  --ink:#1E1C16; --ink2:#565045; --ink3:#8A8376;
+  --rule:#DFD8C6; --rule2:#CAC1AB;
+  --teal:#0A6153; --teal-bg:#DFE8DB;
+  --amber:#835609; --amber-bg:#EFE4C6;
+  --flag:#9E2E24; --flag-bg:#F0DDD4;
+  --sans:'IBM Plex Sans','IBM Plex Sans TC',-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+html[data-paper=sepia]{
+  --paper:#EBE1CE; --card:#F3ECDC; --sunk:#DFD3BB;
+  --ink:#241F15; --ink2:#5A5244; --ink3:#8B8170;
+  --rule:#D3C7AE; --rule2:#BEB296;
+  --teal:#0A5A4C; --teal-bg:#DBE4D3;
+  --amber:#7A4E06; --amber-bg:#E7DAB6;
+  --flag:#94281E; --flag-bg:#E8D3C8;
+}
+html[data-paper=white]{
+  --paper:#FFFFFF; --card:#FFFFFF; --sunk:#EFF4F2;
+  --ink:#16211F; --ink2:#4A5B58; --ink3:#7C8D89;
+  --rule:#D5DEDB; --rule2:#C2CFCB;
+  --teal:#0A6559; --teal-bg:#DCEAE6;
+  --amber:#8A5A00; --amber-bg:#F3E9D3;
+  --flag:#A32C22; --flag-bg:#F4DEDA;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--paper)}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:none;padding:0}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:3px}
+.wrap{max-width:940px;margin:0 auto;padding:0 20px}
+
+/* ---------- masthead: a chart header band ---------- */
+.mast{border-bottom:1px solid var(--rule2);background:var(--card)}
+.mast-in{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between;padding:22px 0 18px}
+.mast h1{margin:0;font-size:1.5rem;font-weight:600;letter-spacing:-.018em;line-height:1.15}
+.mast h1 .zh{display:block;font-weight:500;font-size:1.0625rem;color:var(--ink2);letter-spacing:0;margin-top:3px}
+.meter{min-width:260px;flex:1;max-width:360px}
+.meter-bar{display:flex;height:9px;border-radius:5px;overflow:hidden;background:var(--sunk);border:1px solid var(--rule)}
+.meter-bar i{display:block;height:100%}
+.meter-legend{display:flex;gap:14px;margin-top:8px;font-size:.75rem;color:var(--ink2);flex-wrap:wrap}
+.meter-legend b{font-family:var(--mono);font-weight:500;color:var(--ink)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:5px;vertical-align:1px}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:30;background:var(--card);border-bottom:1px solid var(--rule)}
+.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:12px 14px;font-size:.9375rem;color:var(--ink2);white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected=true]{color:var(--teal);border-bottom-color:var(--teal);font-weight:500}
+.tab small{font-family:var(--mono);font-size:.7rem;color:var(--ink3);margin-left:5px}
+
+main{padding:20px 0 80px}
+.panel[hidden]{display:none}
+
+/* ---------- controls ---------- */
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.field{flex:1;min-width:190px;position:relative}
+.field input{width:100%;padding:9px 12px;background:var(--card);border:1px solid var(--rule2);border-radius:7px}
+select{padding:9px 10px;background:var(--card);border:1px solid var(--rule2);border-radius:7px;max-width:100%}
+.chip{padding:7px 12px;border:1px solid var(--rule2);border-radius:999px;font-size:.875rem;color:var(--ink2);background:var(--card)}
+.chip[aria-pressed=true]{background:var(--teal);border-color:var(--teal);color:#fff}
+.hint{font-size:.8125rem;color:var(--ink3);margin:0 0 14px}
+
+/* ---------- glossary: ruled chart rows ---------- */
+.count{font-size:.8125rem;color:var(--ink3);font-family:var(--mono);margin-bottom:6px}
+.sheet{background:var(--card);border:1px solid var(--rule);border-radius:10px}
+.sheet>:first-child{border-radius:9px 9px 0 0}
+.sheet>:last-child{border-radius:0 0 9px 9px;border-bottom:none}
+.sechead{position:sticky;top:48px;z-index:10;background:var(--sunk);padding:9px 14px;font-size:.8125rem;font-weight:600;color:var(--ink2);border-bottom:1px solid var(--rule)}
+.row{scroll-margin-top:92px;display:grid;grid-template-columns:34px 1fr 1fr auto;gap:10px;align-items:baseline;padding:9px 14px;border-bottom:1px solid var(--rule)}
+.row:last-child{border-bottom:none}
+.row.s3{background:linear-gradient(90deg,var(--teal-bg),transparent 55%)}
+.row.s2{background:linear-gradient(90deg,var(--amber-bg),transparent 55%)}
+.row.starred{box-shadow:inset 3px 0 0 var(--flag)}
+.num{font-family:var(--mono);font-size:.6875rem;color:var(--ink3);align-self:center}
+.en{font-weight:500;letter-spacing:-.005em}
+.zh{color:var(--ink2)}
+.acts{display:flex;gap:2px;align-self:center}
+.icon{width:32px;height:32px;display:grid;place-items:center;border-radius:6px;color:var(--ink3)}
+.icon svg{display:block}
+.icon.on svg path{fill:currentColor}
+.icon:hover{background:var(--sunk);color:var(--ink)}
+.icon.on{color:var(--flag)}
+.icon.ok{color:var(--teal)}
+.hide-en .en,.hide-zh .zh{color:transparent;background:var(--sunk);border-radius:4px;cursor:pointer;user-select:none}
+.hide-en .en:hover,.hide-zh .zh:hover{color:var(--ink);background:none}
+.empty{padding:40px 14px;text-align:center;color:var(--ink3)}
+
+/* ---------- flashcard ---------- */
+.stage{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:34px 24px;text-align:center;min-height:270px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.stage .term{font-size:2rem;font-weight:600;line-height:1.2;letter-spacing:-.02em;word-break:break-word}
+.stage .term.cn{font-size:1.75rem}
+.stage .answer{font-size:1.375rem;color:var(--teal);font-weight:500;line-height:1.35}
+.stage .src{font-size:.75rem;color:var(--ink3)}
+.stage .icon{margin:0 auto;width:38px;height:38px}
+.stage .answer .icon{display:inline-grid;width:30px;height:30px;vertical-align:-8px;margin:0 0 0 6px}
+.veil{color:var(--ink3);font-size:.9375rem}
+.btn{padding:10px 18px;border:1px solid var(--rule2);border-radius:8px;background:var(--card);font-size:.9375rem}
+.btn:hover{border-color:var(--ink3)}
+.btn.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+.btn.primary:hover{opacity:.9}
+.btn:disabled{opacity:.45;cursor:default}
+.rowbtns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.rate{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px;width:100%;max-width:430px;flex:1}
+.rate button{padding:12px 6px;border-radius:9px;border:1px solid var(--rule2);background:var(--card);font-size:.875rem;line-height:1.3}
+.rate button span{display:block;font-size:.7rem;color:var(--ink3);margin-top:3px;font-family:var(--mono)}
+.rate button.r0{border-color:var(--flag);color:var(--flag)}
+.rate button.r1{border-color:var(--amber);color:var(--amber)}
+.rate button.r2{border-color:var(--teal);color:var(--teal)}
+.pbar{height:4px;background:var(--sunk);border-radius:3px;overflow:hidden;margin-bottom:14px}
+.pbar i{display:block;height:100%;background:var(--teal);transition:width .25s}
+
+/* ---------- quiz ---------- */
+.opts{display:grid;gap:8px;margin-top:18px}
+.opt{text-align:left;padding:13px 15px;border:1px solid var(--rule2);border-radius:9px;background:var(--card);line-height:1.4}
+.opt:hover:not(:disabled){border-color:var(--ink3)}
+.opt.right{border-color:var(--teal);background:var(--teal-bg);color:var(--teal);font-weight:500}
+.opt.wrong{border-color:var(--flag);background:var(--flag-bg);color:var(--flag)}
+.opt kbd{font-family:var(--mono);font-size:.7rem;color:var(--ink3);border:1px solid var(--rule2);border-radius:4px;padding:1px 5px;margin-right:9px}
+.fb{margin-top:16px;padding:14px 16px;border-radius:9px;border:1px solid var(--rule);background:var(--sunk);font-size:.9375rem;line-height:1.55}
+.fb.good{border-color:var(--teal);background:var(--teal-bg)}
+.fb.bad{border-color:var(--flag);background:var(--flag-bg)}
+.fb strong{display:block;margin-bottom:4px}
+.qprompt{font-size:.8125rem;color:var(--ink3);margin-bottom:8px}
+.qterm{font-size:1.75rem;font-weight:600;letter-spacing:-.02em;line-height:1.25;word-break:break-word}
+.qcard{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:24px}
+.spellin{width:100%;padding:14px 15px;font-size:1.125rem;border:1px solid var(--rule2);border-radius:9px;background:var(--paper);margin-top:18px;font-family:var(--sans)}
+.mask{font-family:var(--mono);font-size:1.25rem;letter-spacing:.16em;color:var(--ink3);margin-top:12px}
+.big-audio{width:88px;height:88px;border-radius:50%;border:1px solid var(--teal);color:var(--teal);display:grid;place-items:center;margin:8px auto;font-size:1.9rem}
+.big-audio:hover{background:var(--teal-bg)}
+.scorecard{text-align:center;padding:30px 20px}
+.scorecard .n{font-family:var(--mono);font-size:3.25rem;font-weight:500;line-height:1;color:var(--teal)}
+.misslist{margin-top:22px;text-align:left;border-top:1px solid var(--rule);padding-top:14px}
+.misslist div{padding:7px 0;border-bottom:1px solid var(--rule);font-size:.9375rem;display:flex;gap:10px;justify-content:space-between}
+.misslist div span{color:var(--ink2)}
+
+/* ---------- settings / footer ---------- */
+details.set{margin-top:26px;border-top:1px solid var(--rule);padding-top:14px}
+details.set summary{font-size:.875rem;color:var(--ink2);cursor:pointer}
+.setgrid{display:grid;gap:12px;margin-top:14px;font-size:.875rem}
+.setgrid label{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.setgrid input[type=range]{flex:1;min-width:140px}
+.setgrid input{accent-color:var(--teal)}
+.seg{display:inline-flex;border:1px solid var(--rule2);border-radius:7px;overflow:hidden}
+.seg button{padding:6px 12px;font-size:.8125rem;color:var(--ink2);border-right:1px solid var(--rule2)}
+.seg button:last-child{border-right:none}
+.seg button[aria-pressed=true]{background:var(--teal);color:var(--card);font-weight:500}
+footer{border-top:1px solid var(--rule);margin-top:34px;padding:16px 0 34px;font-size:.75rem;color:var(--ink3);line-height:1.6}
+.warn{color:var(--flag)}
+
+@media (max-width:620px){
+  .row{grid-template-columns:26px 1fr auto;row-gap:2px}
+  .row .num{grid-row:span 2}
+  .row .zh{grid-column:2}
+  .row .acts{grid-row:span 2}
+  .stage .term{font-size:1.625rem}
+  .mast h1{font-size:1.3125rem}
+  .sechead{top:48px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  nav,.bar,.acts,.meter,details.set,footer,.hint,.count{display:none!important}
+  html,body{background:#fff;color:#000;font-size:11pt}
+  .sheet{border:none}
+  .row{border-bottom:1px solid #ccc;page-break-inside:avoid}
+  .sechead{background:#eee;position:static}
+}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap mast-in">
+    <h1>Medical At-a-Glance<span class="zh">醫學詞彙英中對照 · 660 條 · 六大類</span></h1>
+    <div class="meter">
+      <div class="meter-bar" id="meterBar" role="img" aria-label="學習進度">
+        <i id="mDone" style="background:var(--teal);width:0%"></i>
+        <i id="mLearn" style="background:var(--amber);width:0%"></i>
+      </div>
+      <div class="meter-legend">
+        <span><i class="dot" style="background:var(--teal)"></i>已掌握 <b id="cDone">0</b></span>
+        <span><i class="dot" style="background:var(--amber)"></i>複習中 <b id="cLearn">0</b></span>
+        <span><i class="dot" style="background:var(--rule2)"></i>未開始 <b id="cNew">660</b></span>
+        <span class="warn" id="dueWrap" hidden>今天該複習 <b id="cDue">0</b></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav><div class="wrap"><div class="tabs" role="tablist">
+  <button class="tab" role="tab" data-mode="list" aria-selected="true">詞彙表<small>660</small></button>
+  <button class="tab" role="tab" data-mode="card" aria-selected="false">閃卡</button>
+  <button class="tab" role="tab" data-mode="mc" aria-selected="false">選擇題</button>
+  <button class="tab" role="tab" data-mode="spell" aria-selected="false">拼寫</button>
+  <button class="tab" role="tab" data-mode="listen" aria-selected="false">聽力</button>
+</div></div></nav>
+
+<main class="wrap">
+
+  <!-- ============ 詞彙表 ============ -->
+  <section class="panel" id="p-list">
+    <div class="bar">
+      <div class="field"><input id="q" type="search" placeholder="搜尋英文或中文…" autocomplete="off"></div>
+      <select id="secSel"></select>
+      <select id="statSel">
+        <option value="all">全部狀態</option>
+        <option value="new">未開始</option>
+        <option value="learn">複習中</option>
+        <option value="done">已掌握</option>
+        <option value="star">標記待加強</option>
+        <option value="due">今天該複習</option>
+      </select>
+      <button class="chip" id="hideZh" aria-pressed="false">遮住中文</button>
+      <button class="chip" id="hideEn" aria-pressed="false">遮住英文</button>
+    </div>
+    <p class="hint">遮起一欄後，點那一格才看答案 — 先自己回想再看，記得比較牢。書籤鍵標記的詞會在左側出現紅槓，測驗時優先考你。</p>
+    <div class="count" id="listCount"></div>
+    <div class="sheet" id="sheet"></div>
+  </section>
+
+  <!-- ============ 閃卡 ============ -->
+  <section class="panel" id="p-card" hidden>
+    <div class="bar">
+      <select id="cardSec"></select>
+      <select id="cardPool">
+        <option value="smart">聰明排序：先複習該複習的</option>
+        <option value="new">只練沒學過的</option>
+        <option value="star">只練標記待加強的</option>
+        <option value="all">全部，隨機</option>
+      </select>
+      <select id="cardDir">
+        <option value="en">看英文 → 想中文</option>
+        <option value="zh">看中文 → 想英文</option>
+      </select>
+      <button class="btn" id="cardStart">開始這一組（20 張）</button>
+    </div>
+    <p class="hint">空白鍵翻卡，按 1 / 2 / 3 評分。誠實評分，系統才知道該什麼時候再考你一次。</p>
+    <div class="pbar"><i id="cardBar" style="width:0"></i></div>
+    <div class="stage" id="cardStage"><div class="veil">選好範圍後按「開始這一組」。每組 20 張，剛好是一次不會累的份量。</div></div>
+  </section>
+
+  <!-- ============ 選擇題 ============ -->
+  <section class="panel" id="p-mc" hidden>
+    <div class="bar">
+      <select id="mcSec"></select>
+      <select id="mcDir">
+        <option value="mix">中英交錯出題</option>
+        <option value="en">英文 → 選中文</option>
+        <option value="zh">中文 → 選英文</option>
+      </select>
+      <button class="btn primary" id="mcStart">開始 10 題</button>
+    </div>
+    <p class="hint">按 1–4 或點選作答。答錯的會自動排進下一輪。</p>
+    <div class="pbar"><i id="mcBar" style="width:0"></i></div>
+    <div id="mcStage"></div>
+  </section>
+
+  <!-- ============ 拼寫 ============ -->
+  <section class="panel" id="p-spell" hidden>
+    <div class="bar">
+      <select id="spSec"></select>
+      <button class="btn primary" id="spStart">開始 10 題</button>
+    </div>
+    <p class="hint">看中文，把英文拼出來。寫得出來比認得出來，記憶牢固得多。大小寫、標點不計較。</p>
+    <div class="pbar"><i id="spBar" style="width:0"></i></div>
+    <div id="spStage"></div>
+  </section>
+
+  <!-- ============ 聽力 ============ -->
+  <section class="panel" id="p-listen" hidden>
+    <div class="bar">
+      <select id="lsSec"></select>
+      <button class="btn primary" id="lsStart">開始 10 題</button>
+    </div>
+    <p class="hint">只聽發音，選出中文意思。聽得懂才記得住，也才用得出來。</p>
+    <div class="pbar"><i id="lsBar" style="width:0"></i></div>
+    <div id="lsStage"></div>
+  </section>
+
+  <details class="set">
+    <summary>發音與資料設定</summary>
+    <div class="setgrid">
+      <label>朗讀語音 <select id="voiceSel" style="flex:1;min-width:180px"></select></label>
+      <label>語速 <input id="rateIn" type="range" min="0.5" max="1.2" step="0.05" value="0.85"><span id="rateVal" style="font-family:var(--mono);font-size:.8125rem">0.85×</span></label>
+      <label><input type="checkbox" id="autoSpeak" checked> 閃卡與測驗出現英文時自動朗讀</label>
+      <label>紙張底色
+        <span class="seg" id="paperSeg">
+          <button data-paper="cream" aria-pressed="true">奶油</button>
+          <button data-paper="sepia" aria-pressed="false">深奶油</button>
+          <button data-paper="white" aria-pressed="false">純白</button>
+        </span>
+      </label>
+      <div id="ttsWarn" class="warn" hidden>這個瀏覽器不支援語音朗讀。Chrome、Edge、Safari 都可以用。</div>
+      <div><button class="btn" id="resetBtn">清除所有學習紀錄</button></div>
+    </div>
+  </details>
+
+  <footer>
+    詞彙來源：Medical At-a-Glance，Language Line Services（LLS-IR Dept. 2001，IR &amp; QA Dept. 2003 修訂）。原文含繁體與簡體兩欄，此處保留完整英文與繁體中文共 660 條，未刪減。<br>
+    學習紀錄存在你這台裝置上；換裝置或清除瀏覽器資料會歸零。
+  </footer>
+</main>
+
+<script>
+const DATA = [{"en":"I. Administration of Health Care","zh":"醫療照護行政與一般醫療","items":[{"en":"Abdominal discomfort","zh":"腹部不適 , 肚子不舒服"},{"en":"Abscess","zh":"膿腫"},{"en":"Acute pain","zh":"突發性痛 , 急性痛"},{"en":"Admissions","zh":"入院"},{"en":"Admissions desk","zh":"入院處"},{"en":"Adrenaline","zh":"腎上腺素"},{"en":"Adverse reaction","zh":"不良反應"},{"en":"Advice nurse","zh":"諮詢護士"},{"en":"Allergen","zh":"過敏原"},{"en":"Allergic reaction","zh":"過敏反應"},{"en":"Allergy","zh":"過敏"},{"en":"Amputate","zh":"截肢"},{"en":"Anesthesia","zh":"麻醉 , 麻醉劑"},{"en":"Anesthesiologist","zh":"麻醉醫師"},{"en":"Anesthesiology","zh":"麻醉學"},{"en":"Antiseptic","zh":"防腐的 , 防腐劑 , 防腐藥"},{"en":"Antibacterial","zh":"抗菌的"},{"en":"Antibiotic","zh":"抗菌素 , 抗生素"},{"en":"Antibodies","zh":"抗體"},{"en":"Anticoagulant","zh":"抑制凝血的, 抗凝血劑"},{"en":"Antidote","zh":"解毒藥"},{"en":"Anti-fungal","zh":"抗真菌的 , 抗黴菌的"},{"en":"Antihistamine","zh":"抗組織胺藥 , 抗組胺劑 , (俗稱抗敏感藥)"},{"en":"Anti-inflammatory","zh":"消炎的"},{"en":"Appendectomy","zh":"闌尾切除 , 盲腸切除 , (俗稱割盲腸)"},{"en":"Appendicitis","zh":"闌尾炎 , 盲腸炎"},{"en":"Arthritis","zh":"關節炎"},{"en":"Asphyxia","zh":"窒息"},{"en":"Aspirin","zh":"阿斯匹靈"},{"en":"Asthma","zh":"氣喘病 , 哮喘病 , 哮喘"},{"en":"Asthmatic","zh":"哮喘的 , 有哮喘病的"},{"en":"Athlete’s foot","zh":"腳癬 , 香港腳"},{"en":"Attending physician","zh":"主治醫生"},{"en":"Autism","zh":"自閉症"},{"en":"Bacteria","zh":"細菌"},{"en":"Bacterial infection","zh":"細菌感染"},{"en":"Band-aid","zh":"創可帖 , (俗稱藥水膠布)"},{"en":"Bandage","zh":"繃帶"},{"en":"Bee venom","zh":"蜂毒"},{"en":"Billing’s method","zh":"記帳方法"},{"en":"Birthday","zh":"生日"},{"en":"Blister","zh":"水泡"},{"en":"Blood","zh":"血 , 血液"},{"en":"Blood bank","zh":"血庫"},{"en":"Blood clot","zh":"血塊"},{"en":"Blood pressure","zh":"血壓"},{"en":"Body ache","zh":"體痛"},{"en":"Bone splint","zh":"骨夾板"},{"en":"Breath","zh":"呼吸"},{"en":"Breathe deeply","zh":"深呼吸"},{"en":"Breathing problems","zh":"呼吸問題"},{"en":"Bruise","zh":"淤血"},{"en":"Burning sensation","zh":"灼熱感 , 灼痛"},{"en":"Cast","zh":"石膏固定物"},{"en":"Chest discomfort/tightness","zh":"胸部不舒服 , 胸緊 , 胸悶"},{"en":"Choke","zh":"窒息 , 哽塞"},{"en":"Chronic","zh":"慢性的"},{"en":"Circulatory","zh":"循環的 , 循環系統的"},{"en":"Cold","zh":"冷"},{"en":"Colonoscopy","zh":"結腸鏡檢查"},{"en":"Compress","zh":"壓 , 敷 , 冷敷 , 熱敷"},{"en":"Congested","zh":"堵塞 , 被堵塞的"},{"en":"Consent","zh":"同意"},{"en":"Constipated","zh":"便秘"},{"en":"Cotton balls/pads","zh":"棉球 , 棉墊"},{"en":"Cough","zh":"咳嗽"},{"en":"Cough medicine/ cough syrup/cough drop","zh":"咳嗽藥 , 咳嗽糖漿 , 咳嗽糖"},{"en":"Coughing","zh":"咳嗽"},{"en":"Crutch","zh":"拐杖"},{"en":"D&C (Dilatation & Curettage)","zh":"刮宮 , 擴張與刮除"},{"en":"Diabetes","zh":"糖尿病"},{"en":"Diagnose","zh":"診斷"},{"en":"Diagnosis","zh":"診斷"},{"en":"Disable","zh":"殘疾 , 不能"},{"en":"Discomfort","zh":"不舒服"},{"en":"Dislocated","zh":"脫節"},{"en":"Decongestant","zh":"通鼻劑 , 抗鼻塞藥"},{"en":"Doctor’s office","zh":"醫生辦公室"},{"en":"Dressing","zh":"包敷 , 包扎 , 敷藥 , 敷料"},{"en":"Drop","zh":"滴劑 , 點劑"},{"en":"Dizziness","zh":"頭暈"},{"en":"Drowsiness","zh":"倦睡 , 欲睡 , 嗜睡"},{"en":"Drugstore","zh":"藥店"},{"en":"Dull pain","zh":"鈍痛 , 隱隱作痛 , (粵稱陰陰痛)"},{"en":"Ear ache","zh":"耳痛"},{"en":"Ear wax","zh":"耳垢 , (粵稱耳屎)"},{"en":"Emergency Room (ER)","zh":"急診室"},{"en":"Emphysema","zh":"肺氣腫"},{"en":"Endoscopy","zh":"內窺鏡檢查"},{"en":"Enema","zh":"灌腸 , 灌腸劑 , 灌腸法"},{"en":"Epidural anesthesia","zh":"硬膜外 (阻滯或麻醉) , 脊神經根(麻醉) , 硬膜(注射) , (生產時俗稱無痛分娩麻醉針)"},{"en":"Eye drops","zh":"眼藥水"},{"en":"Ear lobe","zh":"耳垂"},{"en":"Ear tube","zh":"耳導管"},{"en":"Family history","zh":"家庭病史 , 家庭病歷"},{"en":"Fasting","zh":"禁食"},{"en":"Feces","zh":"糞便"},{"en":"Fever","zh":"發熱 , 發燒"},{"en":"Fever blister","zh":"面泡疹 , 面皰疹"},{"en":"Flu","zh":"流行性感冒"},{"en":"Food allergy","zh":"食物過敏"},{"en":"Fractured","zh":"骨折"},{"en":"Front desk","zh":"前臺"},{"en":"Gauze","zh":"紗布"},{"en":"General practitioner","zh":"家庭醫生 , 普通科醫生 (vs 專科醫生)"},{"en":"Glucose tests","zh":"葡萄糖測驗 , 血糖測驗"},{"en":"Gnawing pain","zh":"劇痛"},{"en":"Gown/ (hospital gown)","zh":"長袍 (醫院長袍)"},{"en":"Gynecologist","zh":"婦科醫生"},{"en":"Hacking cough","zh":"劇烈乾咳"},{"en":"Hay fever","zh":"枯草熱 , 花粉熱 , 花粉過敏"},{"en":"Headache","zh":"頭痛"},{"en":"Health","zh":"健康"},{"en":"Heart attack","zh":"心肌梗塞 , 心臟病突發"},{"en":"Heart murmur","zh":"心臟雜音"},{"en":"Heavy lifting","zh":"舉重物"},{"en":"Height","zh":"身高"},{"en":"Hernia","zh":"疝氣 , 突出 , 脫出"},{"en":"High blood pressure","zh":"高血壓"},{"en":"Hives","zh":"蕁麻疹 , 風疹塊 , 過敏疹"},{"en":"Hoarse","zh":"嘎聲的 , 沙啞的"},{"en":"Hospital gown","zh":"醫院長袍"},{"en":"Household chemicals","zh":"家用化學品 / 制劑"},{"en":"Hurt","zh":"傷害, 傷痛"},{"en":"Hypersensitivity","zh":"過敏性"},{"en":"Immunoglobulin E (igE)","zh":"免疫球蛋白E"},{"en":"Infection","zh":"感染"},{"en":"Inflammation","zh":"發炎"},{"en":"Inhaler","zh":"吸入器 , 噴霧吸入器"},{"en":"Inpatient","zh":"住院病人"},{"en":"Insulin","zh":"胰島素"},{"en":"Intensive care unit","zh":"加護病房 , 特護病房 , 深切治療部"},{"en":"Irregular pulse","zh":"不規律脈跳"},{"en":"Itch","zh":"癢"},{"en":"Itching","zh":"發癢"},{"en":"Joint","zh":"關節 , 連接"},{"en":"Laparoscopy","zh":"腹腔鏡檢查"},{"en":"Laser surgery","zh":"激光手術 , 雷射手術"},{"en":"Lethargic","zh":"昏昏欲睡"},{"en":"Ligament","zh":"韌帶"},{"en":"Lower back pain","zh":"腰痛"},{"en":"Lump","zh":"腫塊 , 硬塊 , 包塊"},{"en":"Maternity ward","zh":"產科 , 產房"},{"en":"Medical excuse","zh":"因病 , 健康緣故"},{"en":"Medical history","zh":"病例 , 病史, 病歷"},{"en":"Medicated compress","zh":"藥敷"},{"en":"Medication","zh":"藥"},{"en":"Middle ear infection","zh":"中耳炎"},{"en":"Mold","zh":"黴 , 模型"},{"en":"Nasal spray","zh":"噴鼻劑"},{"en":"Nauseating pain","zh":"使人惡心的痛"},{"en":"Nostril","zh":"鼻孔"},{"en":"Numbing pain","zh":"讓人麻木的痛"},{"en":"Nurse","zh":"護士"},{"en":"Nurses’ station","zh":"護士站 , 護士台"},{"en":"Nursery","zh":"育嬰室 , 嬰兒室"},{"en":"Operate, to","zh":"做手術"},{"en":"Operating room (OR)","zh":"手術室"},{"en":"Operation","zh":"手術 , 操作 , 運作"},{"en":"Outpatient","zh":"門診病人"},{"en":"Over-the-counter medication","zh":"不需處方的藥"},{"en":"Oxygen","zh":"氧"},{"en":"Pain","zh":"痛"},{"en":"Pass out","zh":"昏倒"},{"en":"Penicillin","zh":"青黴素 , 盤尼西林"},{"en":"Physical exam","zh":"體檢"},{"en":"Pills","zh":"藥片"},{"en":"Plugged ear","zh":"耳塞 , 耳堵塞"},{"en":"Pollen allergy","zh":"花粉過敏"},{"en":"Prescription","zh":"處方"},{"en":"Pressure","zh":"壓力"},{"en":"Private room","zh":"單人病房 , 私家房"},{"en":"Pulse","zh":"脈搏"},{"en":"Radiology","zh":"放射學 , 放射科"},{"en":"Rash(es)","zh":"疹子 , 皮疹"},{"en":"Recovery room","zh":"恢復室"},{"en":"Redness","zh":"紅"},{"en":"Rest","zh":"休息"},{"en":"Rheumatic fever","zh":"風濕熱"},{"en":"Sprain","zh":"扭 , 扭傷"},{"en":"Scab","zh":"痂 , 疥癬"},{"en":"Scar","zh":"傷疤 , 疤痕"},{"en":"Scratch","zh":"搔 , 抓 , 抓傷"},{"en":"Scrub, to (surgically)","zh":"洗滌 (手術用的)"},{"en":"Seizure","zh":"痙攣 , 抽搐 , 顚病急發作 , 猝發"},{"en":"Sexually transmitted disease","zh":"性病"},{"en":"Sharp pain","zh":"急劇性痛 , 強烈的痛"},{"en":"Shiver","zh":"抖 , 發抖 , (粵稱打冷震)"},{"en":"Shortness of breath","zh":"呼吸短促"},{"en":"Sinus infection","zh":"鼻竇感染"},{"en":"Sleepy","zh":"困倦的"},{"en":"Sling","zh":"懸帶 , 吊帶"},{"en":"Sore, cold","zh":"唇皰疹 , 感冒瘡"},{"en":"Stethoscope","zh":"聽診器"},{"en":"Stomach flu","zh":"胃病毒感染"},{"en":"Strain","zh":"使用過多 , 勞傷"},{"en":"Strenuous activity","zh":"劇烈活動"},{"en":"Strep throat","zh":"鏈球菌咽喉感染"},{"en":"Stitches","zh":"縫針 , 縫線"},{"en":"Stroke","zh":"中風 , 猝發"},{"en":"Stuffed-up","zh":"堵住 , 塞住"},{"en":"Stutter","zh":"口吃 , 結巴"},{"en":"Surgeon","zh":"外科醫生"},{"en":"Surgery","zh":"手術 , 外科 , 外科學"},{"en":"Surgical procedure","zh":"手術"},{"en":"Suture","zh":"縫線 , 縫合"},{"en":"Syringe","zh":"注射器 , (注射用)針筒"},{"en":"Symptoms","zh":"癥狀"},{"en":"Sweat","zh":"汗 , 出汗 , 發汗"},{"en":"Tablets","zh":"藥片"},{"en":"Temperature","zh":"體溫 , 溫度"},{"en":"Thyroid","zh":"甲狀腺"},{"en":"Triage nurse","zh":"緊急分類護士 , 分流部護士"},{"en":"Tubal ligation","zh":"輸卵管結紮"},{"en":"Tube","zh":"管 , 導管"},{"en":"Tuberculosis","zh":"(肺) 結核"},{"en":"Ulcer","zh":"潰瘍"},{"en":"Undergo surgery, to","zh":"動手術"},{"en":"Urinalysis","zh":"尿液分析"},{"en":"Urinary bladder","zh":"膀胱"},{"en":"Urinary problem","zh":"小便問題"},{"en":"Urinary tract","zh":"尿道"},{"en":"Urinating","zh":"小便"},{"en":"Urine","zh":"尿液 , 小便"},{"en":"Urine test","zh":"尿液化驗"},{"en":"Vital signs","zh":"生命指數"},{"en":"Vitamins","zh":"維生素 , 維他命"},{"en":"Waiting room","zh":"候診室"},{"en":"Watery eyes","zh":"淚溢"},{"en":"Weight","zh":"重量 , 體重"},{"en":"Wheezing","zh":"喘呼 , 喘鳴 , 哮鳴 , (俗稱呼吸時v v聲)"},{"en":"x-ray unit","zh":"透視室 , x 光室"}]},{"en":"II. Anatomy","zh":"人體解剖 / 身體部位","items":[{"en":"Abdomen","zh":"腹部"},{"en":"Adam’s apple","zh":"喉結 , (粵稱喉‘核’)"},{"en":"Adrenal glands","zh":"腎上腺"},{"en":"Amniotic fluid","zh":"羊水"},{"en":"Ankle","zh":"腳踝 , 踝骨 , 踝關節 , (粵:腳眼)"},{"en":"Anus","zh":"肛門"},{"en":"Appendix","zh":"闌尾 , 盲腸"},{"en":"Armpit","zh":"腋窩 , 腋下"},{"en":"Arms","zh":"手臂 , 胳膊"},{"en":"Artery","zh":"動脈"},{"en":"Back","zh":"背"},{"en":"Backbone","zh":"脊柱"},{"en":"Belly button","zh":"肚臍"},{"en":"Big toe","zh":"大腳母趾 , (粵稱腳趾公)"},{"en":"Bile","zh":"膽汁"},{"en":"Bladder","zh":"膀胱"},{"en":"Blood","zh":"血 , 血液"},{"en":"Blood clot","zh":"血凝塊 , 血塊"},{"en":"Bodily fluids","zh":"體液"},{"en":"Bone marrow","zh":"骨髓"},{"en":"Bowel movement","zh":"大便"},{"en":"Brain","zh":"大腦"},{"en":"Brain stem","zh":"腦幹"},{"en":"Breast","zh":"乳房"},{"en":"Buttock","zh":"臀部"},{"en":"Calf","zh":"小腿"},{"en":"Canal","zh":"管 , 道"},{"en":"Cartilage","zh":"軟骨"},{"en":"Cheek","zh":"面頰 , 臉頰"},{"en":"Cheekbone","zh":"顴骨"},{"en":"Chest","zh":"胸部 , (粵稱心口)"},{"en":"Chin","zh":"下巴"},{"en":"Collar bone","zh":"鎖骨"},{"en":"Colon","zh":"結腸 , 大腸 , 直腸"},{"en":"Diaphragm","zh":"橫隔膜"},{"en":"Dimple","zh":"酒渦"},{"en":"Duct","zh":"管 , 道管"},{"en":"Ear","zh":"耳朵"},{"en":"Elbow","zh":"肘 , (粵稱手‘掙’)"},{"en":"Esophagus","zh":"食道"},{"en":"Eye","zh":"眼"},{"en":"Eye ball","zh":"眼球"},{"en":"Eye brow","zh":"眉毛"},{"en":"Eyelashes","zh":"眼睫毛"},{"en":"Eye lid","zh":"眼瞼 , 眼蓋"},{"en":"Eye socket","zh":"眼窩"},{"en":"Femur","zh":"股骨 , 大腿骨"},{"en":"Finger","zh":"手指"},{"en":"Fingertip","zh":"手指尖"},{"en":"Forearm","zh":"前臂 , 小臂"},{"en":"Forehead","zh":"前額 , 額頭"},{"en":"Gall bladder","zh":"膽囊"},{"en":"Genitals","zh":"生殖器"},{"en":"Groin","zh":"腹股溝 , 鼠蹊"},{"en":"Hair","zh":"毛 , 頭髮"},{"en":"Hands","zh":"手"},{"en":"Heart","zh":"心臟"},{"en":"Heel","zh":"腳跟 , (粵稱腳踭)"},{"en":"Hip","zh":"臀部"},{"en":"Index finger","zh":"食指"},{"en":"Jaw","zh":"顎 , 頜"},{"en":"Joint","zh":"關節"},{"en":"Kidney","zh":"腎"},{"en":"Knee","zh":"膝蓋 , (粵稱膝頭哥)"},{"en":"Knuckle","zh":"指關節"},{"en":"Large intestine","zh":"大腸"},{"en":"Larynx","zh":"喉 , 喉嚨"},{"en":"Legs","zh":"腿"},{"en":"Limb","zh":"肢幹 , 肢體 , 四肢"},{"en":"Lips","zh":"嘴唇"},{"en":"Liver","zh":"肝"},{"en":"Lungs","zh":"肺"},{"en":"Lymph gland","zh":"淋巴腺"},{"en":"Lymph node","zh":"淋巴結"},{"en":"Mammary glands","zh":"乳腺"},{"en":"Middle finger","zh":"中指"},{"en":"Mouth","zh":"嘴 , 口"},{"en":"Muscle","zh":"肌肉"},{"en":"Nails","zh":"指甲"},{"en":"Nape","zh":"頸背 , 後頸"},{"en":"Neck","zh":"脖子 , 頸"},{"en":"Nipple","zh":"乳頭 , 奶頭"},{"en":"Ovaries","zh":"卵巢"},{"en":"Palm","zh":"手掌"},{"en":"Pancreas","zh":"胰腺 , 胰臟"},{"en":"Phlegm","zh":"粘液 , 痰"},{"en":"Plasma","zh":"血漿"},{"en":"Rectum","zh":"直腸"},{"en":"Rib","zh":"肋骨 , 胸骨"},{"en":"Ribcage","zh":"肋骨腔"},{"en":"Saliva","zh":"唾液 , 口水"},{"en":"Scalp","zh":"頭皮"},{"en":"Scapula","zh":"肩胛, 肩骨"},{"en":"Shin","zh":"脛 , 小腿前部 , (粵稱腳的上五寸下五寸)"},{"en":"Shoulder","zh":"肩膀 , 膊頭"},{"en":"Shoulder blade","zh":"肩胛骨"},{"en":"Skull","zh":"頭骨 , 頭蓋骨"},{"en":"Small intestine","zh":"小腸"},{"en":"Spinal column","zh":"脊柱"},{"en":"Spine","zh":"脊椎"},{"en":"Spleen","zh":"脾臟"},{"en":"Sputum","zh":"痰 , 唾沫"},{"en":"Stomach","zh":"胃"},{"en":"Stomach lining","zh":"胃粘膜"},{"en":"Teeth","zh":"牙齒"},{"en":"Temple","zh":"太陽穴"},{"en":"Thorax","zh":"胸"},{"en":"Throat","zh":"喉嚨"},{"en":"Thumb","zh":"大拇指 , (粵稱手指公)"},{"en":"Thyroid gland","zh":"甲狀腺"},{"en":"Toes","zh":"腳趾頭"},{"en":"Tonsils","zh":"扁桃腺"},{"en":"Trachea","zh":"氣管"},{"en":"Tract","zh":"道 , 徑"},{"en":"Uterine lining","zh":"子宮內膜"},{"en":"Uterus","zh":"子宮"},{"en":"Vein","zh":"靜脈"},{"en":"Waist","zh":"腰"},{"en":"Windpipe","zh":"氣管"},{"en":"Womb","zh":"子宮"},{"en":"Wrist","zh":"手腕"}]},{"en":"III. Women's Health: Birth Control / Pregnancy / Labor & Delivery / Well-Baby Care","zh":"婦女健康：避孕、懷孕、生產、嬰兒照護","items":[{"en":"Abdominal delivery","zh":"破腹產 , (粵稱開刀生)"},{"en":"Abdominal pregnancy","zh":"腹妊娠"},{"en":"Abortion","zh":"人工流產 , 墮胎"},{"en":"Afterbirth","zh":"褒衣 , 胎盤"},{"en":"Amniocentesis","zh":"羊膜穿剌術 , 抽羊水檢查"},{"en":"Amniotic fluid","zh":"羊水"},{"en":"Anguish","zh":"極度痛苦 , 苦惱"},{"en":"At term birth","zh":"足月產"},{"en":"Bear down, to","zh":"(生產時) 腹肌向下用力 / 擠 / 推"},{"en":"Bed pan","zh":"(床上用) 便盆"},{"en":"Bed rest","zh":"臥床休息"},{"en":"Birth","zh":"出生 , 分娩"},{"en":"Birth canal","zh":"產道"},{"en":"Birth control","zh":"避孕 , 節育"},{"en":"Birth injury","zh":"產傷"},{"en":"Bleeding","zh":"出血 , 流血"},{"en":"Bloated","zh":"腫脹 , 脹氣"},{"en":"Block","zh":"阻斷 , 阻塞"},{"en":"Bodily changes","zh":"身體變化"},{"en":"Bottle-feed","zh":"餵瓶奶 (vs餵母奶) , 餵奶樽"},{"en":"Bowel movement, stools","zh":"大便"},{"en":"Breast-care","zh":"乳房保養 , 乳房護理"},{"en":"Breastfeed","zh":"哺乳 , 餵母奶 , 餵人奶"},{"en":"Breast mass","zh":"乳房包塊"},{"en":"Breast milk","zh":"母奶 , 母乳 , 人奶"},{"en":"Breast pump","zh":"擠奶器 , (粵稱泵奶機)"},{"en":"Breast self-examination","zh":"乳房自我檢查"},{"en":"Breast tenderness","zh":"乳房觸痛"},{"en":"Breech delivery","zh":"骨盤位產式 , 臀產式 , (臀先出)"},{"en":"Burning sensation","zh":"灼熱感 , 灼痛"},{"en":"C-section/Caesarian section","zh":"破腹 , 剖腹生產 , 開刀生"},{"en":"Cervical pregnancy","zh":"子宮頸妊娠"},{"en":"Cesarean delivery","zh":"破腹產 , 剖腹生產 , 開刀生"},{"en":"Cervix","zh":"子宮頸"},{"en":"Charley horse","zh":"小腿肌肉痙攣 / 抽筋"},{"en":"Chills","zh":"冷"},{"en":"Cold","zh":"冷 , 感冒"},{"en":"Colic","zh":"絞痛 , 疝痛 , 腹痛 , 結腸的"},{"en":"Colostrum","zh":"初乳"},{"en":"Complicated labor","zh":"難產"},{"en":"Condom","zh":"避孕套"},{"en":"Congested, to be","zh":"被堵塞的 , 塞著"},{"en":"Cracked nipples","zh":"乳頭破裂 , 乳頭乾裂"},{"en":"Cradle","zh":"搖籃"},{"en":"Cradle, to","zh":"搖 , 放…在搖籃裡"},{"en":"Cramps, stomach","zh":"腹絞痛 , 腹劇痛 , 胃絞痛"},{"en":"Crankiness","zh":"反常 , 異常 , 脾氣急躁 , 扭計"},{"en":"Crib","zh":"小兒有欄床 , 嬰兒床"},{"en":"D&C (dilation & curettage)","zh":"刮宮 , 擴張與刮除"},{"en":"Dead birth","zh":"死產 , 死胎"},{"en":"Deliver","zh":"接生"},{"en":"Delivery","zh":"分娩, 生孩子"},{"en":"Delivery room","zh":"產房"},{"en":"Delivery table","zh":"產台 , 接生台 , 產床 , 接生床"},{"en":"“Dermoplast” spray","zh":"抗菌、止癢 、止痛皮膚噴劑"},{"en":"Depo-provera shot","zh":"避孕針"},{"en":"Diaper rash","zh":"尿布疹"},{"en":"Diaphragm","zh":"橫隔膜"},{"en":"Diarrhea","zh":"痢疾 , 腹瀉 , 拉肚子 , 肚痾"},{"en":"Discharge instructions","zh":"出院說明 , 出院注意事項"},{"en":"Dizziness","zh":"頭暈"},{"en":"Douche","zh":"沖洗"},{"en":"Drainage","zh":"流出液 , 引流液 , 引流法"},{"en":"Dry labor","zh":"乾產 (羊水提前流失後的分娩)"},{"en":"Dryness","zh":"乾 , 乾燥"},{"en":"Due date","zh":"預產期"},{"en":"Dysmenorrhea","zh":"痛經 , 經痛"},{"en":"Ear ache","zh":"耳痛"},{"en":"Ear infection","zh":"耳朵感染"},{"en":"Dysuria","zh":"排尿困難 , 排尿時疼痛"},{"en":"Ectopic pregnancy","zh":"子宮外孕 , 宮外孕"},{"en":"Egg","zh":"卵子"},{"en":"Endometriosis","zh":"子宮內膜移位 , 子宮內膜增生"},{"en":"Endometrium","zh":"子宮內膜"},{"en":"Engorged, to be","zh":"充血的 , 充盈的 , 腫脹的 , (產後乳房脹滿)"},{"en":"Episiotomy","zh":"會陰切開術"},{"en":"Epidural anesthesia","zh":"硬膜外腔麻醉 , 脊神經根麻醉 , 無痛分娩麻醉"},{"en":"Estrogen replacement treatment","zh":"雌性激素替代療法"},{"en":"Express out the milk, to","zh":"擠出母奶"},{"en":"Fallopian tube","zh":"輸卵管"},{"en":"False labor","zh":"假分娩 , (粵稱假作動)"},{"en":"Family planning","zh":"計劃生育"},{"en":"Female sterility","zh":"女性不育"},{"en":"Fertility counseling","zh":"生育諮詢 , 生育輔導"},{"en":"Fertilization treatment","zh":"受精法"},{"en":"Fibroid","zh":"纖維瘤"},{"en":"Fibrous tumor","zh":"纖維性腫瘤"},{"en":"Flu","zh":"流行性感冒"},{"en":"Forceps delivery","zh":"產鉗接生"},{"en":"Foul smell of vaginal discharge","zh":"難聞的陰道排出物"},{"en":"Frigidity","zh":"性冷感"},{"en":"FSH follicle stimulating hormone","zh":"卵泡刺激激素"},{"en":"Genetic counseling","zh":"遺傳諮詢"},{"en":"Genetic trend","zh":"遺傳傾向"},{"en":"Genitalia","zh":"生殖器"},{"en":"Gestational diabetes","zh":"妊娠期糖尿病"},{"en":"Grip","zh":"握 , 握緊"},{"en":"Give birth, to","zh":"生產 , 生小孩"},{"en":"Growth and development","zh":"發育成長"},{"en":"Hemorrhage","zh":"出血"},{"en":"Hemorrhoids","zh":"痔瘡"},{"en":"Hind milk, to","zh":"尾乳 / 後乳 (vs 頭乳 / 初乳)"},{"en":"Hormonal treatment","zh":"激素治療 , 荷爾蒙療法"},{"en":"Hot and cold spells","zh":"時熱時冷"},{"en":"Hot flashes","zh":"(閉經期間的) 間歇性發熱"},{"en":"Hysterectomy","zh":"子宮切除術"},{"en":"Ibuprofen","zh":"布洛芬 , 異丁苯丙酸 , (止痛退燒藥)"},{"en":"Ice pack","zh":"冰包 , 冰袋"},{"en":"Induced labor","zh":"人工引產 , 催生"},{"en":"Increased pain of episiotomy","zh":"會陰切開引起的痛增加"},{"en":"Induced abortion","zh":"人工流產"},{"en":"Infertile","zh":"不育的"},{"en":"Inhalers, puffers","zh":"噴霧吸入器"},{"en":"Intrauterine device (IUD)","zh":"子宮環 , 避孕環"},{"en":"In-vitro fertilization","zh":"體外受精 / 受孕"},{"en":"Itchiness","zh":"癢"},{"en":"Labia","zh":"陰唇"},{"en":"Labor","zh":"分娩 , 作動"},{"en":"Labor pains","zh":"分娩陣痛"},{"en":"Labor room","zh":"產房"},{"en":"Labor, to be in","zh":"分娩"},{"en":"Lactation","zh":"泌乳 , 哺乳 , 哺乳期"},{"en":"Lamaze method","zh":"娜瑪氏自然生產法"},{"en":"Latched on (to breast)","zh":"(嬰兒) 含著乳房"},{"en":"Lethargic","zh":"嗜眠的 , 戀睡的"},{"en":"Lice","zh":"蝨子"},{"en":"Lip of the pudendum","zh":"陰唇"},{"en":"Listlessness","zh":"倦怠 , 沒精打采"},{"en":"Live-birth","zh":"活產"},{"en":"LOP (Length of pregnancy)","zh":"妊娠期"},{"en":"Lukewarm","zh":"溫熱 , 微熱"},{"en":"Mammogram, mammography,","zh":"乳房x光 , 乳房造影術"},{"en":"Menopause","zh":"絕經 , 停經 , 閉經 , 更年期"},{"en":"Menstruation period, period","zh":"月經"},{"en":"Midwife","zh":"助產士"},{"en":"Milk pump","zh":"擠奶器"},{"en":"Milk supply","zh":"奶量"},{"en":"Miscarriage","zh":"自然流產 , 小產"},{"en":"Mood swings","zh":"情緒波動 , 情緒不穩定"},{"en":"Morning-after pill","zh":"應急避孕藥 , (性交後的)女用口服避孕丸"},{"en":"Morning sickness","zh":"妊娠反應 , 懷孕期的嘔吐作悶"},{"en":"Multiple birth","zh":"多胎生產 , 多次生產"},{"en":"Multiple pregnancy","zh":"多胎懷孕 , 多次懷孕"},{"en":"Mucus","zh":"粘液 , 痰"},{"en":"Narrow hips","zh":"臀部狹窄"},{"en":"Nebulizer","zh":"霧化器 , 噴霧器"},{"en":"Nipple discharge","zh":"乳頭排出液 / 物"},{"en":"Night sweats","zh":"夜間出汗 , 盜汗"},{"en":"Norplant (contraceptive implant)","zh":"植入性避孕藥"},{"en":"Nursing pads","zh":"吸乳棉"},{"en":"Oral contraceptive","zh":"口服避孕藥"},{"en":"Overactive bladder","zh":"膀胱功能亢進"},{"en":"Ovary","zh":"卵巢"},{"en":"Ovarian pregnancy","zh":"卵巢妊娠"},{"en":"Oviduct","zh":"輸卵管"},{"en":"Painkiller","zh":"止痛藥"},{"en":"PMS – Pre-Menstrual Syndrome","zh":"經前期綜合症候群"},{"en":"Pap smear","zh":"子宮頸塗片檢查 , 柏氏細胞抹片檢查"},{"en":"Parturient","zh":"分娩的 , 臨盆的 , 產婦"},{"en":"Pass a clot, to","zh":"流出血塊"},{"en":"Patch","zh":"貼布 , 補"},{"en":"Postpartum depression (baby blues)","zh":"產後抑鬱症"},{"en":"Permanent sterility","zh":"永久不育"},{"en":"Post-term birth","zh":"超月生產"},{"en":"Precipitate labor","zh":"突發快速分娩 , 急產"},{"en":"Pregnancy","zh":"妊娠 , 懷孕"},{"en":"Pregnant","zh":"懷孕的 , 孕婦"},{"en":"Premature","zh":"早 , 提早"},{"en":"Premature birth","zh":"早產"},{"en":"Premature labor, delivery","zh":"早產"},{"en":"Prenatal","zh":"產前的"},{"en":"Prolonged labor","zh":"過長分娩"},{"en":"Pump out the milk, to","zh":"擠奶"},{"en":"Rash","zh":"皮疹"},{"en":"Runny nose","zh":"流鼻涕 , 流鼻水"},{"en":"Sanitary napkins/pads","zh":"衛生巾 , 衛生棉"},{"en":"Scraping","zh":"刮除"},{"en":"Sitz-baths","zh":"坐盆浴"},{"en":"Sore nipples","zh":"乳頭痛"},{"en":"Sore throat","zh":"喉嚨痛 , 嗓子痛"},{"en":"Spontaneous labor","zh":"自然分娩"},{"en":"Sperm","zh":"精子"},{"en":"Spitting up","zh":"吐出"},{"en":"Spontaneous abortion","zh":"自發性流產 , 自然流產"},{"en":"Spotting","zh":"小量流血 , 有血點的"},{"en":"Staples","zh":"縫合釘"},{"en":"Sterility","zh":"不育"},{"en":"Steri-strips","zh":"抗菌 、消毒貼片"},{"en":"Still-birth","zh":"死胎 , 死產"},{"en":"Still-born","zh":"死胎"},{"en":"Stitches","zh":"縫針 , 縫線 , 縫合"},{"en":"Stool problem","zh":"大便問題"},{"en":"Stool softener","zh":"軟便藥 , 通便藥"},{"en":"Stuffed, to be","zh":"堵塞的"},{"en":"Symptoms","zh":"癥狀"},{"en":"Tampons","zh":"丹必絲 , 衛生棉棒"},{"en":"Tiredness","zh":"累"},{"en":"Threaten abortion","zh":"先兆性流產"},{"en":"Therapeutic abortion","zh":"治療性人工流產"},{"en":"Trained midwife","zh":"受過訓練的助產士"},{"en":"Tubal pregnancy","zh":"輸卵管妊娠"},{"en":"Tummy","zh":"肚子"},{"en":"Twin pregnancy","zh":"雙胞胎妊娠 , 懷雙胞胎"},{"en":"Ultrasound","zh":"超聲波"},{"en":"Umbilical cord","zh":"臍帶"},{"en":"Untrained midwife","zh":"未受過訓練的助產士"},{"en":"Uterine cramps, after-pains","zh":"子宮抽痛 / 絞痛"},{"en":"Uterine tenderness","zh":"子宮觸痛"},{"en":"Vaginal bleeding","zh":"陰道出血"},{"en":"Vaginal cream","zh":"陰道藥膏"},{"en":"Vaginal discharge","zh":"陰道排出物"},{"en":"Vaginal dryness","zh":"陰道乾燥"},{"en":"Vaginal jelly","zh":"陰道潤膠"},{"en":"Vaginal lubricant","zh":"陰道潤滑劑"},{"en":"Vaginal yeast infection","zh":"陰道感染 , 陰道酵母菌感染"},{"en":"Varicose veins","zh":"靜脈曲張"},{"en":"Water soluble lubricant","zh":"水溶性潤滑劑"},{"en":"Watery discharge","zh":"水樣排出物"},{"en":"Wean, to","zh":"斷奶 , 戒奶"},{"en":"Wheezing","zh":"喘呼 , 呼吸時v v聲"},{"en":"Witch hazel","zh":"金鏤梅提取物 (used in Tucks pads) , 消腫藥"},{"en":"1st stage of labor","zh":"分娩第一期"},{"en":"2nd stage of labor","zh":"分娩第二期"},{"en":"3rd stage of labor","zh":"分娩第三期"}]},{"en":"IV. Most Common Diseases / Immunizations","zh":"常見疾病與疫苗接種","items":[{"en":"1st shot, 2nd shot, 3rd shot, etc...","zh":"第一針 , 第二針, 第三針等"},{"en":"Asthma","zh":"哮喘病"},{"en":"Additional shots","zh":"免疫輔助針"},{"en":"Booster shots","zh":"免疫輔助針 , 免疫增強針"},{"en":"Bronchitis","zh":"支氣管炎"},{"en":"By mouth","zh":"口服"},{"en":"Chicken pox (Varicella)","zh":"水痘"},{"en":"Diphtheria-Tetanus-Pertussis (DTP) Three-in-one shot/baby shot","zh":"白喉 、破傷風 、百日咳三合一兒童免疫針"},{"en":"Drops","zh":"滴劑 , 點劑"},{"en":"Flu","zh":"流行性感冒"},{"en":"German measles (Rubella)","zh":"風疹 , 德國麻疹"},{"en":"Give a shot, to","zh":"打針"},{"en":"Hay fever","zh":"枯草熱 , 花粉熱 , 花粉過敏"},{"en":"Hepatitis B","zh":"乙型肝炎"},{"en":"Haemophilus, Influenza, Meningitis (HIB vaccine)","zh":"乙型流感嗜血桿菌疫苗"},{"en":"Immunization","zh":"免疫"},{"en":"Immunization chart","zh":"免疫單 / 表 / 記錄"},{"en":"Immunization-booster dose","zh":"免疫輔助劑 , 免疫增強劑"},{"en":"Immunize, to","zh":"使…免疫"},{"en":"Jaundice","zh":"黃膽"},{"en":"Malaria","zh":"瘧疾"},{"en":"Measles","zh":"麻疹"},{"en":"Meningitis","zh":"腦膜炎"},{"en":"Mumps","zh":"流行性腮腺炎 , 痄腮"},{"en":"Pneumonia","zh":"肺炎"},{"en":"Polio","zh":"小兒麻痺症"},{"en":"Rabies","zh":"狂犬病 , 瘋狗症"},{"en":"Rubella (German measles)","zh":"風疹 , 德國麻疹"},{"en":"Shot","zh":"針 , 打針"},{"en":"Shot chart/ shot record","zh":"打針記錄"},{"en":"Scarlet fever","zh":"猩紅熱"},{"en":"Small pox or smallpox","zh":"天花"},{"en":"Syringe","zh":"注射器"},{"en":"Tetanus","zh":"破傷風"},{"en":"Tonsillitis","zh":"扁桃腺發炎"},{"en":"Tuberculosis (BCG)","zh":"結核"},{"en":"Typhoid","zh":"傷寒"},{"en":"Typhoid fever","zh":"傷寒"},{"en":"Vaccinate, to","zh":"給…打疫苗 , 接種疫苗"},{"en":"Vaccination","zh":"免疫"},{"en":"whooping cough","zh":"百日咳"},{"en":"Yellow fever","zh":"黃熱病"}]},{"en":"V. Male Issues","zh":"男性健康","items":[{"en":"Andropause (male menopause)","zh":"男性激素減少 , 男性‘絕經’ , 男性更年期"},{"en":"Burning sensation","zh":"灼熱感 , 灼痛"},{"en":"Erectile dysfunction","zh":"不勃起 , 陽痿"},{"en":"Foreskin","zh":"包皮"},{"en":"Glands","zh":"腺體"},{"en":"Groin","zh":"腹股溝 , 鼠蹊"},{"en":"Jock itch","zh":"陰部搔癢 (由真菌感染引起)"},{"en":"Jock strap","zh":"護陰帶 , 陰部保護帶"},{"en":"Penis","zh":"陰莖"},{"en":"Prostate","zh":"前列腺 , 攝護腺"},{"en":"Scrotum","zh":"陰囊"},{"en":"Testicles","zh":"睪丸"},{"en":"Vasectomy","zh":"輸精管結紮"}]},{"en":"VI. Medical Tests","zh":"醫學檢查與檢驗","items":[{"en":"Blood test, blood work","zh":"血液化驗"},{"en":"Blood smear","zh":"血液塗片 / 抹片"},{"en":"CBC (complete blood count)","zh":"完整血球量計算 (全部血細胞數據)"},{"en":"CAT scan (computerized axial tomography)","zh":"電腦斷層掃描"},{"en":"CT scan (computed tomography)","zh":"電腦斷層掃描"},{"en":"Eye exam","zh":"眼睛檢查"},{"en":"ECG Electrocardiogram","zh":"心電圖"},{"en":"EEG electroencephalogram","zh":"腦電圖"},{"en":"ELISA test (Enzyme linked immuno-sorbent assay test)","zh":"伊奈莎檢查 (酵素聯 免疫吸附 分析法)"},{"en":"Fasting blood sugar","zh":"空腹血糖"},{"en":"Glucose tolerance test","zh":"葡萄糖耐性測試"},{"en":"Hearing test","zh":"聽力測試"},{"en":"MRI (Magnetic Resonance Imaging)","zh":"磁力共震照像 , 磁場共鳴造影"},{"en":"Pelvic examination","zh":"骨盤檢查"},{"en":"Physical Therapy (PT)","zh":"物理治療"},{"en":"Post-operative tests","zh":"手術後化驗 / 檢查"},{"en":"Pre-operative tests","zh":"手術前化驗 / 檢查"},{"en":"Pulmonary function test","zh":"肺功能檢查"},{"en":"Rectal examination","zh":"直腸檢查"},{"en":"RBC (red blood count)","zh":"紅血球數量"},{"en":"Skin test","zh":"皮膚測試"},{"en":"Sonogram","zh":"超聲波圖"},{"en":"Stool specimen","zh":"大便樣本"},{"en":"(SGOT) serum glutamic oxaloacetic transaminase [also called Aspartate Transaminase (AST) or aspartate aminotransferase (ASAT)]","zh":"血清麩胺草醋酸胺基轉移症 , 谷草轉氨酵素 (其中一種肝臟功能測試)"},{"en":"Stress test","zh":"運動心電圖 , 心臟負荷試"},{"en":"SR (sedimentation rate)","zh":"沉澱率"},{"en":"Urine routine, urinalysis","zh":"尿常規 , 尿分析"},{"en":"WBC (white blood count)","zh":"白血球數量"}]}];
+</script>
+<script>
+/* ============ 資料展平 ============ */
+const ALL = [];
+DATA.forEach((s, si) => s.items.forEach((it, i) => {
+  ALL.push({ id: si + '.' + i, si, en: it.en, zh: it.zh, sec: s.zh, secEn: s.en });
+}));
+const byId = Object.fromEntries(ALL.map(x => [x.id, x]));
+
+/* ============ 儲存（artifact storage → localStorage → 記憶體） ============ */
+const KEY = 'medterms.v1';
+let P = {};                      // id -> {b:box, s:starred, d:dueTimestamp, w:wrongCount}
+const Store = {
+  async load() {
+    try { if (window.storage) { const r = await window.storage.get(KEY); if (r && r.value) return JSON.parse(r.value); } } catch (e) {}
+    try { const v = localStorage.getItem(KEY); if (v) return JSON.parse(v); } catch (e) {}
+    return null;
+  },
+  save(o) {
+    const s = JSON.stringify(o);
+    try { if (window.storage) { window.storage.set(KEY, s).catch(() => {}); return; } } catch (e) {}
+    try { localStorage.setItem(KEY, s); } catch (e) {}
+  }
+};
+let saveT;
+function persist() { clearTimeout(saveT); saveT = setTimeout(() => Store.save({ p: P, cfg }), 400); }
+
+let cfg = { rate: 0.85, voice: '', auto: true, paper: 'cream' };
+
+/* ============ Leitner 間隔重複 ============ */
+const DAYS = [0, 1, 2, 4, 8, 16];          // box 0..5 → 幾天後再考
+const DAY = 864e5;
+function rec(id) { return P[id] || (P[id] = { b: 0, s: false, d: 0, w: 0 }); }
+function grade(id, q) {                     // q: 0 不會 / 1 有印象 / 2 會了
+  const r = rec(id);
+  if (q === 0) { r.b = 0; r.w++; }
+  else if (q === 1) r.b = Math.max(1, r.b);
+  else r.b = Math.min(5, r.b + 1);
+  r.d = Date.now() + DAYS[r.b] * DAY;
+  persist(); paintMeter();
+}
+const stateOf = id => { const r = P[id]; return !r || r.b === 0 ? 'new' : r.b >= 4 ? 'done' : 'learn'; };
+const isDue = id => { const r = P[id]; return !!r && r.b > 0 && r.b < 4 && r.d <= Date.now(); };
+
+function paintMeter() {
+  let d = 0, l = 0, due = 0;
+  ALL.forEach(x => { const s = stateOf(x.id); if (s === 'done') d++; else if (s === 'learn') l++; if (isDue(x.id)) due++; });
+  const n = ALL.length;
+  mDone.style.width = (d / n * 100) + '%';
+  mLearn.style.width = (l / n * 100) + '%';
+  cDone.textContent = d; cLearn.textContent = l; cNew.textContent = n - d - l;
+  cDue.textContent = due; dueWrap.hidden = due === 0;
+}
+
+/* ============ 語音 ============ */
+let voices = [];
+const canSpeak = 'speechSynthesis' in window;
+function loadVoices() {
+  if (!canSpeak) { ttsWarn.hidden = false; return; }
+  voices = speechSynthesis.getVoices().filter(v => /^en/i.test(v.lang));
+  voiceSel.innerHTML = voices.map((v, i) => `<option value="${i}">${v.name} (${v.lang})</option>`).join('') || '<option>系統預設</option>';
+  const saved = voices.findIndex(v => v.name === cfg.voice);
+  if (saved >= 0) voiceSel.value = saved;
+}
+if (canSpeak) { loadVoices(); speechSynthesis.onvoiceschanged = loadVoices; } else ttsWarn.hidden = false;
+function speak(text) {
+  if (!canSpeak || !text) return;
+  try {
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text.replace(/\s*\/\s*/g, ', ').replace(/…|\.\.\./g, ''));
+    u.lang = 'en-US'; u.rate = cfg.rate;
+    const v = voices[voiceSel.value]; if (v) u.voice = v;
+    speechSynthesis.speak(u);
+  } catch (e) {}
+}
+rateIn.oninput = () => { cfg.rate = +rateIn.value; rateVal.textContent = cfg.rate.toFixed(2) + '×'; persist(); };
+voiceSel.onchange = () => { cfg.voice = (voices[voiceSel.value] || {}).name || ''; persist(); speak('Blood pressure'); };
+autoSpeak.onchange = () => { cfg.auto = autoSpeak.checked; persist(); };
+const autoSay = t => { if (cfg.auto) speak(t); };
+
+
+/* ============ 圖示 ============ */
+const IC = {
+  say:'<svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.6h2.7L10.4 4v12L6.2 12.4H3.5z" fill="currentColor" stroke="none"/><path d="M13.4 7.3a3.7 3.7 0 0 1 0 5.4"/><path d="M15.8 5a7 7 0 0 1 0 10"/></svg>',
+  star:'<svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M5.6 3.2h8.8V17l-4.4-3.5L5.6 17z"/></svg>',
+  ok:'<svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.4l3.9 3.9L16 5.7"/></svg>'
+};
+
+/* ============ 小工具 ============ */
+const $ = s => document.querySelector(s);
+const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = (Math.random() * (i + 1)) | 0;[a[i], a[j]] = [a[j], a[i]]; } return a; };
+const norm = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '');
+
+function secOptions(el, label) {
+  el.innerHTML = `<option value="all">${label}</option>` + DATA.map((s, i) => `<option value="${i}">${esc(s.zh)}（${s.items.length}）</option>`).join('');
+}
+['secSel', 'cardSec', 'mcSec', 'spSec', 'lsSec'].forEach(id => secOptions($('#' + id), '全部六類'));
+
+/* 依範圍取題，並依「該複習 / 標記 / 錯過 / 沒學過」加權排序 */
+function pool(secVal, mode) {
+  let a = ALL.filter(x => secVal === 'all' || x.si === +secVal);
+  if (mode === 'new') a = a.filter(x => stateOf(x.id) === 'new');
+  else if (mode === 'star') a = a.filter(x => rec(x.id).s);
+  if (!a.length) a = ALL.filter(x => secVal === 'all' || x.si === +secVal);
+  return a;
+}
+function weighted(list, n) {
+  const score = x => {
+    const r = P[x.id];
+    let s = Math.random();
+    if (r && r.s) s += 3;
+    if (isDue(x.id)) s += 2.5;
+    if (r && r.w) s += Math.min(r.w, 3) * 0.8;
+    if (!r || r.b === 0) s += 1.2;
+    if (r && r.b >= 4) s -= 2;
+    return s;
+  };
+  return [...list].sort((a, b) => score(b) - score(a)).slice(0, n);
+}
+
+/* ============ 分頁切換 ============ */
+document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
+  document.querySelectorAll('.tab').forEach(x => x.setAttribute('aria-selected', x === t));
+  document.querySelectorAll('.panel').forEach(p => p.hidden = p.id !== 'p-' + t.dataset.mode);
+  if (canSpeak) speechSynthesis.cancel();
+});
+
+/* ============ 詞彙表 ============ */
+let hz = false, he = false;
+hideZh.onclick = () => { hz = !hz; hideZh.setAttribute('aria-pressed', hz); drawList(); };
+hideEn.onclick = () => { he = !he; hideEn.setAttribute('aria-pressed', he); drawList(); };
+q.oninput = secSel.onchange = statSel.onchange = drawList;
+
+function drawList() {
+  const term = q.value.trim().toLowerCase();
+  const sv = secSel.value, st = statSel.value;
+  const rows = ALL.filter(x => {
+    if (sv !== 'all' && x.si !== +sv) return false;
+    if (st === 'star') { if (!rec(x.id).s) return false; }
+    else if (st === 'due') { if (!isDue(x.id)) return false; }
+    else if (st !== 'all' && stateOf(x.id) !== st) return false;
+    return !term || x.en.toLowerCase().includes(term) || x.zh.includes(term);
+  });
+  listCount.textContent = rows.length + ' / ' + ALL.length + ' 條';
+  if (!rows.length) { sheet.innerHTML = '<div class="empty">這個條件下沒有詞彙。換個搜尋或篩選試試。</div>'; return; }
+  let html = '', last = -1;
+  rows.forEach((x, i) => {
+    if (x.si !== last) { last = x.si; html += `<div class="sechead">${esc(DATA[x.si].zh)} · ${esc(DATA[x.si].en)}</div>`; }
+    const r = rec(x.id), s = stateOf(x.id);
+    html += `<div class="row ${s === 'done' ? 's3' : s === 'learn' ? 's2' : ''} ${r.s ? 'starred' : ''} ${hz ? 'hide-zh' : ''} ${he ? 'hide-en' : ''}" data-id="${x.id}">
+      <span class="num">${i + 1}</span>
+      <span class="en">${esc(x.en)}</span>
+      <span class="zh">${esc(x.zh)}</span>
+      <span class="acts">
+        <button class="icon" data-a="say" title="朗讀 ${esc(x.en)}" aria-label="朗讀">${IC.say}</button>
+        <button class="icon ${r.s ? 'on' : ''}" data-a="star" title="標記待加強" aria-pressed="${r.s}">${IC.star}</button>
+        <button class="icon ${s === 'done' ? 'ok' : ''}" data-a="know" title="標為已掌握" aria-pressed="${s === 'done'}">${IC.ok}</button>
+      </span></div>`;
+  });
+  sheet.innerHTML = html;
+}
+sheet.onclick = e => {
+  const cell = e.target.closest('.hide-zh .zh, .hide-en .en');
+  if (cell) { cell.style.color = 'var(--ink)'; cell.style.background = 'none'; return; }
+  const b = e.target.closest('[data-a]'); if (!b) return;
+  const id = b.closest('.row').dataset.id, r = rec(id);
+  if (b.dataset.a === 'say') return speak(byId[id].en);
+  if (b.dataset.a === 'star') r.s = !r.s;
+  if (b.dataset.a === 'know') { if (r.b >= 4) { r.b = 0; r.d = 0; } else { r.b = 4; r.d = Date.now() + DAYS[4] * DAY; } }
+  persist(); paintMeter(); drawList();
+};
+
+/* ============ 閃卡 ============ */
+let deck = [], di = 0, flipped = false;
+cardStart.onclick = () => {
+  deck = weighted(pool(cardSec.value, cardPool.value), 20);
+  if (cardPool.value === 'all') deck = shuffle(pool(cardSec.value, 'all')).slice(0, 20);
+  di = 0; drawCard();
+};
+function drawCard() {
+  if (di >= deck.length) {
+    cardBar.style.width = '100%';
+    cardStage.innerHTML = `<div><div class="term">這組完成了</div>
+      <p class="src" style="margin-top:10px">複習 ${deck.length} 張。休息一下，或直接開下一組 — 隔一段時間再回來，記得最牢。</p>
+      <div class="rowbtns"><button class="btn primary" id="again">再開一組</button></div></div>`;
+    $('#again').onclick = () => cardStart.click();
+    return;
+  }
+  const x = deck[di], zhFirst = cardDir.value === 'zh';
+  flipped = false;
+  cardBar.style.width = (di / deck.length * 100) + '%';
+  cardStage.innerHTML = `
+    <div class="src">${esc(x.sec)} · 第 ${di + 1} / ${deck.length} 張</div>
+    <div class="term ${zhFirst ? 'cn' : ''}">${esc(zhFirst ? x.zh : x.en)}</div>
+    ${zhFirst ? '' : `<div><button class="icon" id="say" aria-label="重播發音">${IC.say}</button></div>`}
+    <div class="veil" id="veil">先在心裡回想答案，再翻開</div>
+    <div class="rowbtns"><button class="btn primary" id="flip">翻開答案（空白鍵）</button></div>`;
+  if ($('#say')) $('#say').onclick = () => speak(x.en);
+  $('#flip').onclick = flip;
+  if (!zhFirst) autoSay(x.en);
+}
+function flip() {
+  if (flipped) return; flipped = true;
+  const x = deck[di], zhFirst = cardDir.value === 'zh';
+  $('#veil').outerHTML = `<div class="answer" id="veil">${esc(zhFirst ? x.en : x.zh)}${zhFirst ? `<button class="icon" id="asay" aria-label="朗讀">${IC.say}</button>` : ''}</div>`;
+  if ($('#asay')) $('#asay').onclick = () => speak(x.en);
+  $('#flip').outerHTML = `<div class="rate">
+    <button class="r0" data-q="0">不會<span>1</span></button>
+    <button class="r1" data-q="1">有點印象<span>2</span></button>
+    <button class="r2" data-q="2">會了<span>3</span></button></div>`;
+  document.querySelectorAll('.rate button').forEach(b => b.onclick = () => { grade(x.id, +b.dataset.q); di++; drawCard(); });
+  if (zhFirst) autoSay(x.en);
+}
+document.addEventListener('keydown', e => {
+  if ($('#p-card').hidden || e.target.matches('input,select,textarea')) return;
+  if (e.code === 'Space') { e.preventDefault(); flipped ? null : flip(); }
+  if (flipped && '123'.includes(e.key)) { const b = document.querySelector('.rate .r' + (+e.key - 1)); if (b) b.click(); }
+});
+
+/* ============ 測驗引擎（選擇題 / 拼寫 / 聽力共用） ============ */
+function makeQuiz(kind, secEl, dirEl, stage, bar) {
+  const src = pool(secEl.value, 'smart');
+  const qs = weighted(src, 10).map(x => ({ x, dir: kind === 'mc' ? (dirEl.value === 'mix' ? (Math.random() < .5 ? 'en' : 'zh') : dirEl.value) : 'en' }));
+  shuffle(qs);
+  let i = 0, right = 0, missed = [];
+
+  function distractors(x, key) {
+    const same = ALL.filter(y => y.si === x.si && y.id !== x.id && y[key] !== x[key]);
+    const p = shuffle(same.length >= 3 ? same : ALL.filter(y => y.id !== x.id && y[key] !== x[key]));
+    const seen = new Set([x[key]]), out = [];
+    for (const y of p) { if (seen.has(y[key])) continue; seen.add(y[key]); out.push(y); if (out.length === 3) break; }
+    return out;
+  }
+  function answered(ok, x) {
+    if (ok) { right++; grade(x.id, 2); } else { missed.push(x); grade(x.id, 0); }
+  }
+  function next() { i++; render(); }
+
+  function render() {
+    bar.style.width = (i / qs.length * 100) + '%';
+    if (i >= qs.length) return finish();
+    const { x, dir } = qs[i];
+    if (kind === 'mc') renderMC(x, dir);
+    else if (kind === 'spell') renderSpell(x);
+    else renderListen(x);
+  }
+
+  function optionBlock(x, opts, key, onPick) {
+    return opts.map((o, n) => `<button class="opt" data-i="${n}" data-ok="${o.id === x.id}"><kbd>${n + 1}</kbd>${esc(o[key])}</button>`).join('');
+  }
+  function wireOpts(x, key, extra) {
+    const btns = [...stage.querySelectorAll('.opt')];
+    const pick = b => {
+      if (b.disabled) return;
+      const ok = b.dataset.ok === 'true';
+      btns.forEach(o => { o.disabled = true; if (o.dataset.ok === 'true') o.classList.add('right'); });
+      if (!ok) b.classList.add('wrong');
+      answered(ok, x);
+      stage.insertAdjacentHTML('beforeend', feedback(ok, x));
+      wireFb(x);
+    };
+    btns.forEach(b => b.onclick = () => pick(b));
+    stage._keys = e => { const n = +e.key; if (n >= 1 && n <= btns.length) pick(btns[n - 1]); };
+  }
+  function feedback(ok, x) {
+    return `<div class="fb ${ok ? 'good' : 'bad'}">
+      <strong>${ok ? '答對了' : '再看一次'}</strong>
+      <b>${esc(x.en)}</b> ＝ ${esc(x.zh)}　<button class="icon" id="fbsay" style="display:inline-grid;vertical-align:-10px" aria-label="朗讀">${IC.say}</button><br>
+      <span style="color:var(--ink2);font-size:.8125rem">出自「${esc(x.sec)}」${ok ? '。間隔重複往前推一格，下次會隔更久才考。' : '。這條已退回重新複習，之後會再考你一次。'}</span>
+      <div class="rowbtns" style="justify-content:flex-start;margin-top:12px"><button class="btn primary" id="nextq">${i + 1 >= qs.length ? '看結果' : '下一題'}</button></div></div>`;
+  }
+  function wireFb(x) {
+    $('#fbsay').onclick = () => speak(x.en);
+    $('#nextq').onclick = next;
+    $('#nextq').focus();
+    stage._keys = e => { if (e.key === 'Enter' || e.code === 'Space') { e.preventDefault(); next(); } };
+    speak(x.en);
+  }
+
+  function renderMC(x, dir) {
+    const key = dir === 'en' ? 'zh' : 'en';
+    const opts = shuffle([x, ...distractors(x, key)]);
+    stage.innerHTML = `<div class="qcard">
+      <div class="qprompt">第 ${i + 1} / ${qs.length} 題 · ${dir === 'en' ? '這個英文的中文意思是？' : '這個中文的英文說法是？'}</div>
+      <div class="qterm">${esc(dir === 'en' ? x.en : x.zh)}</div>
+      ${dir === 'en' ? `<div style="margin-top:8px"><button class="icon" id="qsay" style="width:36px;height:36px" aria-label="重播發音">${IC.say}</button></div>` : ''}
+      <div class="opts">${optionBlock(x, opts, key)}</div></div>`;
+    if ($('#qsay')) $('#qsay').onclick = () => speak(x.en);
+    if (dir === 'en') autoSay(x.en);
+    wireOpts(x, key);
+  }
+
+  function renderListen(x) {
+    const opts = shuffle([x, ...distractors(x, 'zh')]);
+    stage.innerHTML = `<div class="qcard">
+      <div class="qprompt">第 ${i + 1} / ${qs.length} 題 · 聽發音，選中文意思</div>
+      <button class="big-audio" id="qsay" title="再聽一次" aria-label="再聽一次"><svg viewBox="0 0 20 20" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.6h2.7L10.4 4v12L6.2 12.4H3.5z" fill="currentColor" stroke="none"/><path d="M13.4 7.3a3.7 3.7 0 0 1 0 5.4"/><path d="M15.8 5a7 7 0 0 1 0 10"/></svg></button>
+      <div style="text-align:center;font-size:.8125rem;color:var(--ink3)">點喇叭可以重播</div>
+      <div class="opts">${optionBlock(x, opts, 'zh')}</div></div>`;
+    $('#qsay').onclick = () => speak(x.en);
+    speak(x.en);
+    wireOpts(x, 'zh');
+  }
+
+  function renderSpell(x) {
+    stage.innerHTML = `<div class="qcard">
+      <div class="qprompt">第 ${i + 1} / ${qs.length} 題 · 這個中文的英文怎麼拼？</div>
+      <div class="qterm" style="font-size:1.5rem">${esc(x.zh)}</div>
+      <div class="mask">${esc(x.en[0])}${'·'.repeat(Math.max(0, x.en.length - 1))}</div>
+      <input class="spellin" id="spin" placeholder="輸入英文，按 Enter 送出" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="rowbtns" style="justify-content:flex-start"><button class="btn primary" id="spgo">送出</button><button class="btn" id="spskip">不會，看答案</button></div></div>`;
+    const inp = $('#spin'); inp.focus();
+    const judge = force => {
+      const ok = !force && norm(inp.value) === norm(x.en);
+      inp.disabled = true; $('#spgo').disabled = true; $('#spskip').disabled = true;
+      inp.style.borderColor = ok ? 'var(--teal)' : 'var(--flag)';
+      answered(ok, x);
+      stage.querySelector('.qcard').insertAdjacentHTML('beforeend', feedback(ok, x));
+      wireFb(x);
+    };
+    $('#spgo').onclick = () => judge(false);
+    $('#spskip').onclick = () => judge(true);
+    inp.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); judge(false); } };
+    stage._keys = null;
+  }
+
+  function finish() {
+    bar.style.width = '100%';
+    const pct = Math.round(right / qs.length * 100);
+    stage.innerHTML = `<div class="qcard scorecard">
+      <div class="n">${right}<span style="font-size:1.25rem;color:var(--ink3)"> / ${qs.length}</span></div>
+      <p style="margin:12px 0 0;color:var(--ink2)">${pct >= 90 ? '這個範圍你已經很穩了，換下一類吧。' : pct >= 60 ? '大部分都記住了。下面這幾條再過一次就完整了。' : '這個範圍還新。先用閃卡跑一輪，過幾小時再回來測，會差很多。'}</p>
+      ${missed.length ? `<div class="misslist">${missed.map(m => `<div><b>${esc(m.en)}</b><span>${esc(m.zh)}</span></div>`).join('')}</div>` : ''}
+      <div class="rowbtns">
+        ${missed.length ? `<button class="btn primary" id="redo">只重測這 ${missed.length} 條</button>` : ''}
+        <button class="btn" id="fresh">再來 10 題</button>
+        ${missed.length ? `<button class="btn" id="starall">把錯的全部標記待加強</button>` : ''}
+      </div></div>`;
+    if ($('#redo')) $('#redo').onclick = () => { qs.length = 0; missed.forEach(m => qs.push({ x: m, dir: kind === 'mc' ? (dirEl.value === 'mix' ? (Math.random() < .5 ? 'en' : 'zh') : dirEl.value) : 'en' })); i = 0; right = 0; missed = []; render(); };
+    $('#fresh').onclick = () => makeQuiz(kind, secEl, dirEl, stage, bar);
+    if ($('#starall')) $('#starall').onclick = e => { missed.forEach(m => rec(m.id).s = true); persist(); drawList(); e.target.textContent = '已標記 ✓'; e.target.disabled = true; };
+    stage._keys = null;
+  }
+
+  render();
+}
+mcStart.onclick = () => makeQuiz('mc', mcSec, mcDir, mcStage, mcBar);
+spStart.onclick = () => makeQuiz('spell', spSec, null, spStage, spBar);
+lsStart.onclick = () => makeQuiz('listen', lsSec, null, lsStage, lsBar);
+
+document.addEventListener('keydown', e => {
+  if (e.target.matches('input,select,textarea')) return;
+  for (const s of [mcStage, spStage, lsStage]) if (!s.closest('.panel').hidden && s._keys) return s._keys(e);
+});
+
+/* ============ 重設 ============ */
+/* ============ 紙張底色 ============ */
+function applyPaper(v) {
+  cfg.paper = v;
+  if (v === 'cream') document.documentElement.removeAttribute('data-paper');
+  else document.documentElement.setAttribute('data-paper', v);
+  paperSeg.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.paper === v));
+}
+paperSeg.onclick = e => { const b = e.target.closest('[data-paper]'); if (b) { applyPaper(b.dataset.paper); persist(); } };
+
+resetBtn.onclick = () => {
+  if (!confirm('確定清除全部標記與進度？無法復原。')) return;
+  P = {}; persist(); paintMeter(); drawList();
+};
+
+/* ============ 啟動 ============ */
+(async () => {
+  const saved = await Store.load();
+  if (saved) { P = saved.p || {}; Object.assign(cfg, saved.cfg || {}); }
+  rateIn.value = cfg.rate; rateVal.textContent = cfg.rate.toFixed(2) + '×'; autoSpeak.checked = cfg.auto;
+  applyPaper(cfg.paper || 'cream');
+  loadVoices(); paintMeter(); drawList();
+})();
+
+</script>
+
+<!-- back-to-index + deep link (added by Claude) -->
+<style>
+#back-to-index{position:fixed;right:18px;bottom:24px;z-index:99999;display:inline-flex;align-items:center;gap:6px;
+background:#2f6b52;color:#fff !important;text-decoration:none;font-family:"IBM Plex Sans TC","Noto Sans TC",system-ui,sans-serif;
+font-size:13px;font-weight:500;line-height:1;padding:10px 15px;border-radius:999px;
+box-shadow:0 2px 10px rgba(0,0,0,.2);transition:background .15s ease,transform .15s ease;}
+#back-to-index:hover{background:#1f4d3a;transform:translateY(-1px);}
+#back-to-index:focus-visible{outline:2px solid #1f4d3a;outline-offset:2px;}
+@media (max-width:600px){#back-to-index{right:14px;bottom:16px;font-size:12.5px;padding:9px 13px;}}
+@media print{#back-to-index{display:none;}}
+</style>
+<a id="back-to-index" href="index.html" title="回到科目總覽">&#8592; 回總覽</a>
+<script>
+/* open a term straight from the index search: MedicalTerms.html#q=Abscess */
+(function(){
+  function apply(){
+    var h = decodeURIComponent((location.hash||'').replace(/^#/,''));
+    if(h.indexOf('q=') !== 0) return;
+    var term = h.slice(2); if(!term) return;
+    var tab = document.querySelector('.tab[data-mode="list"]');
+    if(tab && tab.getAttribute('aria-selected') !== 'true') tab.click();
+    setTimeout(function(){
+      var box = document.getElementById('q'); if(!box) return;
+      box.value = term;
+      box.dispatchEvent(new Event('input', {bubbles:true}));
+      box.scrollIntoView({behavior:'smooth', block:'center'});
+    }, 160);
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){setTimeout(apply,120);});
+  else setTimeout(apply,120);
+  window.addEventListener('hashchange', apply);
+})();
+</script>
+</body>
+</html>
