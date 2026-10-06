@@ -10475,5 +10475,136 @@ box-shadow:0 2px 10px rgba(0,0,0,.2);transition:background .15s ease,transform .
   else build();
 })();
 </script>
+<!-- display-toggle:start v1 -->
+<style id="disp-style">
+#disp-bar{position:fixed;top:12px;right:14px;z-index:99991;display:flex;gap:4px;align-items:center;background:rgba(255,255,255,.96);border:1px solid #cfcfc6;border-radius:10px;padding:6px 8px;box-shadow:0 2px 10px rgba(0,0,0,.14);font:13px/1 "Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;color:#222}
+#disp-bar button,.disp-grp button{font:inherit;font-size:13px;line-height:1;border:1px solid #cfcfc6;background:#fff;color:#222;border-radius:7px;padding:5px 9px;cursor:pointer;margin:0}
+#disp-bar button:hover{background:#eee}
+#disp-bar button.sk-on,.disp-grp button.sk-on{background:#3E6152;color:#fff;border-color:#3E6152}
+.disp-grp{display:flex;align-items:center;gap:4px}
+.disp-grp .sk-lbl,#disp-bar .sk-lbl{font-size:11.5px;padding:0 3px;white-space:nowrap}
+@media (max-width:640px){#disp-bar{top:8px;right:8px;padding:5px 6px}#disp-bar button,.disp-grp button{font-size:12px;padding:4px 6px}}
+@media print{#disp-bar{display:none!important}}
+</style>
+<script>
+(function(){
+  var CFG={"Z": [".zh", ".zhtext", ".mcn"], "E": [".en", ".men"], "index": false, "terms": false}, KEY='ctcmpao-display-mode';
+  var Z=CFG.Z.join(','), E=CFG.E.join(',');
+  var MODES=[['both','中英對照'],['zh','中文'],['en','English']];
+  function get(){try{var v=localStorage.getItem(KEY);if(v==='zh'||v==='en'||v==='both')return v;}catch(e){}return 'both';}
+  function put(v){try{localStorage.setItem(KEY,v);}catch(e){}}
+
+  // ---- CSS rules (siblings only: a language is hidden only if its counterpart is present) ----
+  var css='';
+  css+='body[data-disp="en"] :is('+E+') ~ :is('+Z+'),body[data-disp="en"] :is('+Z+'):has(~ :is('+E+')){display:none!important}';
+  css+='body[data-disp="zh"] :is('+Z+') ~ :is('+E+'),body[data-disp="zh"] :is('+E+'):has(~ :is('+Z+')){display:none!important}';
+  if(!CFG.terms){
+    css+='body[data-disp="en"] :has(> :is('+E+')):has(> :is('+Z+')),body[data-disp="zh"] :has(> :is('+E+')):has(> :is('+Z+')){grid-template-columns:minmax(0,1fr)!important;grid-template-areas:none!important}';
+    css+='body[data-disp="en"] :has(> :is('+E+')):has(> :is('+Z+')) > :is('+E+'){border-right:0!important}';
+  }
+  if(CFG.index){
+    css+='body[data-disp="en"] .card-zh,body[data-disp="zh"] .card-en{display:none!important}';
+    css+='body:not([data-disp="both"]) .disp-sep{display:none!important}';
+    css+='body[data-disp="en"] .group-head h2 .zh,body[data-disp="zh"] .group-head h2 .en{display:none!important}';
+  }
+  var st=document.createElement('style');st.id='disp-rules';st.textContent=css;document.head.appendChild(st);
+
+  // ---- normalise headings / menu entries so each language sits in its own element ----
+  var SEL='h1,h2,h3,h4,h5,h6,summary,.subh,.toc-mod,.toc-head,.tag,.mod,.sub,.chan-head,.group-title,.brand-sub,.mod-banner,.lesson-head';
+  var CJK=/[㐀-鿿豈-﫿]/, LAT=/[A-Za-z]/;
+  function mk(cls,txt){var s=document.createElement('span');s.className=cls;s.setAttribute('data-auto','1');s.textContent=txt;return s;}
+  function normalise(){
+    var els=document.querySelectorAll(SEL),i,k;
+    for(i=0;i<els.length;i++){
+      var h=els[i],hasZ=false,hasE=false,plain=null;
+      if(h.closest&&h.closest('#sk-tools,#disp-bar'))continue;
+      for(k=0;k<h.children.length;k++){
+        var c=h.children[k];
+        if(c.matches(Z))hasZ=true;
+        else if(c.matches(E))hasE=true;
+        else if(!c.className&&c.tagName==='SPAN'&&LAT.test(c.textContent)&&!CJK.test(c.textContent))plain=c;
+      }
+      var nodes=Array.prototype.slice.call(h.childNodes),n,t;
+      if(hasZ&&!hasE){                       // English raw text + .zh child
+        for(k=0;k<nodes.length;k++){n=nodes[k];t=n.nodeType===3?n.nodeValue:'';
+          if(t&&LAT.test(t)&&!CJK.test(t)){var s1=mk('en',t);h.replaceChild(s1,n);}}
+      }else if(hasE&&!hasZ){                // Chinese raw text + .en child
+        for(k=0;k<nodes.length;k++){n=nodes[k];t=n.nodeType===3?n.nodeValue:'';
+          if(t&&CJK.test(t)&&!LAT.test(t.replace(/[0-9]/g,''))){h.replaceChild(mk('zh',t),n);}}
+      }else if(!hasE&&!hasZ&&plain){        // Chinese raw text + bare <span>English</span>
+        var done=false;
+        for(k=0;k<nodes.length;k++){n=nodes[k];t=n.nodeType===3?n.nodeValue:'';
+          if(t&&CJK.test(t)&&!LAT.test(t.replace(/[0-9]/g,''))){h.replaceChild(mk('zh',t),n);done=true;}}
+        if(done)plain.classList.add('en');
+      }else if(!hasE&&!hasZ&&!h.children.length&&h.childNodes.length===1&&h.firstChild.nodeType===3&&CJK.test(h.firstChild.nodeValue)&&!LAT.test(h.firstChild.nodeValue.replace(/[0-9]/g,''))&&((h.nextElementSibling&&h.nextElementSibling.matches(E))||(h.previousElementSibling&&h.previousElementSibling.matches(E)))){
+        h.classList.add('zh');                // Chinese-only heading next to an English sibling line
+      }else if(!hasE&&!hasZ&&!h.children.length&&h.childNodes.length===1&&h.firstChild.nodeType===3){
+        t=h.firstChild.nodeValue;
+        var m=t.match(/^(\s*[^A-Za-z㐀-鿿]*[㐀-鿿][^A-Za-z]*?)\s*[·•|—–:：-]?\s*([A-Za-z][^㐀-鿿]*)$/);
+        var zf=true;
+        if(!m){m=t.match(/^\s*([A-Za-z][^㐀-鿿]*?)\s*[·•|—–:：-]?\s*([㐀-鿿].*)$/);zf=false;}
+        if(m){var zt=zf?m[1]:m[2],et=zf?m[2]:m[1];
+          h.textContent='';
+          var ze=mk('zh',zt.trim()),ee=mk('en',et.trim()),sp=document.createTextNode(' ');
+          if(zf){h.appendChild(ze);h.appendChild(sp);h.appendChild(ee);}else{h.appendChild(ee);h.appendChild(sp);h.appendChild(ze);}
+        }
+      }
+    }
+  }
+  // ---- index page: split "中文 · English" group titles ----
+  function splitIndex(){
+    if(!CFG.index)return;
+    var hs=document.querySelectorAll('.group-head h2');
+    for(var i=0;i<hs.length;i++){
+      var h=hs[i];if(h.querySelector('.zh,.en'))continue;
+      var m=h.textContent.split(' · ');if(m.length!==2)continue;
+      h.innerHTML='<span class="zh"></span><span class="disp-sep"> · </span><span class="en"></span>';
+      h.children[0].textContent=m[0];h.children[2].textContent=m[1];
+    }
+  }
+
+  // ---- control ----
+  var btns=[];
+  function apply(v){
+    document.body.setAttribute('data-disp',v);
+    document.documentElement.setAttribute('data-disp',v);
+    btns.forEach(function(b){
+      var on=b.getAttribute('data-disp-btn')===v;
+      b.classList.toggle('sk-on',on);b.setAttribute('aria-pressed',on?'true':'false');
+    });
+  }
+  function makeGroup(cls){
+    var g=document.createElement('div');g.className=cls;g.setAttribute('role','group');g.setAttribute('aria-label','Display 顯示');
+    var l=document.createElement('span');l.className='sk-lbl';l.textContent='Display 顯示';g.appendChild(l);
+    MODES.forEach(function(m){
+      var b=document.createElement('button');b.type='button';b.textContent=m[1];
+      b.setAttribute('data-disp-btn',m[0]);
+      b.addEventListener('click',function(){put(m[0]);apply(m[0]);});
+      btns.push(b);g.appendChild(b);
+    });
+    return g;
+  }
+  function build(){
+    if(document.getElementById('disp-ctl'))return;
+    normalise();splitIndex();
+    var host=document.getElementById('sk-tools'),g;
+    if(host){
+      g=makeGroup('disp-grp');g.id='disp-ctl';
+      var sep=document.createElement('span');sep.className='sk-sep';
+      host.insertBefore(sep,host.firstChild);host.insertBefore(g,host.firstChild);
+    }else{
+      g=makeGroup('disp-inner');g.style.cssText='display:flex;align-items:center;gap:4px';
+      var bar=document.createElement('div');bar.id='disp-bar';bar.appendChild(g);g.id='disp-ctl';
+      document.body.appendChild(bar);
+    }
+    apply(get());
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(build,0)});
+  else setTimeout(build,0);
+  // apply stored mode as early as possible (avoids flash)
+  try{document.documentElement.setAttribute('data-disp',get());}catch(e){}
+})();
+</script>
+<!-- display-toggle:end -->
 </body>
 </html>
