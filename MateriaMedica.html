@@ -309,7 +309,7 @@
   .herb-head:hover{background:var(--green-tint);}
   .herb-head .hp{font-family:var(--display);font-weight:600;font-size:16px;color:var(--ink);}
   .herb-head .hc{font-family:var(--zh-serif);font-weight:600;font-size:16px;color:var(--green);}
-  .herb-head .hl{font-style:italic;color:var(--ink-soft);font-size:13.5px;line-height:1.3;}
+  .herb-head .hl{font-family:var(--zh-serif);font-style:normal;color:var(--ink-soft);font-size:14px;line-height:1.4;font-weight:400;}
   .herb-head .hmeta{font-size:12.5px;color:var(--ink-soft);text-align:right;line-height:1.3;}
   .herb-head .hx{font-family:var(--display);font-size:18px;color:var(--cinnabar);text-align:center;line-height:1;}
   .herb.open .hx{transform:none;}
@@ -2293,7 +2293,7 @@
       '<button class="herb-head" type="button">'+
         '<span class="hp">'+esc(h.p)+'</span>'+
         '<span class="hc">'+esc(h.c)+'</span>'+
-        '<span class="hl">'+esc(h.l)+'</span>'+
+        '<span class="hl">'+esc(h.fz||h.l)+'</span>'+
         '<span class="hmeta">'+meta+'</span>'+
         '<span class="hx">+</span>'+
       '</button>'+
